@@ -46,7 +46,7 @@
     <!-- video -->
     <section class="page-width p-5 md:p-10">
       <div class="xl:px-52">
-        <!--  -->
+        <!-- vi -->
         <div
           class="relative border-[1px] border-white pb-[56%] rounded-xl overflow-hidden shadow-color"
         >
@@ -62,7 +62,7 @@
             height="100%"
           ></iframe>
         </div>
-        <!--  -->
+        <!-- button -->
         <div>
           <div
             class="circle_line shadow-color bg-[var(--website)] w-full xl:w-fit m-auto px-5 xl:px-32 py-2 md:py-5 mt-7 rounded-full"
@@ -422,16 +422,21 @@
       <div
         class="m-auto w-fit flex flex-col justify-center items-center gap-2 under-Line"
       >
-        <img src="./image/neon green.png" loading="lazy" alt="" />
+        <img
+          src="./image/neon green.png"
+          loading="lazy"
+          alt=""
+          class="max-w-[200%] md:max-w-full"
+        />
         <img src="./image/face_book.svg" alt="" />
         <span class="uppercase text-white">Zakenpartner</span>
       </div>
     </section>
 
-    <!--  -->
-    <section class="relative pt-28">
+    <!-- Al ads -->
+    <section class="relative pt-5 md:pt-28 px-5">
       <div
-        class="text-white flex gap-2 m-auto w-fit my-10 border-2 border-[var(--website)] py-1 px-3 rounded-full"
+        class="text-white flex gap-2 m-auto w-fit my-10 border-2 border-[var(--website)] py-1 px-3 rounded-full text-sm"
       >
         <svg
           xmlns="http://www.w3.org/2000/svg"
@@ -457,17 +462,127 @@
         Beheersen
       </div>
       <div class="under-Line text-white m-auto flex flex-col items-center">
-        <h2 class="text-5xl font-bold">
+        <h2 class="text-2xl md:text-5xl font-bold text-center">
           Beheers <span>meta-advertenties</span> met AI
         </h2>
         <p class="text-center max-w-[450px] py-5">
           <span>Meta-advertenties</span> hoeven geen rocket science te zijn.
           Besteed minder tijd in <span>Ads Manager</span> en bereik meer met
-          <span>AI</span>.
+          <span>AI.</span>
         </p>
       </div>
-      <div class="absolute top-0 left-0">
-        <img src="./image/ads background.svg" alt="" />
+      <div class="absolute top-0 left-0 w-full h-full">
+        <img src="./image/ads background.svg" alt="" class="w-full h-full" />
+      </div>
+    </section>
+
+    <!--  half circle line -->
+    <section class="cir_line_half relative">
+      <div class="w-full h-72">
+        <svg width="100%" height="100%">
+          <defs>
+            <radialGradient id="fade" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="transparent" />
+              <stop offset="100%" stop-color="white" />
+            </radialGradient>
+          </defs>
+          <g stroke="rgba(255, 255, 255, 0.2)" fill="none" stroke-width="1">
+            <circle cx="50%" cy="300" r="125" />
+            <circle cx="50%" cy="300" r="150" />
+            <circle cx="50%" cy="300" r="175" />
+            <circle cx="50%" cy="300" r="200" />
+            <circle cx="50%" cy="300" r="225" />
+            <circle cx="50%" cy="300" r="250" />
+            <circle cx="50%" cy="300" r="275" />
+            <circle cx="50%" cy="300" r="300" />
+          </g>
+        </svg>
+      </div>
+      <div class="absolute bottom-5 w-full">
+        <div
+          class="text-[#83a7cd] text-sm flex gap-5 m-auto w-fit border-[1px] border-[var(--website)] py-2 px-4 rounded-full bg-[#5276a0]"
+          style="--tw-bg-opacity: 0.25"
+        >
+          <div class="flex gap-3 items-center">
+            <div
+              class="w-2 h-2 bg-[#5a45c2] rounded-full"
+              style="box-shadow: 0 0 10px 5px #5a45c2"
+            ></div>
+            Optimization
+          </div>
+          |
+          <div class="flex gap-3 items-center">
+            <div
+              class="w-2 h-2 bg-[#5bb5e0] rounded-full"
+              style="box-shadow: 0 0 10px 5px #5bb5e0"
+            ></div>
+            Analytics
+          </div>
+          |
+          <div class="flex gap-3 items-center">
+            <div
+              class="w-2 h-2 bg-[#8c337a] rounded-full"
+              style="box-shadow: 0 0 10px 5px #8c337a"
+            ></div>
+            Creatives
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- neon line -->
+    <section>
+      <div class="w-fit m-auto flex flex-col justify-center items-center">
+        <img
+          src="./image/neon green.png"
+          loading="lazy"
+          alt=""
+          class="max-w-[200%] md:max-w-full"
+        />
+      </div>
+    </section>
+
+    <!-- AI Media -->
+    <section class="p-5">
+      <div
+        class="text-white flex gap-2 m-auto w-fit my-10 border-2 border-[var(--website)] py-1 px-3 rounded-full text-sm"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="18"
+          viewBox="0 0 18 18"
+          fill="none"
+        >
+          <path
+            fill-rule="evenodd"
+            clip-rule="evenodd"
+            d="M7.61557 2.08446C7.859 1.71932 8.2688 1.5 8.70764 1.5H9.29236C9.7312 1.5 10.141 1.71932 10.3844 2.08446L11.2617 3.4004C11.305 3.46529 11.3839 3.49662 11.4599 3.47909L12.8044 3.16881C13.2454 3.06706 13.7076 3.19963 14.0276 3.51962L14.4804 3.97238C14.8004 4.29237 14.9329 4.75464 14.8312 5.19559L14.5209 6.54011C14.5034 6.6161 14.5347 6.69502 14.5996 6.73828L15.9155 7.61557C16.2807 7.859 16.5 8.2688 16.5 8.70764V9.29236C16.5 9.7312 16.2807 10.141 15.9155 10.3844L14.5996 11.2617C14.5347 11.305 14.5034 11.3839 14.5209 11.4599L14.8312 12.8044C14.9329 13.2454 14.8004 13.7076 14.4804 14.0276L14.0276 14.4804C13.7076 14.8004 13.2454 14.9329 12.8044 14.8312L11.4599 14.5209C11.3839 14.5034 11.305 14.5347 11.2617 14.5996L10.3844 15.9155C10.141 16.2807 9.7312 16.5 9.29236 16.5H8.70764C8.2688 16.5 7.859 16.2807 7.61557 15.9155L6.73828 14.5996C6.69502 14.5347 6.6161 14.5034 6.54011 14.5209L5.19559 14.8312C4.75464 14.9329 4.29237 14.8004 3.97238 14.4804L3.51962 14.0276C3.19963 13.7076 3.06706 13.2454 3.16881 12.8044L3.47909 11.4599C3.49662 11.3839 3.46529 11.305 3.4004 11.2617L2.08446 10.3844C1.71932 10.141 1.5 9.7312 1.5 9.29236V8.70764C1.5 8.2688 1.71932 7.859 2.08446 7.61557L3.4004 6.73828C3.46529 6.69502 3.49662 6.6161 3.47909 6.54011L3.16881 5.19559C3.06706 4.75464 3.19963 4.29237 3.51962 3.97238L3.97238 3.51962C4.29237 3.19963 4.75464 3.06706 5.19559 3.16881L6.54011 3.47909C6.6161 3.49662 6.69502 3.46529 6.73828 3.4004L7.61557 2.08446ZM6.65625 9C6.65625 7.70558 7.70558 6.65625 9 6.65625C10.2944 6.65625 11.3438 7.70558 11.3438 9C11.3438 10.2944 10.2944 11.3438 9 11.3438C7.70558 11.3438 6.65625 10.2944 6.65625 9Z"
+            fill="currentColor"
+          ></path>
+        </svg>
+        Optimization
+      </div>
+      <div class="text-white m-auto flex flex-col items-center">
+        <h2 class="text-2xl md:text-5xl font-bold text-center">
+          Krijg een
+          <span class="text-[var(--website)]">persoonlijke Al-mediakoper</span>
+        </h2>
+        <p class="text-center max-w-[450px] py-5">
+          <span class="text-[var(--website)]">Creatieven</span> testen? Publiek
+          schalen?
+          <span class="text-[var(--website)]">Automatisering</span> instellen?
+          De <span class="text-[var(--website)]">AI Marketer</span> controleert
+          uw account, identificeert zwakke punten en kansen en vertelt u precies
+          wat u vervolgens moet doen!
+        </p>
+      </div>
+      <div>set image line here</div>
+      <div>
+        <div
+          class="circle_line shadow-color bg-[var(--website)] w-fit m-auto px-5 py-2 mt-7 rounded-full"
+        >
+          <p class="md:text-2xl text-center">Optimaliseer mijn advertenties</p>
+        </div>
       </div>
     </section>
 

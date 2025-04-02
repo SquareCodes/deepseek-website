@@ -201,10 +201,12 @@
         >
           <ul id="tabs" class="inline-flex p-1 w-fit">
             <li class="px-4 font-semibold py-2 rounded-xl bg-white text-black">
-              <a id="default-tab" class="text-nowrap" href="#first">Filters</a>
+              <a id="default-tab" class="text-nowrap" href="#first"
+                >Algemene informatie</a
+              >
             </li>
             <li class="px-4 font-semibold py-2 rounded-xl text-white">
-              <a class="text-nowrap" href="#second">Categorieën</a>
+              <a class="text-nowrap" href="#second">Logo-opties</a>
             </li>
             <li class="px-4 font-semibold py-2 rounded-xl text-white">
               <a class="text-nowrap" href="#third">Gegevens opslaan</a>
@@ -223,23 +225,107 @@
           id="tab-contents"
           class="bg-[var(--website)] p-1 md:p-2 rounded-2xl mt-5 border-[1px] md:border-2"
         >
+          <!--  -->
           <div id="first" class="md:p-2 rounded-xl md:border-2 bg-white">
-            <img
-              src="./image/tab/tab1.svg"
-              alt=""
-              class="w-full rounded-xl md:rounded-lg md:border-2"
-            />
+            <div
+              class="bg-[#F3FFF8] min-h-96 h-full rounded-xl md:rounded-lg md:border-2 flex flex-col justify-center items-center"
+            >
+              <div
+                class="w-full h-full flex flex-col justify-center items-center gap-5 p-5"
+              >
+                <div class="flex flex-col gap-2">
+                  <label for="">Naam</label>
+                  <input type="text" class="border-2" />
+                </div>
+                <div class="flex flex-col gap-2">
+                  <label for="">Producten of Diensten</label>
+                  <input type="text" class="border-2" />
+                </div>
+              </div>
+            </div>
+            <!-- <img
+                src="./image/tab/tab1.svg"
+                alt=""
+                class="w-full rounded-xl md:rounded-lg md:border-2"
+              /> -->
           </div>
+          <!--  -->
           <div
             id="second"
             class="hidden md:p-2 rounded-xl md:border-2 bg-white"
           >
-            <img
+            <div
+              class="bg-[#F3FFF8] min-h-96 rounded-xl md:rounded-lg md:border-2"
+            >
+              <div
+                class="w-full h-full flex flex-col justify-center items-center gap-5 p-5"
+              >
+                <div>
+                  <div class="flex gap-2 flex-col md:flex-row my-5">
+                    <label for="style-choice">Choose a style:</label>
+                    <select id="style-choice">
+                      <option value="simplistic">Simplistic</option>
+                      <option value="3d">3D</option>
+                      <option value="futuristic">Futuristic</option>
+                      <option value="minimalistic">Minimalistic</option>
+                    </select>
+                  </div>
+                  <div class="flex gap-2 flex-col md:flex-row my-5">
+                    <label for="color">Choose a color:</label>
+                    <input type="color" id="color" />
+                    <input type="text" id="color-text" value="#000000" />
+                    <button onclick="suggestColor()" class="border-2 px-4">
+                      AI Suggest
+                    </button>
+                  </div>
+
+                  <div class="flex gap-2 flex-col md:flex-row my-5">
+                    <label for="">logo Text</label>
+                    <input type="text" class="border-2" />
+                  </div>
+
+                  <div class="flex gap-2 flex-col md:flex-row my-5">
+                    <label for="custom-icon">Upload Custom Icon:</label>
+                    <input type="file" id="custom-icon" accept="image/*" />
+                  </div>
+
+                  <div class="flex gap-2 flex-col md:flex-row my-5">
+                    <label> Upload logo:</label>
+                    <div
+                      id="drop-area"
+                      style="
+                        border: 2px dashed #ccc;
+                        padding: 20px;
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        min-height: 100px;
+                      "
+                    >
+                      <p>Drag & Drop Your Logo Here</p>
+                      <input
+                        type="file"
+                        id="logo-file"
+                        accept="image/*"
+                        hidden
+                      />
+                    </div>
+                    <img
+                      id="logo-preview"
+                      src=""
+                      style="display: none; max-width: 200px; max-height: 100px"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <img
               src="./image/tab/tab2.svg"
               alt=""
               class="w-full rounded-xl md:rounded-lg md:border-2"
-            />
+            /> -->
           </div>
+          <!--  -->
           <div id="third" class="hidden md:p-2 rounded-xl md:border-2 bg-white">
             <img
               src="./image/tab/tab3.svg"
@@ -247,6 +333,7 @@
               class="w-full rounded-xl md:rounded-lg md:border-2"
             />
           </div>
+          <!--  -->
           <div
             id="fourth"
             class="hidden md:p-2 rounded-xl md:border-2 bg-white"
@@ -257,6 +344,7 @@
               class="w-full rounded-xl md:rounded-lg md:border-2"
             />
           </div>
+          <!--  -->
           <div id="fifth" class="hidden md:p-2 rounded-xl md:border-2 bg-white">
             <img
               src="./image/tab/tab5.svg"
@@ -1059,6 +1147,72 @@
         }
       }
     </style>
+    <!--  -->
+
+    <!-- Tab  -->
+    <script>
+      //Select Color
+      {
+        function suggestColor() {
+          let randomColor =
+            "#" + Math.floor(Math.random() * 16777215).toString(16);
+          document.getElementById("color").value = randomColor;
+          document.getElementById("color-text").value = randomColor;
+        }
+        // Update the text input when the user picks a color
+        document.getElementById("color").addEventListener("input", function () {
+          document.getElementById("color-text").value = this.value;
+        });
+        // When user types a color, update color picker (only if valid hex)
+        document
+          .getElementById("color-text")
+          .addEventListener("input", function () {
+            let color = this.value;
+            if (/^#([0-9A-F]{3}){1,2}$/i.test(color)) {
+              document.getElementById("color").value = color;
+            }
+          });
+      }
+
+      // Tab Logo Option
+      {
+        const dropArea = document.getElementById("drop-area");
+        const inputFile = document.getElementById("logo-file");
+
+        dropArea.addEventListener("dragover", (event) => {
+          event.preventDefault();
+          dropArea.style.border = "2px solid #000";
+        });
+
+        dropArea.addEventListener("dragleave", () => {
+          dropArea.style.border = "2px dashed #ccc";
+        });
+
+        dropArea.addEventListener("drop", (event) => {
+          event.preventDefault();
+          dropArea.style.border = "2px dashed #ccc";
+          const file = event.dataTransfer.files[0];
+          previewLogo(file);
+        });
+
+        dropArea.addEventListener("click", () => inputFile.click());
+
+        inputFile.addEventListener("change", (event) => {
+          previewLogo(event.target.files[0]);
+        });
+
+        function previewLogo(file) {
+          if (file) {
+            const reader = new FileReader();
+            reader.onload = function (e) {
+              document.getElementById("logo-preview").src = e.target.result;
+              document.getElementById("logo-preview").style.display = "block";
+            };
+            reader.readAsDataURL(file);
+          }
+        }
+      }
+    </script>
     <!--  -->
 
     <!-- script -->

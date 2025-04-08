@@ -201,9 +201,9 @@
         >
           <ul id="tabs" class="inline-flex p-1 w-fit">
             <li class="px-4 font-semibold py-2 rounded-xl bg-white text-black">
-              <a id="default-tab" class="text-nowrap" href="#first"
-                >Algemene informatie</a
-              >
+              <a id="default-tab" class="text-nowrap" href="#first">
+                Algemene informatie
+              </a>
             </li>
             <li class="px-4 font-semibold py-2 rounded-xl text-white">
               <a class="text-nowrap" href="#second">Logo-opties</a>
@@ -233,13 +233,15 @@
               <div
                 class="w-full h-full flex flex-col justify-center items-center gap-5 p-5"
               >
-                <div class="flex flex-col gap-2">
-                  <label for="">Naam</label>
-                  <input type="text" class="border-2" />
-                </div>
-                <div class="flex flex-col gap-2">
-                  <label for="">Producten of Diensten</label>
-                  <input type="text" class="border-2" />
+                <div class="bg-white p-5 shadow-2xl rounded-2xl mt-10">
+                  <div class="flex flex-col gap-2">
+                    <label for="">Naam</label>
+                    <input type="text" class="border-2" id="naam_" />
+                  </div>
+                  <div class="flex flex-col gap-2">
+                    <label for="">Producten of Diensten</label>
+                    <input type="text" class="border-2" id="producten_" />
+                  </div>
                 </div>
               </div>
             </div>
@@ -260,9 +262,10 @@
               <div
                 class="w-full h-full flex flex-col justify-center items-center gap-5 p-5"
               >
-                <div>
+                <div class="bg-white p-5 shadow-2xl rounded-2xl mt-10">
+                  <!-- Choose a style -->
                   <div class="flex gap-2 flex-col md:flex-row my-5">
-                    <label for="style-choice">Choose a style:</label>
+                    <label for="style-choice">Stijl keuze:</label>
                     <select id="style-choice">
                       <option value="simplistic">Simplistic</option>
                       <option value="3d">3D</option>
@@ -270,27 +273,38 @@
                       <option value="minimalistic">Minimalistic</option>
                     </select>
                   </div>
+                  <!-- Choose a color -->
                   <div class="flex gap-2 flex-col md:flex-row my-5">
-                    <label for="color">Choose a color:</label>
+                    <label for="color">Kleur keuze:</label>
                     <input type="color" id="color" />
-                    <input type="text" id="color-text" value="#000000" />
-                    <button onclick="suggestColor()" class="border-2 px-4">
+                    <input
+                      type="text"
+                      id="color-text"
+                      value="#000000"
+                      class="border-2 w-20"
+                    />
+                    <button
+                      onclick="suggestColor()"
+                      class="border-2 px-4 rounded bg-[var(--website)]"
+                    >
                       AI Suggest
                     </button>
                   </div>
-
+                  <!-- logo Text -->
                   <div class="flex gap-2 flex-col md:flex-row my-5">
-                    <label for="">logo Text</label>
-                    <input type="text" class="border-2" />
+                    <label for="">Optional:</label>
+                    <input type="text" class="border-2" id="logotext" />
                   </div>
-
+                  <!-- Upload Custom Icon -->
                   <div class="flex gap-2 flex-col md:flex-row my-5">
-                    <label for="custom-icon">Upload Custom Icon:</label>
+                    <label for="custom-icon"
+                      >Optie product/dienst verwerkt in logo:</label
+                    >
                     <input type="file" id="custom-icon" accept="image/*" />
                   </div>
-
+                  <!--  Upload logo -->
                   <div class="flex gap-2 flex-col md:flex-row my-5">
-                    <label> Upload logo:</label>
+                    <label>Optie uploaden eigen logo:</label>
                     <div
                       id="drop-area"
                       style="
@@ -302,7 +316,10 @@
                         min-height: 100px;
                       "
                     >
-                      <p>Drag & Drop Your Logo Here</p>
+                      <p>
+                        Drag & Drop <br />
+                        Your Logo Here
+                      </p>
                       <input
                         type="file"
                         id="logo-file"
@@ -316,6 +333,8 @@
                       style="display: none; max-width: 200px; max-height: 100px"
                     />
                   </div>
+                  <!-- 1 -->
+                  <div id="logo-result"></div>
                 </div>
               </div>
             </div>
@@ -1212,6 +1231,102 @@
           }
         }
       }
+      //
+      //
+      //
+      function sendFormData() {
+        const formData = new FormData();
+
+        // ===== Algemene Informatie =====
+        const naam = document.querySelector("#naam_").value;
+        const producten = document.querySelector("#producten_").value;
+
+        formData.append("naam", naam);
+        formData.append("producten", producten);
+
+        // ===== Logo-opties =====
+        const style = document.getElementById("style-choice").value;
+        const color = document.getElementById("color").value;
+        const logoText = document.querySelector("#logotext").value;
+
+        formData.append("style", style);
+        formData.append("color", color);
+        formData.append("logoText", logoText);
+
+        // ===== Files =====
+        const iconFile = document.getElementById("custom-icon").files[0];
+        const logoFile = document.getElementById("logo-file").files[0];
+
+        if (iconFile) formData.append("customIcon", iconFile);
+        if (logoFile) formData.append("logoFile", logoFile);
+
+        // ===== Webhook URL & Optional Auth (uncomment if needed) =====
+        const webhookURL =
+          "https://lucas37.app.n8n.cloud/webhook-test/Logo-options";
+
+        // If you are using Basic Auth on the webhook, add this block:
+        // const username = "admin";
+        // const password = "MySecretPass123";
+        // const basicAuth = btoa(`${username}:${password}`);
+        // const headers = {
+        //   "Authorization": `Basic ${basicAuth}`
+        // };
+
+        fetch(webhookURL, {
+          method: "POST",
+          // headers, // ← Uncomment if using Basic Auth
+          body: formData,
+        })
+          .then((res) => res.text())
+          .then((data) => {
+            alert("Data sent successfully!");
+            console.log(data);
+          })
+          .catch((err) => {
+            alert("Error sending data");
+            console.error(err);
+          });
+      }
+
+      // To create the logo, there should be a Fetch () Call that looks like this:
+
+      fetch("https://lucas37.app.n8n.cloud/webhook-test/Logo-options", {
+        method: "POST",
+        body: formData,
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          if (data.logoImageUrl) {
+            const resultContainer = document.getElementById("logo-result");
+            resultContainer.innerHTML = ""; // Clear previous content
+
+            // Create image element
+            const img = document.createElement("img");
+            img.src = data.logoImageUrl;
+            img.alt = "Generated Logo";
+            img.style.maxWidth = "300px";
+            img.style.marginTop = "20px";
+
+            // Create download link
+            const downloadLink = document.createElement("a");
+            downloadLink.href = data.logoImageUrl;
+            downloadLink.download = "generated-logo.png";
+            downloadLink.textContent = "Download Logo";
+            downloadLink.style.display = "inline-block";
+            downloadLink.style.marginTop = "10px";
+            downloadLink.style.color = "#00f";
+            downloadLink.style.textDecoration = "underline";
+
+            // Append to the result container
+            resultContainer.appendChild(img);
+            resultContainer.appendChild(downloadLink);
+          } else {
+            console.warn("No logoImageUrl in response:", data);
+          }
+        })
+        .catch((err) => {
+          console.error("Error submitting form:", err);
+        });
     </script>
     <!--  -->
 

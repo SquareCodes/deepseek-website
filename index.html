@@ -244,7 +244,7 @@
                   <!-- Choose a style -->
                   <div class="flex gap-2 flex-col md:flex-row my-5">
                     <label for="style-choice">Stijl keuze:</label>
-                    <select id="style-choice">
+                    <select id="style-choice" class="border-2">
                       <option value="simplistic">Simplistic</option>
                       <option value="3d">3D</option>
                       <option value="futuristic">Futuristic</option>
@@ -263,7 +263,7 @@
                     />
                     <button
                       onclick="suggestColor()"
-                      class="border-2 px-4 rounded bg-[var(--website)]"
+                      class="border-2 px-4 rounded bg-[var(--website)] hover:bg-yellow-400"
                     >
                       AI Suggest
                     </button>
@@ -275,9 +275,9 @@
                   </div>
                   <!-- Upload Custom Icon -->
                   <div class="flex gap-2 flex-col md:flex-row my-5">
-                    <label for="custom-icon"
-                      >Optie product/dienst verwerkt in logo:</label
-                    >
+                    <label for="custom-icon">
+                      Optie product/dienst verwerkt in logo:
+                    </label>
                     <input type="file" id="custom-icon" accept="image/*" />
                   </div>
                   <!--  Upload logo -->
@@ -287,11 +287,11 @@
                       id="drop-area"
                       style="
                         border: 2px dashed #ccc;
-                        padding: 20px;
+                        padding: 15px;
                         text-align: center;
                         display: flex;
                         align-items: center;
-                        min-height: 100px;
+                        min-height: 75px;
                       "
                     >
                       <p>
@@ -308,14 +308,15 @@
                     <img
                       id="logo-preview"
                       src=""
-                      style="display: none; max-width: 200px; max-height: 100px"
+                      style="display: none"
+                      class="object-contain max-h-[85px]"
                     />
                   </div>
                   <!-- Button -->
-                  <div>
+                  <div class="flex justify-center items-center">
                     <!-- onclick="generateFreeLogo()" -->
                     <button
-                      class="border-2 bg-yellow-500 p-5"
+                      class="border-2 bg-[var(--website)] hover:bg-yellow-400 px-4 py-2 rounded-full"
                       onclick="sendFormData()"
                     >
                       Generate Logo

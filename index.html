@@ -314,7 +314,6 @@
                   </div>
                   <!-- Button -->
                   <div class="flex justify-center items-center">
-                    <!-- onclick="generateFreeLogo()" -->
                     <button
                       class="border-2 bg-[var(--website)] hover:bg-yellow-400 px-4 py-2 rounded-full"
                       onclick="sendFormData()"
@@ -1248,25 +1247,59 @@
 
         // ===== Webhook URL & Optional Auth (uncomment if needed) =====
         const webhookURL =
-          "https://lucas37.app.n8n.cloud/webhook-test/Logo-options";
+        "https://primary-production-b9d9.up.railway.app/webhook-test/Logo-options";
+        // "https://lucas37.app.n8n.cloud/webhook-test/webhook-test/Logo-options";
 
         // If you are using Basic Auth on the webhook, add this block:
-        const username = "admin";
-        const password = "MySecretPass123";
-        const basicAuth = btoa(`${username}:${password}`);
-        const headers = {
-          Authorization: `Basic ${basicAuth}`,
-        };
+        // const username = "admin";
+        // const password = "MySecretPass123";
+        // const basicAuth = btoa(`${username}:${password}`);
+        // const headers = {
+        //   Authorization: `Basic ${basicAuth}`,
+        // };
 
         fetch(webhookURL, {
           method: "POST",
-          headers, // ← Uncomment if using Basic Auth
+          // mode: "no-cors",
+          // headers, // ← Uncomment if using Basic Auth
           body: formData,
         })
-          .then((res) => res.text())
+          .then((res) => {
+            if (!res.ok) throw new Error("Failed to connect to server.");
+            return res.json();
+          })
           .then((data) => {
             alert("Data sent successfully!");
             console.log(data);
+            // callimage();
+            if (data.logoImageUrl) {
+                console.log("Image set");
+                const resultContainer = document.getElementById("logo-result");
+                resultContainer.innerHTML = ""; // Clear previous content
+
+                // Create image element
+                const img = document.createElement("img");
+                img.src = data.logoImageUrl;
+                img.alt = "Generated Logo";
+                img.style.maxWidth = "300px";
+                img.style.marginTop = "20px";
+
+                // Create download link
+                const downloadLink = document.createElement("a");
+                downloadLink.href = data.logoImageUrl;
+                downloadLink.download = "generated-logo.png";
+                downloadLink.textContent = "Download Logo";
+                downloadLink.style.display = "inline-block";
+                downloadLink.style.marginTop = "10px";
+                downloadLink.style.color = "#00f";
+                downloadLink.style.textDecoration = "underline";
+
+                // Append to the result container
+                resultContainer.appendChild(img);
+                resultContainer.appendChild(downloadLink);
+              } else {
+                console.warn("No logoImageUrl in response:", data);
+              }
           })
           .catch((err) => {
             alert("Error sending data");
@@ -1275,68 +1308,46 @@
 
         // To create the logo, there should be a Fetch () Call that looks like this:
 
-        fetch("https://lucas37.app.n8n.cloud/webhook-test/Logo-options", {
-          method: "POST",
-          body: formData,
-        })
-          .then((res) => res.json())
-          .then((data) => {
-            if (data.logoImageUrl) {
-              const resultContainer = document.getElementById("logo-result");
-              resultContainer.innerHTML = ""; // Clear previous content
-
-              // Create image element
-              const img = document.createElement("img");
-              img.src = data.logoImageUrl;
-              img.alt = "Generated Logo";
-              img.style.maxWidth = "300px";
-              img.style.marginTop = "20px";
-
-              // Create download link
-              const downloadLink = document.createElement("a");
-              downloadLink.href = data.logoImageUrl;
-              downloadLink.download = "generated-logo.png";
-              downloadLink.textContent = "Download Logo";
-              downloadLink.style.display = "inline-block";
-              downloadLink.style.marginTop = "10px";
-              downloadLink.style.color = "#00f";
-              downloadLink.style.textDecoration = "underline";
-
-              // Append to the result container
-              resultContainer.appendChild(img);
-              resultContainer.appendChild(downloadLink);
-            } else {
-              console.warn("No logoImageUrl in response:", data);
-            }
+        function callimage() {
+          fetch(webhookURL, {
+            method: "POST",
+            body: formData,
           })
-          .catch((err) => {
-            console.error("Error submitting form:", err);
-          });
-      }
+            .then((res) => res.json())
+            .then((data) => {
+              if (data.logoImageUrl) {
+                console.log("Image set");
+                const resultContainer = document.getElementById("logo-result");
+                resultContainer.innerHTML = ""; // Clear previous content
 
-      function generateFreeLogo() {
-        const naam = document.getElementById("naam_").value;
-        const producten = document.getElementById("producten_").value;
-        const style = document.getElementById("style-choice").value;
-        const color = document.getElementById("color").value;
-        const logoText = document.getElementById("logotext").value;
+                // Create image element
+                const img = document.createElement("img");
+                img.src = data.logoImageUrl;
+                img.alt = "Generated Logo";
+                img.style.maxWidth = "300px";
+                img.style.marginTop = "20px";
 
-        const query = `${naam} ${producten} ${style} ${logoText}`;
+                // Create download link
+                const downloadLink = document.createElement("a");
+                downloadLink.href = data.logoImageUrl;
+                downloadLink.download = "generated-logo.png";
+                downloadLink.textContent = "Download Logo";
+                downloadLink.style.display = "inline-block";
+                downloadLink.style.marginTop = "10px";
+                downloadLink.style.color = "#00f";
+                downloadLink.style.textDecoration = "underline";
 
-        const logoUrl = `https://logo-generator.deno.dev/api?text=${encodeURIComponent(
-          query
-        )}&color=${encodeURIComponent(color)}`;
-
-        const resultContainer = document.getElementById("logo-result");
-        resultContainer.innerHTML = "";
-
-        const img = document.createElement("img");
-        img.src = logoUrl;
-        img.alt = "Generated Logo";
-        img.style.maxWidth = "300px";
-        img.style.marginTop = "20px";
-
-        resultContainer.appendChild(img);
+                // Append to the result container
+                resultContainer.appendChild(img);
+                resultContainer.appendChild(downloadLink);
+              } else {
+                console.warn("No logoImageUrl in response:", data);
+              }
+            })
+            .catch((err) => {
+              console.error("Error submitting form:", err);
+            });
+        }
       }
     </script>
     <!--  -->

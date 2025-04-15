@@ -1247,7 +1247,7 @@
 
         // ===== Webhook URL & Optional Auth (uncomment if needed) =====
         const webhookURL =
-        "https://lucas37.app.n8n.cloud/webhook-test/Logo-options";
+        "https://lucas37.app.n8n.cloud/webhook/webhook-test/Logo-options";
 
         // If you are using Basic Auth on the webhook, add this block:
         // const username = "admin";
@@ -1304,50 +1304,7 @@
             alert("Error sending data");
             console.error(err);
           });
-
-        // To create the logo, there should be a Fetch () Call that looks like this:
-
-        function callimage() {
-          fetch(webhookURL, {
-            method: "POST",
-            body: formData,
-          })
-            .then((res) => res.json())
-            .then((data) => {
-              if (data.logoImageUrl) {
-                console.log("Image set");
-                const resultContainer = document.getElementById("logo-result");
-                resultContainer.innerHTML = ""; // Clear previous content
-
-                // Create image element
-                const img = document.createElement("img");
-                img.src = data.logoImageUrl;
-                img.alt = "Generated Logo";
-                img.style.maxWidth = "300px";
-                img.style.marginTop = "20px";
-
-                // Create download link
-                const downloadLink = document.createElement("a");
-                downloadLink.href = data.logoImageUrl;
-                downloadLink.download = "generated-logo.png";
-                downloadLink.textContent = "Download Logo";
-                downloadLink.style.display = "inline-block";
-                downloadLink.style.marginTop = "10px";
-                downloadLink.style.color = "#00f";
-                downloadLink.style.textDecoration = "underline";
-
-                // Append to the result container
-                resultContainer.appendChild(img);
-                resultContainer.appendChild(downloadLink);
-              } else {
-                console.warn("No logoImageUrl in response:", data);
-              }
-            })
-            .catch((err) => {
-              console.error("Error submitting form:", err);
-            });
-        }
-      }
+       }
     </script>
     <!--  -->
 

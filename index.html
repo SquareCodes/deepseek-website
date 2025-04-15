@@ -322,7 +322,11 @@
                     </button>
                   </div>
                   <!-- 1 -->
-                  <div id="logo-result"></div>
+                  <div id="loader" class="loader"><div></div></div>
+                  <div
+                    id="logo-result"
+                    class="flex flex-col justify-center items-center"
+                  ></div>
                 </div>
               </div>
             </div>
@@ -742,6 +746,32 @@
         --website: #ffe500;
         --bg: black;
         /* --bg: #070602; */
+      }
+      .loader {
+        opacity: 0;
+        width: 100%;
+        height: 25px;
+        margin-top: 10px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .loader div {
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #3498db;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        animation: Loaderspin 1s linear infinite;
+      }
+
+      @keyframes Loaderspin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
       }
       .shadow-color {
         box-shadow: 0 0 30px -5px var(--website);
@@ -1220,6 +1250,7 @@
       //
       //
       function sendFormData() {
+        document.getElementById("loader").style.opacity = "1";
         const formData = new FormData();
 
         // ===== Algemene Informatie =====
@@ -1247,7 +1278,7 @@
 
         // ===== Webhook URL & Optional Auth (uncomment if needed) =====
         const webhookURL =
-        "https://lucas37.app.n8n.cloud/webhook/webhook-test/Logo-options";
+          "https://lucas37.app.n8n.cloud/webhook/webhook-test/Logo-options";
 
         // If you are using Basic Auth on the webhook, add this block:
         // const username = "admin";
@@ -1268,43 +1299,44 @@
             return res.json();
           })
           .then((data) => {
-            alert("Data sent successfully!");
+            // alert("Data sent successfully!");
+            document.getElementById("loader").style.display = "none";
             console.log(data);
             // callimage();
             if (data.logoImageUrl) {
-                console.log("Image set");
-                const resultContainer = document.getElementById("logo-result");
-                resultContainer.innerHTML = ""; // Clear previous content
+              console.log("Image set");
+              const resultContainer = document.getElementById("logo-result");
+              resultContainer.innerHTML = ""; // Clear previous content
 
-                // Create image element
-                const img = document.createElement("img");
-                img.src = data.logoImageUrl;
-                img.alt = "Generated Logo";
-                img.style.maxWidth = "300px";
-                img.style.marginTop = "20px";
+              // Create image element
+              const img = document.createElement("img");
+              img.src = data.logoImageUrl;
+              img.alt = "Generated Logo";
+              img.style.maxWidth = "300px";
+              img.style.marginTop = "20px";
 
-                // Create download link
-                const downloadLink = document.createElement("a");
-                downloadLink.href = data.logoImageUrl;
-                downloadLink.download = "generated-logo.png";
-                downloadLink.textContent = "Download Logo";
-                downloadLink.style.display = "inline-block";
-                downloadLink.style.marginTop = "10px";
-                downloadLink.style.color = "#00f";
-                downloadLink.style.textDecoration = "underline";
+              // Create download link
+              const downloadLink = document.createElement("a");
+              downloadLink.href = data.logoImageUrl;
+              downloadLink.download = "generated-logo.png";
+              downloadLink.textContent = "Download Logo";
+              downloadLink.style.display = "inline-block";
+              downloadLink.style.marginTop = "10px";
+              downloadLink.style.color = "#00f";
+              downloadLink.style.textDecoration = "underline";
 
-                // Append to the result container
-                resultContainer.appendChild(img);
-                resultContainer.appendChild(downloadLink);
-              } else {
-                console.warn("No logoImageUrl in response:", data);
-              }
+              // Append to the result container
+              resultContainer.appendChild(img);
+              resultContainer.appendChild(downloadLink);
+            } else {
+              console.warn("No logoImageUrl in response:", data);
+            }
           })
           .catch((err) => {
             alert("Error sending data");
             console.error(err);
           });
-       }
+      }
     </script>
     <!--  -->
 

@@ -230,19 +230,19 @@
               <div
                 class="w-full h-full flex flex-col justify-center items-center gap-5 p-5"
               >
-                <div class="bg-white p-5 shadow-2xl rounded-2xl mt-10">
+                <div class="bg-white p-5 shadow-2xl rounded-2xl my-5">
                   <!-- Name -->
-                  <div class="flex flex-col gap-2 md:flex-row my-5">
+                  <div class="flex flex-col gap-2 md:flex-row mb-5">
                     <label for="">Naam:</label>
                     <input type="text" class="border-2" id="naam_" />
                   </div>
                   <!-- Product -->
-                  <div class="flex flex-col gap-2 md:flex-row my-5">
+                  <div class="flex flex-col gap-2 md:flex-row mb-5">
                     <label for="">Producten of Diensten:</label>
                     <input type="text" class="border-2" id="producten_" />
                   </div>
                   <!-- Choose a style -->
-                  <div class="flex gap-2 flex-col md:flex-row my-5">
+                  <div class="flex gap-2 flex-col md:flex-row mb-5">
                     <label for="style-choice">Stijl keuze:</label>
                     <select id="style-choice" class="border-2">
                       <option value="simplistic">Simplistic</option>
@@ -252,7 +252,7 @@
                     </select>
                   </div>
                   <!-- Choose a color -->
-                  <div class="flex gap-2 flex-col md:flex-row my-5">
+                  <div class="flex gap-2 flex-col md:flex-row mb-5">
                     <label for="color">Kleur keuze:</label>
                     <input type="color" id="color" />
                     <input
@@ -269,19 +269,19 @@
                     </button>
                   </div>
                   <!-- logo Text -->
-                  <div class="flex gap-2 flex-col md:flex-row my-5">
+                  <div class="flex gap-2 flex-col md:flex-row mb-5">
                     <label for="">logoTekst Optional:</label>
                     <input type="text" class="border-2" id="logotext" />
                   </div>
                   <!-- Upload Custom Icon -->
-                  <div class="flex gap-2 flex-col md:flex-row my-5">
+                  <div class="flex gap-2 flex-col md:flex-row mb-5">
                     <label for="custom-icon">
                       Optie product/dienst verwerkt in logo:
                     </label>
                     <input type="file" id="custom-icon" accept="image/*" />
                   </div>
                   <!--  Upload logo -->
-                  <div class="flex gap-2 flex-col md:flex-row my-5">
+                  <div class="flex gap-2 flex-col md:flex-row mb-5">
                     <label>Optie uploaden eigen logo:</label>
                     <div
                       id="drop-area"
@@ -325,7 +325,7 @@
                   <div id="loader" class="loader"><div></div></div>
                   <div
                     id="logo-result"
-                    class="flex flex-col justify-center items-center"
+                    class="flex flex-col md:flex-row justify-center items-center gap-6 mt-6"
                   ></div>
                 </div>
               </div>
@@ -748,11 +748,10 @@
         /* --bg: #070602; */
       }
       .loader {
-        opacity: 0;
+        display: none;
         width: 100%;
         height: 25px;
         margin-top: 10px;
-        display: flex;
         justify-content: center;
         align-items: center;
       }
@@ -1208,7 +1207,7 @@
           });
       }
 
-      // Tab Logo Option
+      // Tab Logo drag Option 
       {
         const dropArea = document.getElementById("drop-area");
         const inputFile = document.getElementById("logo-file");
@@ -1250,7 +1249,11 @@
       //
       //
       function sendFormData() {
-        document.getElementById("loader").style.opacity = "1";
+        // Reclick
+        document.getElementById("loader").style.display = "flex";
+        const resultContainer = document.getElementById("logo-result");
+        resultContainer.innerHTML = "";
+        //
         const formData = new FormData();
 
         // ===== Algemene Informatie =====
@@ -1290,7 +1293,6 @@
 
         fetch(webhookURL, {
           method: "POST",
-          // mode: "no-cors",
           // headers, // ← Uncomment if using Basic Auth
           body: formData,
         })
@@ -1301,33 +1303,63 @@
           .then((data) => {
             // alert("Data sent successfully!");
             document.getElementById("loader").style.display = "none";
-            console.log(data);
             // callimage();
-            if (data.logoImageUrl) {
+            console.log(data);
+            if (data.logoImageUrl1) {
               console.log("Image set");
               const resultContainer = document.getElementById("logo-result");
               resultContainer.innerHTML = ""; // Clear previous content
 
-              // Create image element
-              const img = document.createElement("img");
-              img.src = data.logoImageUrl;
-              img.alt = "Generated Logo";
-              img.style.maxWidth = "300px";
-              img.style.marginTop = "20px";
+              // // Create image element
+              // const img = document.createElement("img");
+              // img.src = data.logoImageUrl;
+              // img.alt = "Generated Logo";
+              // img.style.maxWidth = "300px";
+              // img.style.marginTop = "20px";
 
-              // Create download link
-              const downloadLink = document.createElement("a");
-              downloadLink.href = data.logoImageUrl;
-              downloadLink.download = "generated-logo.png";
-              downloadLink.textContent = "Download Logo";
-              downloadLink.style.display = "inline-block";
-              downloadLink.style.marginTop = "10px";
-              downloadLink.style.color = "#00f";
-              downloadLink.style.textDecoration = "underline";
+              // // Create download link
+              // const downloadLink = document.createElement("a");
+              // downloadLink.href = data.logoImageUrl;
+              // downloadLink.download = "generated-logo.png";
+              // downloadLink.textContent = "Download Logo";
+              // downloadLink.style.display = "inline-block";
+              // downloadLink.style.marginTop = "10px";
+              // downloadLink.style.color = "#00f";
+              // downloadLink.style.textDecoration = "underline";
 
-              // Append to the result container
-              resultContainer.appendChild(img);
-              resultContainer.appendChild(downloadLink);
+              // // Append to the result container
+              // resultContainer.appendChild(img);
+              // resultContainer.appendChild(downloadLink);
+
+              // Loop through all logoImageUrls
+
+              ["logoImageUrl1", "logoImageUrl2", "logoImageUrl3"].forEach(
+                (key, index) => {
+                  if (data[key]) {
+                    const wrapper = document.createElement("div");
+                    wrapper.className = "flex flex-col items-center mb-6";
+
+                    const img = document.createElement("img");
+                    img.src = data[key];
+                    img.alt = `Generated Logo ${index + 1}`;
+                    img.style.maxWidth = "300px";
+                    img.style.marginTop = "20px";
+
+                    const downloadLink = document.createElement("a");
+                    downloadLink.href = data[key];
+                    downloadLink.download = `generated-logo-${index + 1}.png`;
+                    downloadLink.textContent = "Download Logo";
+                    downloadLink.style.display = "inline-block";
+                    downloadLink.style.marginTop = "10px";
+                    downloadLink.style.color = "#00f";
+                    downloadLink.style.textDecoration = "underline";
+
+                    wrapper.appendChild(img);
+                    wrapper.appendChild(downloadLink);
+                    resultContainer.appendChild(wrapper);
+                  }
+                }
+              );
             } else {
               console.warn("No logoImageUrl in response:", data);
             }

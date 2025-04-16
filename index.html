@@ -1303,9 +1303,8 @@
           .then((data) => {
             // alert("Data sent successfully!");
             document.getElementById("loader").style.display = "none";
-            // callimage();
-            console.log(data);
-            if (data.logoImageUrl1) {
+            if (data) {
+              console.log(data);
               console.log("Image set");
               const resultContainer = document.getElementById("logo-result");
               resultContainer.innerHTML = ""; // Clear previous content
@@ -1332,7 +1331,6 @@
               // resultContainer.appendChild(downloadLink);
 
               // Loop through all logoImageUrls
-
               ["logoImageUrl1", "logoImageUrl2", "logoImageUrl3"].forEach(
                 (key, index) => {
                   if (data[key]) {

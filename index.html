@@ -279,6 +279,13 @@
                       Optie product/dienst verwerkt in logo:
                     </label>
                     <input type="file" id="custom-icon" accept="image/*" />
+                    <style>
+                      @media screen and (max-width: 350px) {
+                        #custom-icon {
+                          width: 100px;
+                        }
+                      }
+                    </style>
                   </div>
                   <!--  Upload logo -->
                   <div class="flex gap-2 flex-col md:flex-row mb-5">
@@ -325,7 +332,7 @@
                   <div id="loader" class="loader"><div></div></div>
                   <div
                     id="logo-result"
-                    class="flex flex-col md:flex-row justify-center items-center gap-6 mt-6"
+                    class="grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-6 mt-6"
                   ></div>
                 </div>
               </div>
@@ -1207,7 +1214,7 @@
           });
       }
 
-      // Tab Logo drag Option 
+      // Tab Logo drag Option
       {
         const dropArea = document.getElementById("drop-area");
         const inputFile = document.getElementById("logo-file");
@@ -1341,6 +1348,7 @@
                     img.src = data[key];
                     img.alt = `Generated Logo ${index + 1}`;
                     img.style.maxWidth = "300px";
+                    img.style.Width = "-webkit-fill-available";
                     img.style.marginTop = "20px";
 
                     const downloadLink = document.createElement("a");

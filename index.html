@@ -202,11 +202,11 @@
           <ul id="tabs" class="inline-flex p-1 w-fit">
             <li class="px-4 font-semibold py-2 rounded-xl bg-white text-black">
               <a id="default-tab" class="text-nowrap" href="#tab1">
-                Algemene informatie
+                logo genereren
               </a>
             </li>
             <li class="px-4 font-semibold py-2 rounded-xl text-white">
-              <a class="text-nowrap" href="#tab2">Gegevens opslaan</a>
+              <a class="text-nowrap" href="#tab2">video genereren</a>
             </li>
             <li class="px-4 font-semibold py-2 rounded-xl text-white">
               <a class="text-nowrap" href="#tab3">Trefwoorden</a>
@@ -337,19 +337,53 @@
                 </div>
               </div>
             </div>
-            <!-- <img
-                src="./image/tab/tab1.svg"
-                alt=""
-                class="w-full rounded-xl md:rounded-lg md:border-2"
-              /> -->
           </div>
           <!--  -->
           <div id="tab2" class="hidden md:p-2 rounded-xl md:border-2 bg-white">
-            <img
-              src="./image/tab/tab3.svg"
-              alt=""
-              class="w-full rounded-xl md:rounded-lg md:border-2"
-            />
+            <div
+              class="bg-[#F3FFF8] min-h-96 h-full rounded-xl md:rounded-lg md:border-2 flex flex-col justify-center items-center"
+            >
+              <div
+                class="w-full h-full flex flex-col justify-center items-center gap-5 p-5"
+              >
+                <div class="bg-white p-5 shadow-2xl rounded-2xl my-5">
+                  <!-- Name -->
+                  <div class="flex flex-col gap-2 md:flex-row mb-5">
+                    <label for="">bedrijfsnaam:</label>
+                    <input type="text" class="border-2" id="bedrijfsnaam_" />
+                  </div>
+                  <!-- Product name -->
+                  <div class="flex flex-col gap-2 md:flex-row mb-5">
+                    <label for="">Naam product:</label>
+                    <input type="text" class="border-2" id="Naam product_" />
+                  </div>
+                  <!-- Product price -->
+                  <div class="flex flex-col gap-2 md:flex-row mb-5">
+                    <label for="">Prijs van product:</label>
+                    <input
+                      type="text"
+                      class="border-2"
+                      id="Prijs_van_product_"
+                    />
+                  </div>
+
+                  <!-- Button -->
+                  <div class="flex justify-center mt-5">
+                    <button
+                      id="generate-video-btn"
+                      class="border-2 bg-[var(--website)] hover:bg-yellow-400 px-6 py-3 rounded-full text-xl font-bold"
+                    >
+                      Video Genereren
+                    </button>
+                  </div>
+                  <!-- 1 -->
+                  <div id="loader_video" class="loader"><div></div></div>
+                  <div id="video-container" class="mt-5 flex justify-center">
+                    <!-- Video will be inserted here dynamically -->
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
           <!--  -->
           <div id="tab3" class="hidden md:p-2 rounded-xl md:border-2 bg-white">
@@ -1252,9 +1286,8 @@
           }
         }
       }
-      //
-      //
-      //
+
+      // button create Logo
       function sendFormData() {
         // Reclick
         document.getElementById("loader").style.display = "flex";
@@ -1373,6 +1406,58 @@
           .catch((err) => {
             alert("Error sending data");
             console.error(err);
+          });
+      }
+
+      // button create video
+      {
+        document
+          .getElementById("generate-video-btn")
+          .addEventListener("click", function () {
+            // Show loading message (optional)
+            document.getElementById("loader_video").style.display = "flex";
+
+            const container = document.getElementById("video-container");
+            container.innerHTML =
+              "<p class='text-black'>Video wordt gegenereerd, even geduld...</p>";
+
+            // Webhook URL (replace with your real n8n webhook URL)
+            const webhookURL =
+              "https://lucas37.app.n8n.cloud/webhook/bb04fa99-29ea-457b-aea5-16d1f19eb132";
+
+            fetch(webhookURL, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                text1: "Welkom bij onze winkel!",
+                text2: "Bespaar vandaag nog 20%",
+                video: "https://cdn.creatomate.com/demo/video5.mp4", // Or pass your image URL or whatever input your n8n expects
+              }),
+            })
+              .then((response) => response.json())
+              .then((data) => {
+                document.getElementById("loader_video").style.display = "none";
+                console.log(data); // See full response
+                if (data.video_url) {
+                  // Insert video into page
+                  container.innerHTML = `
+                  <video controls width="640" class="rounded-xl shadow-color">
+                    <source src="${data.video_url}" type="video/mp4">
+                    Uw browser ondersteunt geen videospeler.
+                  </video>`;
+                } else {
+                  container.innerHTML =
+                    "<p class='text-red-500'>Fout: Geen video ontvangen.</p>";
+                }
+              })
+              .catch((error) => {
+                console.error("Error:", error);
+                document.getElementById("loader_video").style.display = "none";
+                container.innerHTML =
+                  "<p class='text-red-500'>Fout bij het genereren van video.</p>";
+              });
           });
       }
     </script>

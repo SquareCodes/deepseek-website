@@ -647,15 +647,15 @@
             ></div>
             Optimization
           </div>
-          |
-          <div class="flex gap-3 items-center">
+          <div
+            class="flex gap-3 items-center border-l-2 border-r-2 px-5 border-[#83a7cd]"
+          >
             <div
               class="w-2 h-2 bg-[#5bb5e0] rounded-full"
               style="box-shadow: 0 0 10px 5px #5bb5e0"
             ></div>
             Analytics
           </div>
-          |
           <div class="flex gap-3 items-center">
             <div
               class="w-2 h-2 bg-[#8c337a] rounded-full"
@@ -1444,7 +1444,7 @@
                 if (videoUrl) {
                   container.innerHTML = `
                   <video controls autoplay muted playsinline
-                    class="w-full max-w-[700px] rounded-xl shadow-color object-contain aspect-video">
+                    class="w-dvw lg:max-w-[700px] rounded-xl shadow-color object-contain aspect-video">
                     <source src="${videoUrl}" type="video/mp4" />
                       Uw browser ondersteunt geen video.
                   </video>`;

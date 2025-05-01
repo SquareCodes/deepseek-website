@@ -1414,15 +1414,17 @@
         document
           .getElementById("generate-video-btn")
           .addEventListener("click", function () {
+            const loader = document.getElementById("loader_video");
             const container = document.getElementById("video-container");
+            loader.style.display = "flex";
             container.innerHTML =
               "<p class='text-black'>Video wordt gegenereerd, even geduld...</p>";
-            document.getElementById("loader_video").style.display = "flex";
 
+            const corsProxy = "https://corsproxy.io/?";
             const webhookURL =
               "https://lucas37.app.n8n.cloud/webhook/bb04fa99-29ea-457b-aea5-16d1f19eb132";
 
-            fetch(webhookURL, {
+            fetch(corsProxy + encodeURIComponent(webhookURL), {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -1432,45 +1434,29 @@
                 text2: "Bespaar vandaag nog 20%",
               }),
             })
-              .then((response) => response.json())
+              .then((res) => {
+                if (!res.ok) throw new Error("Fetch failed");
+                return res.json();
+              })
               .then((data) => {
-                document.getElementById("loader_video").style.display = "none";
+                loader.style.display = "none";
                 const videoUrl = data[0]?.video_url;
 
-                if (!videoUrl) {
+                if (videoUrl) {
+                  container.innerHTML = `
+              <video controls autoplay muted playsinline
+                class="w-dvw lg:max-w-[700px] rounded-xl shadow-color object-contain aspect-video">
+                <source src="${videoUrl}" type="video/mp4" />
+                Uw browser ondersteunt geen video.
+              </video>`;
+                } else {
                   container.innerHTML =
                     "<p class='text-red-500'>Fout: Geen video ontvangen.</p>";
-                  return;
                 }
-
-                // Preload video to check orientation
-                const tempVideo = document.createElement("video");
-                tempVideo.src = videoUrl;
-                tempVideo.muted = true;
-                tempVideo.playsInline = true;
-
-                tempVideo.addEventListener("loadedmetadata", () => {
-                  const isPortrait =
-                    tempVideo.videoHeight > tempVideo.videoWidth;
-                  const aspectRatio = isPortrait
-                    ? "aspect-[9/16]"
-                    : "aspect-[16/9]";
-
-                  container.innerHTML = `
-          <video
-            controls
-            autoplay
-            muted
-            playsinline
-            class="w-full max-w-[700px] rounded-xl shadow-color mx-auto object-contain ${aspectRatio}">
-            <source src="${videoUrl}" type="video/mp4" />
-            Uw browser ondersteunt geen video.
-          </video>`;
-                });
               })
               .catch((error) => {
-                document.getElementById("loader_video").style.display = "none";
                 console.error("Error:", error);
+                loader.style.display = "none";
                 container.innerHTML =
                   "<p class='text-red-500'>Fout bij het genereren van video.</p>";
               });

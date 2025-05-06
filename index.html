@@ -1420,11 +1420,9 @@
             container.innerHTML =
               "<p class='text-black'>Video wordt gegenereerd, even geduld...</p>";
 
-            const proxyUrl = "https://n8n-cors-proxy.onrender.com/";
-            const n8nProductionWebhook =
+            const proxyUrl = "https://n8n-cors-proxy.onrender.com/proxy";
+            const targetUrl =
               "https://lucas37.app.n8n.cloud/webhook/bb04fa99-29ea-457b-aea5-16d1f19eb132";
-            // const fullUrl = proxyUrl + encodeURIComponent(n8nProductionWebhook);
-            const fullUrl = proxyUrl + n8nProductionWebhook;
 
             const payload = {
               bedrijf: document.getElementById("bedrijfsnaam_").value,
@@ -1432,10 +1430,11 @@
               prijs: document.getElementById("Prijs_van_product_").value,
             };
 
-            fetch(fullUrl, {
+            fetch(proxyUrl, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
+                "Target-URL": targetUrl,
               },
               body: JSON.stringify(payload),
             })

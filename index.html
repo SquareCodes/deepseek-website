@@ -1444,7 +1444,7 @@
               })
               .then((data) => {
                 loader.style.display = "none";
-                const videoUrl = data[0]?.video_url;
+                const videoUrl = data.video_url;
                 if (videoUrl) {
                   container.innerHTML = `
                     <video controls autoplay muted playsinline

@@ -365,7 +365,55 @@
                       id="Prijs_van_product_"
                     />
                   </div>
+                  <!-- Upload Product Image -->
+                  <div class="section-tab">
+                    <label for="productImage">Upload Product Picture:</label>
+                    <input type="file" id="productImage" accept="image/*" />
 
+                    <div>
+                      <img
+                        id="productPreview"
+                        class="preview hidden"
+                        alt="Product Preview"
+                      />
+                    </div>
+                  </div>
+                  <!-- Upload Logo -->
+                  <div class="section-tab">
+                    <label for="logoSource">Select Logo Source:</label>
+                    <select id="logoSource" class="border-2">
+                      <option>select</option>
+                      <option value="existing">Use Previous Logo</option>
+                      <option value="upload">Upload New Logo</option>
+                    </select>
+
+                    <div
+                      id="logoUploadSection"
+                      style="display: none; margin-top: 10px"
+                    >
+                      <input type="file" id="logoFileInput" accept="image/*" />
+                    </div>
+
+                    <div>
+                      <img
+                        id="logoPreview"
+                        class="preview hidden"
+                        src="previous-logo.png"
+                        alt="Logo Preview"
+                      />
+                    </div>
+                  </div>
+                  <style>
+                    .section-tab .preview {
+                      margin-top: 10px;
+                      max-width: 200px;
+                      height: auto;
+                    }
+
+                    .section-tab {
+                      margin-bottom: 20px;
+                    }
+                  </style>
                   <!-- Button -->
                   <div class="flex justify-center mt-5">
                     <button
@@ -1221,10 +1269,6 @@
       .integration-button:hover .text-block-5 {
         color: var(--website);
       }
-    </style>
-
-    <!-- Tracking Ecommerce Css -->
-    <style>
       .icon-set-circle {
         overflow: hidden;
         height: 150vh;
@@ -1925,6 +1969,47 @@
             carouselContent.append(duplicateCard);
           });
           updateCards();
+        });
+      }
+
+      // tab 2 select logo and product pic
+      {
+        const logoSource = document.getElementById("logoSource");
+        const logoUploadSection = document.getElementById("logoUploadSection");
+        const logoFileInput = document.getElementById("logoFileInput");
+        const logoPreview = document.getElementById("logoPreview");
+        const productImage = document.getElementById("productImage");
+        const productPreview = document.getElementById("productPreview");
+
+        // Toggle between existing and uploaded logo
+        logoSource.addEventListener("change", function () {
+          if (this.value === "upload") {
+            logoUploadSection.style.display = "block";
+            logoPreview.style.display = "none";
+            logoPreview.src = "";
+          } else if (this.value == "existing") {
+            logoUploadSection.style.display = "none";
+            logoPreview.style.display = "block";
+            logoPreview.src = "previous-logo.png"; // replace with actual previous logo URL
+          }
+        });
+
+        // Preview uploaded logo
+        logoFileInput.addEventListener("change", function () {
+          const file = this.files[0];
+          if (file) {
+            logoPreview.src = URL.createObjectURL(file);
+            logoPreview.style = "display: block";
+          }
+        });
+
+        // Preview product image
+        productImage.addEventListener("change", function () {
+          const file = this.files[0];
+          if (file) {
+            productPreview.src = URL.createObjectURL(file);
+            productPreview.style = "display: block";
+          }
         });
       }
     </script>

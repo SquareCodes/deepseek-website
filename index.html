@@ -187,7 +187,7 @@
           >
             AI voor jouw webshop
           </h2>
-          <p class="text-white text-center">
+          <p class="text-white text-start">
             Automatisch betere advertenties, meer leads en slimme integratie met
             Shopify & social media.
           </p>
@@ -373,7 +373,7 @@
                     <div>
                       <img
                         id="productPreview"
-                        class="preview hidden"
+                        class="preview hidden bg-gray-500"
                         alt="Product Preview"
                       />
                     </div>
@@ -397,8 +397,7 @@
                     <div>
                       <img
                         id="logoPreview"
-                        class="preview hidden"
-                        src="previous-logo.png"
+                        class="preview hidden bg-gray-500"
                         alt="Logo Preview"
                       />
                     </div>
@@ -1710,7 +1709,7 @@
                     const downloadLink = document.createElement("a");
                     downloadLink.href = data[key];
                     downloadLink.download = `generated-logo-${index + 1}.png`;
-                    downloadLink.textContent = "Download Logo";
+                    downloadLink.textContent = " Download Logo ";
                     downloadLink.style.display = "inline-block";
                     downloadLink.style.marginTop = "10px";
                     downloadLink.style.color = "#00f";
@@ -1729,64 +1728,148 @@
           .catch((err) => {
             alert("Error sending data");
             console.error(err);
+            document.getElementById("loader").style.display = "none";
           });
       }
 
       // button create video
       {
+        async function uploadToCloudinary(file) {
+          const url = "https://api.cloudinary.com/v1_1/dyaoyutnu/image/upload";
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("upload_preset", "unsigned_upload"); // Use your actual unsigned preset name
+
+          const response = await fetch(url, {
+            method: "POST",
+            body: formData,
+          });
+
+          if (!response.ok) {
+            throw new Error("Cloudinary upload failed");
+          }
+
+          const data = await response.json();
+          return data.secure_url;
+        }
         document
           .getElementById("generate-video-btn")
-          .addEventListener("click", function () {
+          .addEventListener("click", async function () {
             const loader = document.getElementById("loader_video");
             const container = document.getElementById("video-container");
             loader.style.display = "flex";
             container.innerHTML =
-              "<p class='text-black'>Video wordt gegenereerd, even geduld...</p>";
+              "<p class='text-black'>Bezig met uploaden...</p>";
 
-            const proxyUrl = "https://n8n-cors-proxy.onrender.com/proxy";
-            const targetUrl =
-              "https://lucas37.app.n8n.cloud/webhook/bb04fa99-29ea-457b-aea5-16d1f19eb132";
+            try {
+              const logoFileInput = document.getElementById("logoFileInput");
+              const logoFile =
+                logoFileInput && logoFileInput.files.length
+                  ? logoFileInput.files[0]
+                  : null;
 
-            const payload = {
-              bedrijf: document.getElementById("bedrijfsnaam_").value,
-              product: document.getElementById("Naam product_").value,
-              prijs: document.getElementById("Prijs_van_product_").value,
-            };
+              const productImageInput = document.getElementById("productImage");
+              const productFile =
+                productImageInput && productImageInput.files.length
+                  ? productImageInput.files[0]
+                  : null;
 
-            fetch(proxyUrl, {
-              method: "POST",
-              headers: {
-                "Content-Type": "application/json",
-                "Target-URL": targetUrl,
-              },
-              body: JSON.stringify(payload),
-            })
-              .then((res) => {
-                if (!res.ok) throw new Error("Fetch failed");
-                return res.json();
-              })
-              .then((data) => {
-                loader.style.display = "none";
-                const videoUrl = data.video_url;
-                if (videoUrl) {
-                  container.innerHTML = `
-                    <video controls autoplay muted playsinline
-                      class="w-dvw lg:max-w-[700px] rounded-xl shadow-color object-contain aspect-video">
-                      <source src="${videoUrl}" type="video/mp4" />
-                      Uw browser ondersteunt geen video.
-                    </video>`;
-                } else {
-                  container.innerHTML =
-                    "<p class='text-red-500'>Fout: Geen video ontvangen.</p>";
+              const [logoUrl, productImageUrl] = await Promise.all([
+                logoFile ? uploadToCloudinary(logoFile) : "",
+                productFile ? uploadToCloudinary(productFile) : "",
+              ]);
+
+              const payload = {
+                bedrijf: document.getElementById("bedrijfsnaam_").value,
+                product: document.getElementById("Naam product_").value,
+                prijs: document.getElementById("Prijs_van_product_").value,
+                logo: logoUrl,
+                afbeelding: productImageUrl,
+              };
+
+              const response = await fetch(
+                "https://n8n-cors-proxy.onrender.com/proxy",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "Target-URL":
+                      "https://lucas37.app.n8n.cloud/webhook/bb04fa99-29ea-457b-aea5-16d1f19eb132",
+                  },
+                  body: JSON.stringify(payload),
                 }
-              })
-              .catch((error) => {
-                console.error("Error:", error);
-                loader.style.display = "none";
+              );
+
+              const data = await response.json();
+              loader.style.display = "none";
+
+              if (data.video_url) {
+                container.innerHTML = `
+                <video controls autoplay muted playsinline
+                  class="w-dvw lg:max-w-[700px] rounded-xl shadow-color object-contain aspect-video">
+                  <source src="${data.video_url}" type="video/mp4" />
+                  Uw browser ondersteunt geen video.
+                </video>`;
+              } else {
                 container.innerHTML =
-                  "<p class='text-red-500'>Fout bij het genereren van video.</p>";
-              });
+                  "<p class='text-red-500'>Geen video ontvangen.</p>";
+              }
+            } catch (error) {
+              loader.style.display = "none";
+              console.error(error);
+              container.innerHTML =
+                "<p class='text-red-500'>Fout bij upload of generatie.</p>";
+            }
           });
+      }
+
+      // tab 2 select logo and product pic
+      {
+        const logoSource = document.getElementById("logoSource");
+        const logoUploadSection = document.getElementById("logoUploadSection");
+        const logoFileInput = document.getElementById("logoFileInput");
+        const logoPreview = document.getElementById("logoPreview");
+        const productImage = document.getElementById("productImage");
+        const productPreview = document.getElementById("productPreview");
+        var uplo;
+
+        // Toggle between existing and uploaded logo
+        logoSource.addEventListener("change", function () {
+          logoPreview.style.display = "none";
+          if (this.value === "upload") {
+            logoUploadSection.style.display = "block";
+            if (uplo) {
+              logoPreview.src = uplo;
+              logoPreview.style.display = "block";
+            } else logoPreview.style.display = "none";
+          } else if (this.value === "existing") {
+            logoUploadSection.style.display = "none";
+            // if (logoPreview.src === "") logoPreview.style.display = "none";
+            // else logoPreview.style.display = "block";
+            logoPreview.src = "";
+
+            // logoPreview.src = "previous-logo.png"; // replace with actual previous logo URL
+          }
+        });
+
+        // Preview uploaded logo
+        logoFileInput.addEventListener("change", function () {
+          const file = this.files[0];
+          if (file) {
+            uplo = URL.createObjectURL(file);
+            logoPreview.src = URL.createObjectURL(file);
+            logoPreview.style = "display: block";
+          }
+        });
+
+        // Preview product image
+        productImage.addEventListener("change", function () {
+          const file = this.files[0];
+          if (file) {
+            productPreview.src = URL.createObjectURL(file);
+            productPreview.style = "display: block";
+          }
+        });
       }
     </script>
     <!--  class="w-dvw lg:max-w-[700px]  -->
@@ -1969,47 +2052,6 @@
             carouselContent.append(duplicateCard);
           });
           updateCards();
-        });
-      }
-
-      // tab 2 select logo and product pic
-      {
-        const logoSource = document.getElementById("logoSource");
-        const logoUploadSection = document.getElementById("logoUploadSection");
-        const logoFileInput = document.getElementById("logoFileInput");
-        const logoPreview = document.getElementById("logoPreview");
-        const productImage = document.getElementById("productImage");
-        const productPreview = document.getElementById("productPreview");
-
-        // Toggle between existing and uploaded logo
-        logoSource.addEventListener("change", function () {
-          if (this.value === "upload") {
-            logoUploadSection.style.display = "block";
-            logoPreview.style.display = "none";
-            logoPreview.src = "";
-          } else if (this.value == "existing") {
-            logoUploadSection.style.display = "none";
-            logoPreview.style.display = "block";
-            logoPreview.src = "previous-logo.png"; // replace with actual previous logo URL
-          }
-        });
-
-        // Preview uploaded logo
-        logoFileInput.addEventListener("change", function () {
-          const file = this.files[0];
-          if (file) {
-            logoPreview.src = URL.createObjectURL(file);
-            logoPreview.style = "display: block";
-          }
-        });
-
-        // Preview product image
-        productImage.addEventListener("change", function () {
-          const file = this.files[0];
-          if (file) {
-            productPreview.src = URL.createObjectURL(file);
-            productPreview.style = "display: block";
-          }
         });
       }
     </script>

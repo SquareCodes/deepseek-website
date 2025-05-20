@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Page</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/color.css" />
+
+    <!-- Gasp -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+  </head>
+  <body class="page-width bg-[var(--bg)]">
+    <!-- header -->
+    <section class="flex flex-col gap-5 md:gap-10 p-5">
+      <h1 class="text-white text-xl md:text-4xl font-bold text-center">
+        Vul dit snell formulier in om te zien of u in aanmerking komt voor onze
+        1-op-1 EKO EVOLVED
+      </h1>
+      <h3
+        class="text-[var(--website)] text-base md:text-2xl text-center md:px-40"
+      >
+        vanwege een hoog, percentage boekingen accepteren we alleen oproepen van
+        mensen die formulier invullen
+      </h3>
+      <hr class="border-[var(--website)]" />
+    </section>
+
+    <!-- number -->
+    <section class="p-5">
+      <div
+        class="text-white flex flex-col md:flex-row justify-center gap-5 md:gap-10 counter-container"
+      >
+        <!--  -->
+        <div
+          style="background-image: linear-gradient(#232323, #232323)"
+          class="p-7 md:w-fit rounded-3xl flex flex-col items-center gap-5"
+        >
+          <h1 class="text-4xl font-bold text-[var(--website)]">
+            <span id="counter1">0</span>+ jaar
+          </h1>
+          <p class="text-xl">Leider in Dropshipping</p>
+        </div>
+        <!--  -->
+        <div
+          style="background-image: linear-gradient(#232323, #232323)"
+          class="p-7 md:w-fit rounded-3xl flex flex-col items-center gap-5"
+        >
+          <h1 class="text-4xl font-bold text-[var(--website)]">
+            <span id="counter2">00</span>+ Miljonairs
+          </h1>
+          <p class="text-xl">Opgeleid met</p>
+        </div>
+        <!--  -->
+        <div
+          style="background-image: linear-gradient(#232323, #232323)"
+          class="p-7 md:w-fit rounded-3xl flex flex-col items-center gap-5"
+        >
+          <h1 class="text-4xl font-bold text-[var(--website)]">
+            €<span id="counter3">0.0</span> M
+          </h1>
+          <p class="text-xl">Omzet met online sales</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- reel silder -->
+    <section class="p-5 text-white flex flex-col items-center gap-5">
+      <h4 class="text-4xl md:text-6xl font-bold text-center">
+        <span class="text-[var(--website)]">Succesverhalen</span> en
+        <span class="text-[var(--website)]">echte</span> resultaten
+      </h4>
+      <p class="md:px-40 text-center">
+        Ontdek de levensveranderende transformaties die dagelijks plaatsvinden
+        binnen onze community. Lees de inspirerende verhalen van makers die mijn
+        systeem hebben gebruikt om te ontsnappen aan de sleur van 9 tot 5,
+        merkdeals te sluiten en financiële vrijheid te bereiken. Dit zijn niet
+        alleen resultaten, dit is het bewijs dat jij het ook kunt!
+      </p>
+      <!-- Swiper -->
+      <div class="swiper mySwiper_reel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!--  -->
+    <style>
+      .swiper.mySwiper_reel {
+        width: 100%;
+        padding: 50px;
+      }
+
+      .mySwiper_reel .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 500px;
+        border: 1px solid white;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 0 30px -5px var(--website);
+      }
+
+      .mySwiper_reel .swiper-slide img {
+        display: block;
+        width: 100%;
+        /* height: 100%; */
+        /* object-fit: cover; */
+      }
+      .mySwiper_reel .swiper-pagination-bullet-active {
+        background-color: white;
+      }
+
+      .swiper-pagination-bullet {
+        background-color: white;
+      }
+    </style>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      // Gasp
+      {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // First counter
+        gsap.to("#counter1", {
+          innerText: 7,
+          duration: 5,
+          snap: { innerText: 1 },
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: "#counter1",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+
+        // Second counter
+        gsap.to("#counter2", {
+          innerText: 23,
+          duration: 5,
+          snap: { innerText: 1 },
+          ease: "power1.out",
+          onUpdate: function () {
+            this.targets()[0].innerText = String(
+              Math.floor(this.targets()[0].innerText)
+            ).padStart(2, "0");
+          },
+          scrollTrigger: {
+            trigger: "#counter2",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+
+        // Third counter
+        gsap.to("#counter3", {
+          innerText: 100.0,
+          duration: 5,
+          ease: "power1.out",
+          modifiers: {
+            innerText: function (innerText) {
+              // Round to nearest 0.5 (0.0, 0.5, 1.0, etc.)
+              const roundedValue = Math.round(parseFloat(innerText) * 2) / 2;
+              // Format to 1 decimal place (e.g., "0.0", "0.5", "1.0")
+              return roundedValue.toFixed(1);
+            },
+          },
+          scrollTrigger: {
+            trigger: "#counter3",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+      }
+
+      // Silder
+      {
+        var swiper = new Swiper(".mySwiper_reel", {
+          effect: "coverflow",
+          grabCursor: true,
+          slidesPerView: 3,
+          spaceBetween: 100,
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 0,
+            modifier: 1,
+            slideShadows: true,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -203,19 +203,33 @@
           style="scrollbar-width: 0"
         >
           <ul id="tabs" class="inline-flex p-1 w-fit">
-            <li class="px-4 font-semibold py-2 rounded-xl bg-white text-black">
+            <li
+              class="px-4 font-semibold py-2 rounded-xl bg-white text-black active"
+            >
               <a id="default-tab" class="text-nowrap" href="#tab1">
                 logo genereren
               </a>
+              <div
+                class="loading-bar h-[2px] rounded-full bg-red-500 transition-all w-0"
+              ></div>
             </li>
             <li class="px-4 font-semibold py-2 rounded-xl text-white">
               <a class="text-nowrap" href="#tab2">video genereren</a>
+              <div
+                class="loading-bar h-[2px] rounded-full bg-blue-500 transition-all w-0"
+              ></div>
             </li>
             <li class="px-4 font-semibold py-2 rounded-xl text-white">
               <a class="text-nowrap" href="#tab3">Shopify</a>
+              <div
+                class="loading-bar h-[2px] rounded-full bg-green-500 transition-all w-0"
+              ></div>
             </li>
             <li class="px-4 font-semibold py-2 rounded-xl text-white">
               <a class="text-nowrap" href="#tab4">Voorinstellingen</a>
+              <div
+                class="loading-bar h-[2px] rounded-full bg-orange-500 transition-all w-0"
+              ></div>
             </li>
           </ul>
         </div>
@@ -537,7 +551,7 @@
             />
           </div>
           <!-- Lock if account not login -->
-          <div class="absolute bottom-0 right-0 p-10">
+          <div class="absolute bottom-0 right-0 p-10 z-10">
             <img src="./image/Lock-logo.png" alt="" class="w-20" />
           </div>
         </div>
@@ -710,7 +724,9 @@
     </section>
 
     <!-- Al ads  Services -->
-    <section class="page-width relative pt-5 md:pt-28 px-5 overflow-hidden">
+    <section
+      class="max-w-[2000px] m-auto relative pt-5 md:pt-28 px-5 overflow-hidden"
+    >
       <div class="absolute top-0 left-0 w-full h-full">
         <img src="./image/ads background.svg" alt="" class="w-full h-full" />
       </div>
@@ -1158,6 +1174,25 @@
       </div>
     </section>
 
+    <!-- Image  -->
+    <section
+      class="page-width p-10 md:p-15"
+      style="
+        background-image: linear-gradient(
+          to bottom,
+          transparent 50%,
+          var(--website) 200%
+        );
+      "
+    >
+      <div class="text-white">
+        <img
+          src="https://assets.cdn.filesafe.space/Kp5DnR6YLdMz9awSDW8U/media/65b91419b7ea18729f78e2df.png"
+          alt=""
+        />
+      </div>
+    </section>
+
     <!--  -->
     <!--  -->
     <!-- css -->
@@ -1337,68 +1372,75 @@
     </style>
     <!--  -->
 
+    <!--  -->
     <!-- Tab  -->
     <script>
       //Select Color
       {
-        function suggestColor() {
-          let randomColor =
-            "#" + Math.floor(Math.random() * 16777215).toString(16);
-          document.getElementById("color").value = randomColor;
-          document.getElementById("color-text").value = randomColor;
-        }
-        // Update the text input when the user picks a color
-        document.getElementById("color").addEventListener("input", function () {
-          document.getElementById("color-text").value = this.value;
+        document.addEventListener("DOMContentLoaded", function () {
+          function suggestColor() {
+            let randomColor =
+              "#" + Math.floor(Math.random() * 16777215).toString(16);
+            document.getElementById("color").value = randomColor;
+            document.getElementById("color-text").value = randomColor;
+          }
+          // Update the text input when the user picks a color
+          document
+            .getElementById("color")
+            .addEventListener("input", function () {
+              document.getElementById("color-text").value = this.value;
+            });
+          // When user types a color, update color picker (only if valid hex)
+          document
+            .getElementById("color-text")
+            .addEventListener("input", function () {
+              let color = this.value;
+              if (/^#([0-9A-F]{3}){1,2}$/i.test(color)) {
+                document.getElementById("color").value = color;
+              }
+            });
         });
-        // When user types a color, update color picker (only if valid hex)
-        document
-          .getElementById("color-text")
-          .addEventListener("input", function () {
-            let color = this.value;
-            if (/^#([0-9A-F]{3}){1,2}$/i.test(color)) {
-              document.getElementById("color").value = color;
-            }
-          });
       }
 
       // Tab Logo drag Option
       {
-        const dropArea = document.getElementById("drop-area");
-        const inputFile = document.getElementById("logo-file");
+        document.addEventListener("DOMContentLoaded", function () {
+          const dropArea = document.getElementById("drop-area");
+          const inputFile = document.getElementById("logo-file");
 
-        dropArea.addEventListener("dragover", (event) => {
-          event.preventDefault();
-          dropArea.style.border = "2px solid #000";
-        });
+          dropArea.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            dropArea.style.border = "2px solid #000";
+          });
 
-        dropArea.addEventListener("dragleave", () => {
-          dropArea.style.border = "2px dashed #ccc";
-        });
+          dropArea.addEventListener("dragleave", () => {
+            dropArea.style.border = "2px dashed #ccc";
+          });
 
-        dropArea.addEventListener("drop", (event) => {
-          event.preventDefault();
-          dropArea.style.border = "2px dashed #ccc";
-          const file = event.dataTransfer.files[0];
-          previewLogo(file);
-        });
+          dropArea.addEventListener("drop", (event) => {
+            event.preventDefault();
+            dropArea.style.border = "2px dashed #ccc";
+            const file = event.dataTransfer.files[0];
+            previewLogo(file);
+          });
 
-        dropArea.addEventListener("click", () => inputFile.click());
+          dropArea.addEventListener("click", () => inputFile.click());
 
-        inputFile.addEventListener("change", (event) => {
-          previewLogo(event.target.files[0]);
-        });
+          inputFile.addEventListener("change", (event) => {
+            previewLogo(event.target.files[0]);
+          });
 
-        function previewLogo(file) {
-          if (file) {
-            const reader = new FileReader();
-            reader.onload = function (e) {
-              document.getElementById("logo-preview").src = e.target.result;
-              document.getElementById("logo-preview").style.display = "block";
-            };
-            reader.readAsDataURL(file);
+          function previewLogo(file) {
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+                document.getElementById("logo-preview").src = e.target.result;
+                document.getElementById("logo-preview").style.display = "block";
+              };
+              reader.readAsDataURL(file);
+            }
           }
-        }
+        });
       }
 
       // button create Logo
@@ -1439,14 +1481,6 @@
         const webhookURL =
           "https://lucas37.app.n8n.cloud/webhook/webhook-test/Logo-options";
 
-        // If you are using Basic Auth on the webhook, add this block:
-        // const username = "admin";
-        // const password = "MySecretPass123";
-        // const basicAuth = btoa(`${username}:${password}`);
-        // const headers = {
-        //   Authorization: `Basic ${basicAuth}`,
-        // };
-
         fetch(webhookURL, {
           method: "POST",
           // headers, // ← Uncomment if using Basic Auth
@@ -1464,27 +1498,6 @@
               console.log("Image set");
               const resultContainer = document.getElementById("logo-result");
               resultContainer.innerHTML = ""; // Clear previous content
-
-              // // Create image element
-              // const img = document.createElement("img");
-              // img.src = data.logoImageUrl;
-              // img.alt = "Generated Logo";
-              // img.style.maxWidth = "300px";
-              // img.style.marginTop = "20px";
-
-              // // Create download link
-              // const downloadLink = document.createElement("a");
-              // downloadLink.href = data.logoImageUrl;
-              // downloadLink.download = "generated-logo.png";
-              // downloadLink.textContent = "Download Logo";
-              // downloadLink.style.display = "inline-block";
-              // downloadLink.style.marginTop = "10px";
-              // downloadLink.style.color = "#00f";
-              // downloadLink.style.textDecoration = "underline";
-
-              // // Append to the result container
-              // resultContainer.appendChild(img);
-              // resultContainer.appendChild(downloadLink);
 
               // Loop through all logoImageUrls
               ["logoImageUrl1", "logoImageUrl2", "logoImageUrl3"].forEach(
@@ -1619,50 +1632,53 @@
 
       // tab 2 select logo and product pic
       {
-        const logoSource = document.getElementById("logoSource");
-        const logoUploadSection = document.getElementById("logoUploadSection");
-        const logoFileInput = document.getElementById("logoFileInput");
-        const logoPreview = document.getElementById("logoPreview");
-        const productImage = document.getElementById("productImage");
-        const productPreview = document.getElementById("productPreview");
-        var uplo;
+        document.addEventListener("DOMContentLoaded", function () {
+          const logoSource = document.getElementById("logoSource");
+          const logoUploadSection =
+            document.getElementById("logoUploadSection");
+          const logoFileInput = document.getElementById("logoFileInput");
+          const logoPreview = document.getElementById("logoPreview");
+          const productImage = document.getElementById("productImage");
+          const productPreview = document.getElementById("productPreview");
+          var uplo;
 
-        // Toggle between existing and uploaded logo
-        logoSource.addEventListener("change", function () {
-          logoPreview.style.display = "none";
-          if (this.value === "upload") {
-            logoUploadSection.style.display = "block";
-            if (uplo) {
-              logoPreview.src = uplo;
-              logoPreview.style.display = "block";
-            } else logoPreview.style.display = "none";
-          } else if (this.value === "existing") {
-            logoUploadSection.style.display = "none";
-            // if (logoPreview.src === "") logoPreview.style.display = "none";
-            // else logoPreview.style.display = "block";
-            logoPreview.src = "";
+          // Toggle between existing and uploaded logo
+          logoSource.addEventListener("change", function () {
+            logoPreview.style.display = "none";
+            if (this.value === "upload") {
+              logoUploadSection.style.display = "block";
+              if (uplo) {
+                logoPreview.src = uplo;
+                logoPreview.style.display = "block";
+              } else logoPreview.style.display = "none";
+            } else if (this.value === "existing") {
+              logoUploadSection.style.display = "none";
+              // if (logoPreview.src === "") logoPreview.style.display = "none";
+              // else logoPreview.style.display = "block";
+              logoPreview.src = "";
 
-            // logoPreview.src = "previous-logo.png"; // replace with actual previous logo URL
-          }
-        });
+              // logoPreview.src = "previous-logo.png"; // replace with actual previous logo URL
+            }
+          });
 
-        // Preview uploaded logo
-        logoFileInput.addEventListener("change", function () {
-          const file = this.files[0];
-          if (file) {
-            uplo = URL.createObjectURL(file);
-            logoPreview.src = URL.createObjectURL(file);
-            logoPreview.style = "display: block";
-          }
-        });
+          // Preview uploaded logo
+          logoFileInput.addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+              uplo = URL.createObjectURL(file);
+              logoPreview.src = URL.createObjectURL(file);
+              logoPreview.style = "display: block";
+            }
+          });
 
-        // Preview product image
-        productImage.addEventListener("change", function () {
-          const file = this.files[0];
-          if (file) {
-            productPreview.src = URL.createObjectURL(file);
-            productPreview.style = "display: block";
-          }
+          // Preview product image
+          productImage.addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+              productPreview.src = URL.createObjectURL(file);
+              productPreview.style = "display: block";
+            }
+          });
         });
       }
     </script>
@@ -1698,58 +1714,104 @@
 
       //
       // image icon bouner
-      //
-      document
-        .querySelector(".image-bon")
-        .addEventListener("mouseenter", () => {
-          var ibd = document.querySelectorAll(".image-bon div");
+      {
+        document
+          .querySelector(".image-bon")
+          .addEventListener("mouseenter", () => {
+            var ibd = document.querySelectorAll(".image-bon div");
 
-          for (i in ibd) {
-            // console.log("remove");
-            if (i != 7) {
-              ibd[i].style = "animation: none;";
-            }
-          }
-
-          setTimeout(() => {
             for (i in ibd) {
-              // console.log(i);
+              // console.log("remove");
               if (i != 7) {
-                ibd[i].style = `animation: image-bou 0.5s forwards 0.${i}s;`;
+                ibd[i].style = "animation: none;";
               }
             }
-          }, 500);
-        });
+
+            setTimeout(() => {
+              for (i in ibd) {
+                // console.log(i);
+                if (i != 7) {
+                  ibd[i].style = `animation: image-bou 0.5s forwards 0.${i}s;`;
+                }
+              }
+            }, 500);
+          });
+      }
 
       // Tab select
       {
-        let tabsContainer = document.querySelector("#tabs");
-        let tabTogglers = tabsContainer.querySelectorAll("#tabs a");
-        // console.log(tabTogglers);
+        document.addEventListener("DOMContentLoaded", function () {
+          const tabs = document.querySelectorAll("#tabs li");
+          const loadingBars = document.querySelectorAll(".loading-bar");
+          const tabContents = document.querySelectorAll("#tab-contents > div");
+          const tabContentsContainer = document.getElementById("tab-contents");
+          let currentTabIndex = 0;
+          const animationDuration = 5000; // 5 seconds per tab
+          let rotationInterval;
+          let isPaused = false;
 
-        tabTogglers.forEach(function (toggler) {
-          toggler.addEventListener("click", function (e) {
-            e.preventDefault();
+          function activateTab(index) {
+            // Reset all tabs
+            tabs.forEach((tab, i) => {
+              tab.classList.remove("bg-white", "text-black", "active");
+              tab.classList.add("text-white");
+              loadingBars[i].style.width = "0";
+              loadingBars[i].style.transition = "none";
+              tabContents[i].classList.add("hidden");
+            });
 
-            let tabName = this.getAttribute("href");
+            // Activate current tab
+            tabs[index].classList.add("bg-white", "text-black", "active");
+            tabs[index].classList.remove("text-white");
+            tabContents[index].classList.remove("hidden");
 
-            let tabContents = document.querySelector("#tab-contents");
+            // Animate loading bar
+            loadingBars[index].style.transition = `${animationDuration}ms`;
+            loadingBars[index].style.width = "100%";
+          }
 
-            for (let i = 0; i < tabContents.children.length; i++) {
-              tabTogglers[i].parentElement.classList.remove(
-                "text-black",
-                "bg-white"
-              );
-              tabTogglers[i].parentElement.classList.add("text-white");
-              tabContents.children[i].classList.remove("hidden");
-              if ("#" + tabContents.children[i].id === tabName) {
-                continue;
+          function startTabRotation() {
+            // Clear any existing interval
+            stopTabRotation();
+
+            // Start new rotation
+            rotationInterval = setInterval(() => {
+              if (!isPaused) {
+                currentTabIndex = (currentTabIndex + 1) % tabs.length;
+                activateTab(currentTabIndex);
               }
-              tabContents.children[i].classList.add("hidden");
-            }
-            e.target.parentElement.classList.add("text-black", "bg-white");
-            e.target.parentElement.classList.remove("text-white");
+            }, animationDuration);
+          }
+
+          function stopTabRotation() {
+            clearInterval(rotationInterval);
+          }
+
+          // Pause when mouse enters tab contents
+          tabContentsContainer.addEventListener("mouseenter", () => {
+            isPaused = true;
+            loadingBars[currentTabIndex].style.width = "100%"; // Keep current progress
           });
+
+          // Resume when mouse leaves
+          tabContentsContainer.addEventListener("mouseleave", () => {
+            isPaused = false;
+            startTabRotation(); // Restart with fresh timing
+          });
+
+          // Manual tab switching
+          tabs.forEach((tab, index) => {
+            tab.addEventListener("click", function (e) {
+              e.preventDefault();
+              currentTabIndex = index;
+              activateTab(index);
+              startTabRotation(); // Restart rotation after manual selection
+            });
+          });
+
+          // Start the automatic rotation initially
+          activateTab(currentTabIndex);
+          startTabRotation();
         });
       }
 
@@ -1777,14 +1839,19 @@
               const distFromCenter = Math.abs(posFromCenter);
 
               card.style["transform"] = `rotate(${posFromCenter / -30}deg)
-			translate(
-				${Math.sin((posFromCenter / carouselRect.width) * Math.PI) * 30}px,
-				${
-          (Math.cos(((distFromCenter / carouselRect.width) * Math.PI) / 1) -
-            1) *
-          -105
-        }px
-			)`;
+                translate(
+                  ${
+                    Math.sin((posFromCenter / carouselRect.width) * Math.PI) *
+                    30
+                  }px,
+                  ${
+                    (Math.cos(
+                      ((distFromCenter / carouselRect.width) * Math.PI) / 1
+                    ) -
+                      1) *
+                    -105
+                  }px
+                )`;
               card.style["z-index"] = Math.round(
                 Math.cos((posFromCenter / carouselRect.width) * Math.PI) * 5
               );

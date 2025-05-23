@@ -1432,8 +1432,70 @@
         </button>
       </div>
     </div>
+    <script>
+      //
+      // Assistant Logic Script
+      //
+      const userId = localStorage.getItem("user_id") || generateRandomUserId();
+      localStorage.setItem("user_id", userId);
 
-    <script src="/js/chat.js" async></script>
+      let threadId = localStorage.getItem("thread_id");
+
+      function generateRandomUserId() {
+        return "user_" + Math.random().toString(36).substring(2, 12);
+      }
+
+      async function sendChatMessage() {
+        const input = document.getElementById("chat-input");
+        const message = input.value.trim();
+        if (!message) return;
+
+        const chatBox = document.getElementById("chat-messages");
+        const userMsg = document.createElement("div");
+        userMsg.className = "mb-2";
+        userMsg.innerHTML = `<strong>Jij:</strong> ${message}`;
+        chatBox.appendChild(userMsg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        input.value = "";
+
+        try {
+          const res = await fetch(
+            "https://lucas37.app.n8n.cloud/webhook/chatagent",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                user_id: userId,
+                message: message,
+                thread_id: threadId || null,
+              }),
+            }
+          );
+
+          const data = await res.json();
+
+          if (data.thread_id && data.thread_id !== threadId) {
+            threadId = data.thread_id;
+            localStorage.setItem("thread_id", threadId);
+          }
+
+          const botMsg = document.createElement("div");
+          botMsg.className = "mb-2";
+          botMsg.innerHTML = `<strong>Assistent:</strong> ${
+            data.response || "Geen antwoord ontvangen."
+          }`;
+          chatBox.appendChild(botMsg);
+          chatBox.scrollTop = chatBox.scrollHeight;
+        } catch (error) {
+          const errorMsg = document.createElement("div");
+          errorMsg.className = "mb-2 text-red-500";
+          errorMsg.innerHTML = `<strong>Fout:</strong> Kon geen verbinding maken met de assistent.`;
+          chatBox.appendChild(errorMsg);
+        }
+      }
+    </script>
 
     <!--  -->
     <!-- style css -->
@@ -1936,9 +1998,9 @@
     <!-- script -->
     <!--  -->
     <script>
-      // 
+      //
       // Select the under-Line element
-      // 
+      //
       {
         const underLine = document.querySelectorAll(".under-Line");
 
@@ -1961,7 +2023,7 @@
 
       //
       // image icon bouner
-      // 
+      //
       {
         document
           .querySelector(".image-bon")
@@ -1986,9 +2048,9 @@
           });
       }
 
-      // 
+      //
       // Tab select
-      // 
+      //
       {
         document.addEventListener("DOMContentLoaded", function () {
           const tabs = document.querySelectorAll("#tabs li");
@@ -2068,9 +2130,9 @@
         });
       }
 
-      // 
+      //
       // card silder
-      // 
+      //
       {
         const { animate, createDraggable, utils } = anime;
 
@@ -2171,9 +2233,9 @@
         });
       }
 
-      // 
+      //
       // Toggle chat visibility
-      // 
+      //
       {
         function toggleChat() {
           const widget = document.getElementById("chat-ui").classList,
@@ -2195,72 +2257,6 @@
             document.getElementById("chat-toggle").classList.add("hidden");
           }
         });
-      }
-      
-      //
-      // Assistant Logic Script
-      //
-      {
-        const userId =
-          localStorage.getItem("user_id") || generateRandomUserId();
-        localStorage.setItem("user_id", userId);
-
-        let threadId = localStorage.getItem("thread_id");
-
-        function generateRandomUserId() {
-          return "user_" + Math.random().toString(36).substring(2, 12);
-        }
-
-        async function sendChatMessage() {
-          const input = document.getElementById("chat-input");
-          const message = input.value.trim();
-          if (!message) return;
-
-          const chatBox = document.getElementById("chat-messages");
-          const userMsg = document.createElement("div");
-          userMsg.className = "mb-2";
-          userMsg.innerHTML = `<strong>Jij:</strong> ${message}`;
-          chatBox.appendChild(userMsg);
-          chatBox.scrollTop = chatBox.scrollHeight;
-          input.value = "";
-
-          try {
-            const res = await fetch(
-              "https://lucas37.app.n8n.cloud/webhook/chatagent",
-              {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                },
-                body: JSON.stringify({
-                  user_id: userId,
-                  message: message,
-                  thread_id: threadId || null,
-                }),
-              }
-            );
-
-            const data = await res.json();
-
-            if (data.thread_id && data.thread_id !== threadId) {
-              threadId = data.thread_id;
-              localStorage.setItem("thread_id", threadId);
-            }
-
-            const botMsg = document.createElement("div");
-            botMsg.className = "mb-2";
-            botMsg.innerHTML = `<strong>Assistent:</strong> ${
-              data.response || "Geen antwoord ontvangen."
-            }`;
-            chatBox.appendChild(botMsg);
-            chatBox.scrollTop = chatBox.scrollHeight;
-          } catch (error) {
-            const errorMsg = document.createElement("div");
-            errorMsg.className = "mb-2 text-red-500";
-            errorMsg.innerHTML = `<strong>Fout:</strong> Kon geen verbinding maken met de assistent.`;
-            chatBox.appendChild(errorMsg);
-          }
-        }
       }
     </script>
   </body>

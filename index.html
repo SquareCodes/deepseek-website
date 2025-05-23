@@ -1367,8 +1367,77 @@
     </style>
 
     <!--  -->
+    <!-- End OF Code  -->
+    <!--  -->
+
+    <!--  -->
+    <!-- Chat Assistant UI -->
+    <!--  -->
+    <div class="fixed bottom-5 right-5">
+      <!-- button -->
+      <button
+        id="chat-toggle"
+        class="fixed bottom-5 w-[50px] h-[50px] right-5 bg-[var(--website)] text-white p-3 rounded-full shadow-lg z-40 hover:bg-yellow-500 transition-all"
+        onclick="toggleChat()"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="h-6 w-6"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z"
+          />
+        </svg>
+      </button>
+      <!-- chat -->
+      <div
+        id="chat-ui"
+        class="hidden bg-white border p-4 w-80 rounded-lg shadow-lg z-50"
+      >
+        <button
+          onclick="toggleChat()"
+          class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            class="h-5 w-5"
+            viewBox="0 0 20 20"
+            fill="currentColor"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </button>
+        <div id="chat-messages" class="h-48 overflow-y-auto text-sm mb-2"></div>
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Typ je vraag..."
+          class="w-full border px-2 py-1 mb-2 rounded"
+        />
+        <button
+          onclick="sendChatMessage()"
+          class="w-full bg-[var(--website)] text-white font-bold py-1 rounded hover:bg-yellow-500"
+        >
+          Verstuur
+        </button>
+      </div>
+    </div>
+
+    <script src="/js/chat.js" async></script>
+
     <!--  -->
     <!-- style css -->
+    <!--  -->
     <style>
       .loader {
         display: none;
@@ -1546,7 +1615,8 @@
     <!--  -->
 
     <!--  -->
-    <!-- Tab  -->
+    <!-- Tab -->
+    <!--  -->
     <script>
       //Select Color
       {
@@ -1855,16 +1925,20 @@
         });
       }
     </script>
-    <!--  class="w-dvw lg:max-w-[700px]  -->
-    <!--  -->
 
+    <!--  -->
     <!-- partial -->
+    <!--  -->
     <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
     <script src="./script.js"></script>
 
+    <!--  -->
     <!-- script -->
+    <!--  -->
     <script>
+      // 
       // Select the under-Line element
+      // 
       {
         const underLine = document.querySelectorAll(".under-Line");
 
@@ -1887,6 +1961,7 @@
 
       //
       // image icon bouner
+      // 
       {
         document
           .querySelector(".image-bon")
@@ -1911,7 +1986,9 @@
           });
       }
 
+      // 
       // Tab select
+      // 
       {
         document.addEventListener("DOMContentLoaded", function () {
           const tabs = document.querySelectorAll("#tabs li");
@@ -1991,7 +2068,9 @@
         });
       }
 
+      // 
       // card silder
+      // 
       {
         const { animate, createDraggable, utils } = anime;
 
@@ -2090,6 +2169,98 @@
           });
           updateCards();
         });
+      }
+
+      // 
+      // Toggle chat visibility
+      // 
+      {
+        function toggleChat() {
+          const widget = document.getElementById("chat-ui").classList,
+            widgetButton = document.getElementById("chat-toggle").classList;
+          widget.toggle("hidden");
+          widgetButton.toggle("hidden");
+
+          // Optional: Store state in localStorage
+          localStorage.setItem(
+            "chatOpen",
+            widget.contains("hidden") ? "false" : "true"
+          );
+        }
+
+        // Optional: Remember chat state on page load
+        document.addEventListener("DOMContentLoaded", function () {
+          if (localStorage.getItem("chatOpen") === "true") {
+            document.getElementById("chat-ui").classList.remove("hidden");
+            document.getElementById("chat-toggle").classList.add("hidden");
+          }
+        });
+      }
+      
+      //
+      // Assistant Logic Script
+      //
+      {
+        const userId =
+          localStorage.getItem("user_id") || generateRandomUserId();
+        localStorage.setItem("user_id", userId);
+
+        let threadId = localStorage.getItem("thread_id");
+
+        function generateRandomUserId() {
+          return "user_" + Math.random().toString(36).substring(2, 12);
+        }
+
+        async function sendChatMessage() {
+          const input = document.getElementById("chat-input");
+          const message = input.value.trim();
+          if (!message) return;
+
+          const chatBox = document.getElementById("chat-messages");
+          const userMsg = document.createElement("div");
+          userMsg.className = "mb-2";
+          userMsg.innerHTML = `<strong>Jij:</strong> ${message}`;
+          chatBox.appendChild(userMsg);
+          chatBox.scrollTop = chatBox.scrollHeight;
+          input.value = "";
+
+          try {
+            const res = await fetch(
+              "https://lucas37.app.n8n.cloud/webhook/chatagent",
+              {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                },
+                body: JSON.stringify({
+                  user_id: userId,
+                  message: message,
+                  thread_id: threadId || null,
+                }),
+              }
+            );
+
+            const data = await res.json();
+
+            if (data.thread_id && data.thread_id !== threadId) {
+              threadId = data.thread_id;
+              localStorage.setItem("thread_id", threadId);
+            }
+
+            const botMsg = document.createElement("div");
+            botMsg.className = "mb-2";
+            botMsg.innerHTML = `<strong>Assistent:</strong> ${
+              data.response || "Geen antwoord ontvangen."
+            }`;
+            chatBox.appendChild(botMsg);
+            chatBox.scrollTop = chatBox.scrollHeight;
+          } catch (error) {
+            const errorMsg = document.createElement("div");
+            errorMsg.className = "mb-2 text-red-500";
+            errorMsg.innerHTML = `<strong>Fout:</strong> Kon geen verbinding maken met de assistent.`;
+            chatBox.appendChild(errorMsg);
+          }
+        }
       }
     </script>
   </body>

@@ -525,20 +525,26 @@
             class="hidden overflow-hidden md:p-2 rounded-xl md:border-2 relative bg-white"
           >
             <div
-              class="absolute z-0 glow-0 top-[18cqw] left-[4cqw] w-[84cqw] h-[70cqw] rounded-[340px] transform scale-160 rotate-[53deg] bg-[radial-gradient(#1c4e50,#133032_34%,#091a1c_70%,#061a1c_100%)]"
-            ></div>
-            <div
-              class="relative z-10 rounded-xl md:rounded-lg md:border-2 bg-[#061a1c]"
+              class="relative rounded-xl md:rounded-lg md:border-2 bg-[#061a1c] overflow-hidden"
             >
-              <img src="./image/tab/tab3.webp" alt="" class="w-full" />
-              <div class="p-5 md:p-10 flex flex-col gap-5">
-                <h3 class="text-2xl md:text-6xl text-white">
-                  Publish across channels
-                </h3>
-                <p class="text-base md:text-xl text-white">
-                  Show up where shoppers scroll, search, and shop with
-                  multichannel integration.
-                </p>
+              <div
+                class="absolute glow-0 top-[5cqw] left-[20cqw] w-[50cqw] h-[55cqw] rounded-[340px] transform scale-160 rotate-[53deg] bg-[radial-gradient(#1c4e50,#133032_34%,#091a1c_70%,#061a1c_100%)]"
+              ></div>
+              <div class="relative z-10">
+                <img
+                  src="./image/tab/tab3.webp"
+                  alt=""
+                  class="w-full max-w-[450px] m-auto"
+                />
+                <div class="p-5 md:p-10 flex flex-col gap-5">
+                  <h3 class="text-2xl md:text-6xl text-white">
+                    Publish across channels
+                  </h3>
+                  <p class="text-base md:text-xl text-white">
+                    Show up where shoppers scroll, search, and shop with
+                    multichannel integration.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -1193,9 +1199,176 @@
       </div>
     </section>
 
+    <!-- srcoll tab -->
+    <section class="hidden py-10 px-5 md:p-15 page-width">
+      <div class="sticky top-5 h-[100vh]">
+        <div class="flex text-white gap-10">
+          <div class="w-1/12 flex flex-col items-end gap-3">
+            <a
+              href="#boards"
+              class="h-[100px] w-[10px] rounded-full bg-[hsla(0,0%,100%,.16)] relative p-[2px]"
+            >
+              <span class="h-0 overflow-hidden w-0 absolute">Boards</span>
+              <span
+                class="scroll-Line h-1/2 bg-red-500 w-full absolute top-0 rounded-full left-0"
+                style="top: 10%"
+              >
+              </span>
+            </a>
+            <a
+              href="#docs"
+              class="h-[100px] w-[10px] rounded-full bg-[hsla(0,0%,100%,.16)] relative p-[2px]"
+            >
+              <span class="h-0 overflow-hidden w-0 absolute"> Docs </span>
+              <span
+                class="scroll-Line h-1/2 bg-red-500 w-full absolute top-0 rounded-full left-0"
+                style="top: 0%"
+              >
+              </span>
+            </a>
+          </div>
+          <div class="w-11/12">
+            <div id="scroll_tab_1" class="text-xl">
+              <p>
+                <b>Boards</b> are the perfect place to express ideas with mind
+                maps, flowcharts, wireframes, and more.
+              </p>
+              <br />
+              <p>
+                Sticky notes, voting, and timers makes boards great for retros
+                and workshops, too.
+              </p>
+            </div>
+            <div id="scroll_tab_2" class="text-xl hidden">
+              <p>
+                <b>Docs</b> are where ideas become plans. Create shared notes,
+                write PRDs, embed boards into docs to add important context, and
+                align your team before you build.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="boards" class="h-[120vh]"></div>
+      <div id="docs" class="h-[120vh]"></div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollLines = document.querySelectorAll(".scroll-Line");
+        const sections = {
+          boards: {
+            element: document.getElementById("boards"),
+            tab: document.getElementById("scroll_tab_1"),
+            line: scrollLines[0],
+          },
+          docs: {
+            element: document.getElementById("docs"),
+            tab: document.getElementById("scroll_tab_2"),
+            line: scrollLines[1],
+          },
+        };
+
+        // Set initial positions
+        sections.boards.line.style.top = "10%";
+        sections.docs.line.style.top = "0%";
+        sections.boards.tab.classList.remove("hidden");
+        sections.docs.tab.classList.add("hidden");
+
+        // Calculate scroll ranges
+        const stickyHeight = document.querySelector(".sticky").offsetHeight;
+        const boardsHeight = sections.boards.element.offsetHeight;
+        const docsHeight = sections.docs.element.offsetHeight;
+        const totalScrollRange = boardsHeight + docsHeight;
+
+        // Scroll event listener with debounce
+        let isScrolling;
+        window.addEventListener("scroll", function () {
+          window.clearTimeout(isScrolling);
+          isScrolling = setTimeout(function () {
+            const scrollPosition = window.scrollY;
+            const scrollPercent = (scrollPosition / totalScrollRange) * 100;
+
+            // Boards section (0-50% of total scroll)
+            if (scrollPercent <= 50) {
+              const progress = scrollPercent * 2; // 0-100% of section
+              sections.boards.line.style.top = `${10 + progress * 0.4}%`; // 10-50% animation
+              sections.docs.line.style.top = "0%";
+              sections.boards.tab.classList.remove("hidden");
+              sections.docs.tab.classList.add("hidden");
+            }
+            // Docs section (50-100% of total scroll)
+            else {
+              const progress = (scrollPercent - 50) * 2; // 0-100% of section
+              sections.boards.line.style.top = "50%";
+              sections.docs.line.style.top = `${progress * 0.5}%`; // 0-50% animation
+              sections.boards.tab.classList.add("hidden");
+              sections.docs.tab.classList.remove("hidden");
+            }
+          }, 50);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+
+    <style>
+      .scroll-Line {
+        position: absolute;
+        left: 0;
+        width: 100%;
+        height: 50%;
+        background-color: #ff4d4d;
+        border-radius: 9999px;
+        transition: top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+
+      /* Navigation link styles */
+      .sticky a {
+        position: relative;
+        display: block;
+        transition: background-color 0.3s ease;
+      }
+
+      .sticky a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+
+      /* Section transition */
+      #scroll_tab_1,
+      #scroll_tab_2 {
+        transition: opacity 0.5s ease;
+      }
+
+      #scroll_tab_1.hidden,
+      #scroll_tab_2.hidden {
+        display: none;
+        opacity: 0;
+      }
+
+      #scroll_tab_1:not(.hidden),
+      #scroll_tab_2:not(.hidden) {
+        display: block;
+        opacity: 1;
+      }
+    </style>
+
     <!--  -->
     <!--  -->
-    <!-- css -->
+    <!-- style css -->
     <style>
       .loader {
         display: none;
@@ -1787,17 +1960,17 @@
             clearInterval(rotationInterval);
           }
 
-          // Pause when mouse enters tab contents
-          tabContentsContainer.addEventListener("mouseenter", () => {
-            isPaused = true;
-            loadingBars[currentTabIndex].style.width = "100%"; // Keep current progress
-          });
+          // // Pause when mouse enters tab contents
+          // tabContentsContainer.addEventListener("mouseenter", () => {
+          //   isPaused = true;
+          //   loadingBars[currentTabIndex].style.width = "100%"; // Keep current progress
+          // });
 
-          // Resume when mouse leaves
-          tabContentsContainer.addEventListener("mouseleave", () => {
-            isPaused = false;
-            startTabRotation(); // Restart with fresh timing
-          });
+          // // Resume when mouse leaves
+          // tabContentsContainer.addEventListener("mouseleave", () => {
+          //   isPaused = false;
+          //   startTabRotation(); // Restart with fresh timing
+          // });
 
           // Manual tab switching
           tabs.forEach((tab, index) => {
@@ -1805,7 +1978,10 @@
               e.preventDefault();
               currentTabIndex = index;
               activateTab(index);
-              startTabRotation(); // Restart rotation after manual selection
+              loadingBars[currentTabIndex].style.width = "0";
+              loadingBars[currentTabIndex].style.transition = "none";
+              // startTabRotation(); // Restart rotation after manual selection
+              stopTabRotation(); // Restart rotation after manual selection
             });
           });
 

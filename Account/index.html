@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Page</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="/css/index.css" />
+
+    <!-- Gasp -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+
+    <!-- Link Swiper's CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+      integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body class="page-width bg-[var(--bg)]">
+    <!-- Loading Bar -->
+    <div
+      id="loader"
+      class="fixed top-0 left-0 w-full h-full bg-black flex flex-col justify-center items-center z-50 transition-opacity duration-500"
+    >
+      <div
+        class="w-4/5 max-w-[300px] h-1 bg-gray-300 rounded overflow-hidden mb-4 relative"
+      >
+        <div class="h-full w-full bg-blue-500 absolute loader-animation"></div>
+      </div>
+      <p class="text-gray-600">Loading...</p>
+    </div>
+
+    <!-- header -->
+    <section class="flex flex-col gap-5 md:gap-10 p-5">
+      <h1 class="text-white text-xl md:text-4xl font-bold text-center">
+        Vul dit snell formulier in om te zien of u in aanmerking komt voor onze
+        1-op-1 EKO EVOLVED
+      </h1>
+      <h3
+        class="text-[var(--website)] text-base md:text-2xl text-center md:px-40"
+      >
+        vanwege een hoog, percentage boekingen accepteren we alleen oproepen van
+        mensen die formulier invullen
+      </h3>
+      <hr class="border-[var(--website)]" />
+    </section>
+
+    <!-- number -->
+    <section class="p-5">
+      <div
+        class="text-white flex flex-col md:flex-row justify-center gap-5 md:gap-10 counter-container"
+      >
+        <!--  -->
+        <div
+          style="background-image: linear-gradient(#232323, #232323)"
+          class="p-7 md:w-fit rounded-3xl flex flex-col items-center gap-5"
+        >
+          <h1 class="text-4xl font-bold text-[var(--website)]">
+            <span id="counter1">0</span>+ jaar
+          </h1>
+          <p class="text-xl">Leider in Dropshipping</p>
+        </div>
+        <!--  -->
+        <div
+          style="background-image: linear-gradient(#232323, #232323)"
+          class="p-7 md:w-fit rounded-3xl flex flex-col items-center gap-5"
+        >
+          <h1 class="text-4xl font-bold text-[var(--website)]">
+            <span id="counter2">00</span>+ Miljonairs
+          </h1>
+          <p class="text-xl">Opgeleid met</p>
+        </div>
+        <!--  -->
+        <div
+          style="background-image: linear-gradient(#232323, #232323)"
+          class="p-7 md:w-fit rounded-3xl flex flex-col items-center gap-5"
+        >
+          <h1 class="text-4xl font-bold text-[var(--website)]">
+            €<span id="counter3">0.0</span> M
+          </h1>
+          <p class="text-xl">Omzet met online sales</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- reel silder -->
+    <section class="p-5 text-white flex flex-col items-center gap-5">
+      <h4 class="text-4xl md:text-6xl font-bold text-center">
+        <span class="text-[var(--website)]">Succesverhalen</span> en
+        <span class="text-[var(--website)]">echte</span> resultaten
+      </h4>
+      <p class="md:px-40 text-center">
+        Ontdek de levensveranderende transformaties die dagelijks plaatsvinden
+        binnen onze community. Lees de inspirerende verhalen van makers die mijn
+        systeem hebben gebruikt om te ontsnappen aan de sleur van 9 tot 5,
+        merkdeals te sluiten en financiële vrijheid te bereiken. Dit zijn niet
+        alleen resultaten, dit is het bewijs dat jij het ook kunt!
+      </p>
+      <!-- Swiper -->
+      <div class="swiper mySwiper_reel">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+          <div class="swiper-slide shadow-color">
+            <img src="/image/silder/silder-1.avif" />
+          </div>
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </section>
+
+    <!-- Button -->
+    <section class="p-5">
+      <a href="#">
+        <div
+          class="circle_line shadow-color bg-[var(--website)] w-full xl:w-fit m-auto px-5 xl:px-32 py-2 md:py-5 mt-7 rounded-full"
+        >
+          <h3 class="text-xl md:text-4xl font-bold text-center">
+            Nu solliciteren
+          </h3>
+          <p class="md:text-2xl text-center">
+            Sluit je aan bij 2000+ succesvolle studenten
+          </p>
+        </div>
+      </a>
+    </section>
+
+    <section class="min-h-screen flex items-center justify-center p-4">
+      <div class="rounded-xl shadow-lg p-6 md:p-8 w-full max-w-3xl">
+        <div class="space-y-6">
+          <!-- Question 1 -->
+          <div data-q="1">
+            <div
+              class="text-lg md:text-xl flex flex-row gap-2 font-bold text-[var(--website)]"
+            >
+              1
+              <div class="flex flex-col gap-5">
+                <label>
+                  <span class="text-white under-Line">
+                    Vul je deze vragenlijst in omdat je wilt starten met AI
+                    <span class="text-[var(--website)]">E-Commerce</span> zodat
+                    je in
+                    <span class="text-[var(--website)]">1-2 uur</span> tijd per
+                    dag <span class="u_l">€10,000+</span> per maand kan gaan
+                    verdienen?
+                  </span>
+                  *
+                </label>
+
+                <!-- Options -->
+                <div class="space-y-3">
+                  <div
+                    id="optionA"
+                    class="option p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                  >
+                    <span
+                      class="h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
+                    >
+                      A
+                    </span>
+                    <p
+                      class="text-[var(--website)] flex-grow flex items-center"
+                    >
+                      Ja, ik wil graag ontdekken of AI E-Commerce wat voor mij
+                      is, zodat ik een (extra) inkomen kan hebben.
+                    </p>
+                    <div>
+                      <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+
+                  <div
+                    id="optionB"
+                    class="option p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                  >
+                    <span
+                      class="h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
+                    >
+                      B
+                    </span>
+                    <p
+                      class="text-[var(--website)] flex-grow flex items-center"
+                    >
+                      Nee, ik verlaat deze pagina onmiddellijk.
+                    </p>
+                    <div>
+                      <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 2 -->
+          <div data-q="2">
+            <div
+              class="text-lg md:text-xl flex gap-2 font-bold text-[var(--website)]"
+            >
+              2
+              <div class="flex flex-col gap-5">
+                <label>
+                  <span class="text-white under-Line"> Wat is je naam? </span>
+                </label>
+
+                <!-- Options -->
+                <div class="space-y-3">
+                  <div class="flex flex-col">
+                    <label for="firstName">Voornaam</label>
+                    <input
+                      id="firstname"
+                      placeholder="Jan"
+                      type="text"
+                      class="bg-transparent border-0 border-b-2 border-b-white"
+                    />
+                  </div>
+
+                  <div class="flex flex-col">
+                    <label for="lastName">Achternaam</label>
+                    <input
+                      id="lastName"
+                      placeholder="de Vries"
+                      type="text"
+                      class="bg-transparent border-0 border-b-2 border-b-white"
+                    />
+                  </div>
+
+                  <div class="flex flex-col">
+                    <label for="Email">E-mailadres</label>
+                    <input
+                      id="Email"
+                      placeholder="example@gmail.com"
+                      type="email"
+                      class="bg-transparent border-0 border-b-2 border-b-white"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-5 flex flex-row gap-2">
+          <button
+            id="backBtn"
+            class="w-full md:w-auto px-3 py-3 bg-[var(--website)] text-white font-medium rounded-lg transition-colors duration-200 cursor-pointer"
+          >
+            <i class="fa-solid fa-angle-left"></i>
+          </button>
+          <!-- Button -->
+          <button
+            id="submitBtn"
+            class="w-full md:w-auto px-6 py-3 bg-[var(--website)] text-white font-medium rounded-lg transition-colors duration-200 cursor-pointer"
+            disabled
+          >
+            Oké
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <!--  -->
+    <!-- Css -->
+    <!--  -->
+    <style>
+      @layer utilities {
+        .loader-animation {
+          animation: load 1.5s infinite linear;
+        }
+        @keyframes load {
+          0% {
+            left: -100%;
+          }
+          100% {
+            left: 100%;
+          }
+        }
+      }
+
+      .swiper.mySwiper_reel {
+        width: 100%;
+        padding: 50px;
+      }
+
+      .mySwiper_reel .swiper-slide {
+        background-position: center;
+        background-size: cover;
+        width: 300px;
+        height: 500px;
+        border: 2px solid white;
+        border-radius: 25px;
+        overflow: hidden;
+        box-shadow: 0 0 30px -5px var(--website);
+      }
+      @media screen and (max-width: 767px) {
+        .mySwiper_reel .swiper-slide {
+          height: fit-content;
+        }
+      }
+      @media screen and (min-width: 1400px) {
+        .mySwiper_reel .swiper-slide {
+          height: 700px;
+        }
+      }
+
+      .mySwiper_reel .swiper-slide img {
+        display: block;
+        width: 100%;
+      }
+      .mySwiper_reel .swiper-pagination-bullet-active,
+      .mySwiper_reel .swiper-pagination-bullet {
+        background-color: var(--website);
+      }
+
+      [data-q] {
+        transition: opacity 0.3s ease;
+      }
+    </style>
+
+    <!-- Swiper JS -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      // Loading bar
+      {
+        window.scrollTo(0, 0);
+        history.scrollRestoration = "manual";
+        window.addEventListener("load", function () {
+          setTimeout(() => {
+            document.getElementById("loader").classList.add("opacity-0");
+            setTimeout(() => {
+              document.getElementById("loader").remove();
+            }, 500);
+          }, 2000);
+        });
+      }
+
+      // Gasp Number Counter
+      {
+        gsap.registerPlugin(ScrollTrigger);
+
+        // First counter
+        gsap.to("#counter1", {
+          innerText: 7,
+          duration: 5,
+          snap: { innerText: 1 },
+          ease: "power1.out",
+          scrollTrigger: {
+            trigger: "#counter1",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+
+        // Second counter
+        gsap.to("#counter2", {
+          innerText: 23,
+          duration: 5,
+          snap: { innerText: 1 },
+          ease: "power1.out",
+          onUpdate: function () {
+            this.targets()[0].innerText = String(
+              Math.floor(this.targets()[0].innerText)
+            ).padStart(2, "0");
+          },
+          scrollTrigger: {
+            trigger: "#counter2",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+
+        // Third counter
+        gsap.to("#counter3", {
+          innerText: 100.0,
+          duration: 5,
+          ease: "power1.out",
+          modifiers: {
+            innerText: function (innerText) {
+              // Round to nearest 0.5 (0.0, 0.5, 1.0, etc.)
+              const roundedValue = Math.round(parseFloat(innerText) * 2) / 2;
+              // Format to 1 decimal place (e.g., "0.0", "0.5", "1.0")
+              return roundedValue.toFixed(1);
+            },
+          },
+          scrollTrigger: {
+            trigger: "#counter3",
+            start: "top 80%",
+            toggleActions: "play none none none",
+          },
+        });
+      }
+
+      // Silder
+      {
+        var swiper = new Swiper(".mySwiper_reel", {
+          effect: "coverflow",
+          grabCursor: true,
+          loop: true,
+          slidesPerView: 2,
+          spaceBetween: 25,
+          coverflowEffect: {
+            rotate: 0,
+            stretch: 0,
+            depth: 0,
+            modifier: 1,
+            slideShadows: true,
+          },
+          autoplay: {
+            delay: 3000,
+          },
+          pagination: {
+            el: ".swiper-pagination",
+          },
+          breakpoints: {
+            640: {
+              slidesPerView: 2,
+              spaceBetween: 50,
+            },
+            1024: {
+              slidesPerView: 3,
+              spaceBetween: 100,
+            },
+          },
+        });
+      }
+
+      // {
+      //   document.addEventListener("DOMContentLoaded", function () {
+      //     const optionA = document.getElementById("optionA");
+      //     const optionB = document.getElementById("optionB");
+      //     const submitBtn = document.getElementById("submitBtn");
+      //     let selectedOption = null;
+
+      //     // Option selection
+      //     [optionA, optionB].forEach((option) => {
+      //       option.addEventListener("click", function () {
+      //         // Remove previous selection
+      //         document.querySelectorAll(".option").forEach((opt) => {
+      //           opt.classList.remove(
+      //             "outline-2",
+      //             "outline-offset-2",
+      //             "outline-white"
+      //           );
+      //           opt
+      //             .querySelector("i")
+      //             .classList.remove("text-[var(--website)]", "opacity-100");
+      //           opt
+      //             .querySelector("span")
+      //             .classList.remove("bg-[var(--website)]", "text-black");
+      //         });
+
+      //         this.querySelector("i").classList.add(
+      //           "text-[var(--website)]",
+      //           "opacity-100"
+      //         );
+      //         this.querySelector("span").classList.add(
+      //           "bg-[var(--website)]",
+      //           "text-black"
+      //         );
+      //         // Add selection to clicked option
+      //         this.classList.add(
+      //           "outline-2",
+      //           "outline-offset-2",
+      //           "outline-white"
+      //         );
+      //         selectedOption = this.id;
+
+      //         // Enable submit button
+      //         submitBtn.disabled = false;
+      //       });
+      //     });
+
+      //     // Submit action
+      //     submitBtn.addEventListener("click", function () {
+      //       if (selectedOption === "optionA") {
+      //         // Proceed to next step
+      //         alert("Next step");
+      //         // window.location.href = '/next-step';
+      //       } else if (selectedOption === "optionB") {
+      //         // Exit action
+      //         alert("Bedankt voor je tijd. Tot ziens!");
+      //         // window.location.href = '/exit';
+      //       }
+      //     });
+      //   });
+      // }
+
+      {
+        document.addEventListener("DOMContentLoaded", function () {
+          const question1 = document.querySelector('[data-q="1"]');
+          const question2 = document.querySelector('[data-q="2"]');
+          const options = question1.querySelectorAll(".option");
+          const backBtn = document.getElementById("backBtn");
+
+          // Initially show Q1, hide Q2
+          question2.style.display = "none";
+          backBtn.style.display = "none";
+
+          // Handle Q1 option click
+          options.forEach((option) => {
+            option.addEventListener("click", () => {
+              question1.style.display = "none";
+              question2.style.display = "block";
+              backBtn.style.display = "block";
+            });
+          });
+
+          // Handle back button click
+          backBtn.addEventListener("click", () => {
+            question1.style.display = "block";
+            question2.style.display = "none";
+            backBtn.style.display = "none";
+          });
+        });
+      }
+    </script>
+
+    <script src="/js/underline.js"></script>
+  </body>
+</html>

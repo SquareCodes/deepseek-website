@@ -6,8 +6,8 @@
     <title>deep seek</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="/css/color.css" />
-    <link rel="stylesheet" href="/css/circle-ring.css">
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/circle-ring.css" />
 
     <link
       rel="stylesheet"
@@ -23,7 +23,7 @@
       <header class="h-28 px-5">
         <div class="page-width flex items-center justify-between w-full h-full">
           <img src="" alt="" />
-          <a href="/page/account.html">
+          <a href="/Account/">
             <i
               class="fa-solid fa-bars fa-2xl font-[5em] text-[var(--website)]"
             ></i>
@@ -67,7 +67,7 @@
           ></iframe>
         </div>
         <!-- button -->
-        <a href="/page/account.html">
+        <a href="/Account/">
           <div
             class="circle_line shadow-color bg-[var(--website)] w-full xl:w-fit m-auto px-5 xl:px-32 py-2 md:py-5 mt-7 rounded-full"
           >
@@ -163,7 +163,7 @@
       </div>
       <p class="text-2xl lg:text-5xl text-white text-center under-Line md:px-5">
         Wij verwelkomen je graag in onze wereldwijde gemeenschap van meer dan
-        <span>8.000</span> <span>ondernemers</span> die het online onderwijs
+        <span class="u_l">8.000</span> <span class="u_l">ondernemers</span> die het online onderwijs
         radicaal
         <span>verbeteren.</span>
       </p>
@@ -726,7 +726,7 @@
         class="m-auto w-fit flex flex-col justify-center items-center gap-2 under-Line"
       >
         <img src="./image/face_book.svg" alt="" />
-        <span class="uppercase text-white">Zakenpartner</span>
+        <span class="uppercase text-white u_l">Zakenpartner</span>
       </div>
     </section>
 
@@ -995,7 +995,7 @@
       </div>
       <div class="under-Line text-white m-auto flex flex-col items-center">
         <h2 class="text-2xl md:text-5xl font-bold text-center">
-          Beheers <span>Meta-advertenties</span> met AI
+          Beheers <span class="u_l">Meta-advertenties</span> met AI
         </h2>
         <p class="text-center max-w-[450px] py-5">
           <span>Meta-advertenties</span> hoeven geen rocket science te zijn.
@@ -1381,7 +1381,7 @@
         class="fixed bottom-5 w-[50px] h-[50px] right-5 bg-[var(--website)] text-white p-3 rounded-full shadow-lg z-40 hover:bg-yellow-500 transition-all"
         onclick="toggleChat()"
       >
-      <i class="fa-solid fa-comment-sms fa-xl"></i>
+        <i class="fa-solid fa-comment-sms fa-xl"></i>
       </button>
       <!-- chat -->
       <div
@@ -1392,7 +1392,7 @@
           onclick="toggleChat()"
           class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
         >
-        <i class="fa-solid fa-xmark fa-lg"></i>
+          <i class="fa-solid fa-xmark fa-lg"></i>
         </button>
         <div id="chat-messages" class="h-48 overflow-y-auto text-sm mb-2"></div>
         <input
@@ -1530,23 +1530,6 @@
         75% {
           transform: translateX(-5px);
         }
-      }
-      .under-Line span {
-        position: relative;
-        display: inline-flex;
-      }
-      .under-Line span::before {
-        content: "";
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        background: red;
-        height: 2px;
-        width: 0;
-        transition: 2s;
-      }
-      .under-Line.line-visible span::before {
-        width: 100%;
       }
       /*  */
       /* line animation */
@@ -1947,29 +1930,6 @@
     <!--  -->
     <script>
       //
-      // Select the under-Line element
-      //
-      {
-        const underLine = document.querySelectorAll(".under-Line");
-
-        // Set up the IntersectionObserver
-        const observer = new IntersectionObserver((entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              // Add the 'line-visible' class when the element is in view
-              entry.target.classList.add("line-visible");
-            } else {
-              // Remove the 'line-visible' class when the element is out of view
-              entry.target.classList.remove("line-visible");
-            }
-          });
-        });
-
-        // Observe the under-Line element
-        for (i of underLine) observer.observe(i);
-      }
-
-      //
       // image icon bouner
       //
       {
@@ -2207,5 +2167,7 @@
         });
       }
     </script>
+
+    <script src="/js/underline.js"></script>
   </body>
 </html>

@@ -3,20 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Account Page</title>
+    <title>deep seek</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/circle-ring.css" />
 
-    <!-- Gasp -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
-
-    <!-- Link Swiper's CSS -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
-    />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
@@ -24,1096 +16,2154 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-
-    <!-- tel -->
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.min.css"
-    />
-    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
   </head>
-  <body class="page-width bg-[var(--bg)]">
-    <!-- Loading Bar -->
-    <div
-      id="loader"
-      class="fixed top-0 left-0 w-full h-full bg-black flex flex-col justify-center items-center z-50 transition-opacity duration-500"
-    >
-      <div
-        class="w-4/5 max-w-[300px] h-1 bg-gray-300 rounded overflow-hidden mb-4 relative"
-      >
-        <div
-          class="h-full w-full bg-[var(--website)] absolute loader-animation"
-        ></div>
-      </div>
-      <p class="text-gray-600">Loading...</p>
-    </div>
-
+  <body class="bg-[var(--bg)]">
     <!-- header -->
-    <section class="flex flex-col gap-5 md:gap-10 p-5">
-      <h1 class="text-white text-xl md:text-4xl font-bold text-center">
-        Vul dit snell formulier in om te zien of u in aanmerking komt voor onze
-        1-op-1 EKO EVOLVED
-      </h1>
-      <h3
-        class="text-[var(--website)] text-base md:text-2xl text-center md:px-40"
-      >
-        vanwege een hoog, percentage boekingen accepteren we alleen oproepen van
-        mensen die formulier invullen
-      </h3>
-      <hr class="border-[var(--website)]" />
+    <section>
+      <header class="h-28 px-5">
+        <div class="page-width flex items-center justify-between w-full h-full">
+          <img src="" alt="" />
+          <a href="/Account/">
+            <i
+              class="fa-solid fa-bars fa-2xl font-[5em] text-[var(--website)]"
+            ></i>
+          </a>
+        </div>
+      </header>
+      <hr class="border-b-2 border-[var(--website)]" />
     </section>
 
-    <!-- number -->
-    <section class="p-5">
-      <div
-        class="text-white flex flex-col md:flex-row justify-center gap-5 md:gap-10 counter-container"
-      >
-        <!--  -->
-        <div
-          style="background-image: linear-gradient(#232323, #232323)"
-          class="p-7 md:w-fit rounded-3xl flex flex-col items-center gap-5"
+    <!-- top banner -->
+    <section class="p-0">
+      <div class="page-width">
+        <h1
+          class="text-white text-3xl md:text-6xl 2xl:text-8xl leading-none xl:leading-none capitalize px-5 md:px-10 xl:px-0 py-14 w-full xl:w-[75%] m-auto text-center italic"
         >
-          <h1 class="text-4xl font-bold text-[var(--website)]">
-            <span id="counter1">0</span>+ jaar
-          </h1>
-          <p class="text-xl">Leider in Dropshipping</p>
-        </div>
-        <!--  -->
-        <div
-          style="background-image: linear-gradient(#232323, #232323)"
-          class="p-7 md:w-fit rounded-3xl flex flex-col items-center gap-5"
-        >
-          <h1 class="text-4xl font-bold text-[var(--website)]">
-            <span id="counter2">00</span>+ Miljonairs
-          </h1>
-          <p class="text-xl">Opgeleid met</p>
-        </div>
-        <!--  -->
-        <div
-          style="background-image: linear-gradient(#232323, #232323)"
-          class="p-7 md:w-fit rounded-3xl flex flex-col items-center gap-5"
-        >
-          <h1 class="text-4xl font-bold text-[var(--website)]">
-            €<span id="counter3">0.0</span> M
-          </h1>
-          <p class="text-xl">Omzet met online sales</p>
-        </div>
+          <span class="text-[var(--website)]">
+            Lanceer een succesvolle dropshipping-winkel
+          </span>
+          en ontdek winnende producten
+        </h1>
       </div>
     </section>
 
-    <!-- reel silder -->
-    <section class="p-5 text-white flex flex-col items-center gap-5">
-      <h4 class="text-4xl md:text-6xl font-bold text-center">
-        <span class="text-[var(--website)]">Succesverhalen</span> en
-        <span class="text-[var(--website)]">echte</span> resultaten
-      </h4>
-      <p class="md:px-40 text-center">
-        Ontdek de levensveranderende transformaties die dagelijks plaatsvinden
-        binnen onze community. Lees de inspirerende verhalen van makers die mijn
-        systeem hebben gebruikt om te ontsnappen aan de sleur van 9 tot 5,
-        merkdeals te sluiten en financiële vrijheid te bereiken. Dit zijn niet
-        alleen resultaten, dit is het bewijs dat jij het ook kunt!
+    <!-- video -->
+    <section class="page-width p-5 md:p-10">
+      <div class="xl:px-52">
+        <!-- vi -->
+        <div
+          class="relative border-[1px] border-white pb-[56%] rounded-xl overflow-hidden shadow-color"
+        >
+          <iframe
+            class="absolute"
+            frameborder="0"
+            allowfullscreen="true"
+            wmode="opaque"
+            src="https://player.vimeo.com/video/1021430582?share=copy?autoplay=0&title=0&byline=0&wmode=transparent&autopause=0"
+            onload="this.iframeLoaded = true"
+            name="fitvid0"
+            width="100%"
+            height="100%"
+          ></iframe>
+        </div>
+        <!-- button -->
+        <a href="/Account/">
+          <div
+            class="circle_line shadow-color bg-[var(--website)] w-full xl:w-fit m-auto px-5 xl:px-32 py-2 md:py-5 mt-7 rounded-full"
+          >
+            <h3 class="text-xl md:text-4xl font-bold text-center">
+              Ontketen uw ecom-potentieel
+            </h3>
+            <p class="md:text-2xl text-center">
+              Word nu lid van The Yard Academy en bespaar 90%
+            </p>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <!-- image -->
+    <section class="page-width p-5 md:p-10">
+      <div class="m-auto w-fit pb-10 flex image-bon">
+        <div
+          class="w-14 md:w-20 border-2 rounded-full mx-[-10px] overflow-hidden"
+        >
+          <img
+            src="./image/profile3.webp"
+            alt=""
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div
+          class="w-14 md:w-20 border-2 rounded-full mx-[-10px] overflow-hidden"
+        >
+          <img
+            src="./image/profile2.jpg"
+            alt=""
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div
+          class="w-14 md:w-20 border-2 rounded-full mx-[-10px] overflow-hidden"
+        >
+          <img
+            src="./image/profile.png"
+            alt=""
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div
+          class="w-14 md:w-20 border-2 rounded-full mx-[-10px] overflow-hidden"
+        >
+          <img
+            src="./image/profile3.webp"
+            alt=""
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div
+          class="w-14 md:w-20 border-2 rounded-full mx-[-10px] overflow-hidden"
+        >
+          <img
+            src="./image/profile2.jpg"
+            alt=""
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div
+          class="w-14 md:w-20 border-2 rounded-full mx-[-10px] overflow-hidden"
+        >
+          <img
+            src="./image/profile.png"
+            alt=""
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div
+          class="w-14 md:w-20 border-2 rounded-full mx-[-10px] overflow-hidden"
+        >
+          <img
+            src="./image/profile3.webp"
+            alt=""
+            class="w-full h-full object-cover"
+          />
+        </div>
+
+        <div
+          class="w-14 md:w-20 border-2 rounded-full mx-[-10px] bg-[var(--website)] flex justify-center items-center text-base md:text-2xl font-bold overflow-hidden animation-bounce"
+        >
+          You?
+        </div>
+      </div>
+      <p class="text-2xl lg:text-5xl text-white text-center under-Line md:px-5">
+        Wij verwelkomen je graag in onze wereldwijde gemeenschap van meer dan
+        <span class="u_l">8.000</span> <span class="u_l">ondernemers</span> die het online onderwijs
+        radicaal
+        <span>verbeteren.</span>
       </p>
-      <!-- Swiper -->
-      <div class="swiper mySwiper_reel">
-        <div class="swiper-wrapper">
-          <div class="swiper-slide shadow-color">
-            <img src="/image/silder/silder-1.avif" />
-          </div>
-          <div class="swiper-slide shadow-color">
-            <img src="/image/silder/silder-1.avif" />
-          </div>
-          <div class="swiper-slide shadow-color">
-            <img src="/image/silder/silder-1.avif" />
-          </div>
-          <div class="swiper-slide shadow-color">
-            <img src="/image/silder/silder-1.avif" />
-          </div>
-          <div class="swiper-slide shadow-color">
-            <img src="/image/silder/silder-1.avif" />
-          </div>
-          <div class="swiper-slide shadow-color">
-            <img src="/image/silder/silder-1.avif" />
-          </div>
-          <div class="swiper-slide shadow-color">
-            <img src="/image/silder/silder-1.avif" />
-          </div>
-          <div class="swiper-slide shadow-color">
-            <img src="/image/silder/silder-1.avif" />
-          </div>
-          <div class="swiper-slide shadow-color">
-            <img src="/image/silder/silder-1.avif" />
-          </div>
-        </div>
-        <div class="swiper-pagination"></div>
+    </section>
+
+    <!-- Text -->
+    <section class="p-5 md:p-10">
+      <div class="page-width">
+        <h2
+          class="text-2xl sm:text-4xl md:text-5xl lg:text-8xl font-extrabold text-white uppercase text-center md:px-10"
+        >
+          De evolutie in
+          <span class="text-[var(--website)] text-nowrap"> e-commerce </span> is
+          <span class="text-nowrap"> eindelijk hier </span>
+        </h2>
       </div>
     </section>
 
-    <!-- Button -->
-    <section class="p-5">
-      <a href="#">
-        <div
-          class="circle_line shadow-color bg-[var(--website)] w-full xl:w-fit m-auto px-5 xl:px-32 py-2 md:py-5 mt-7 rounded-full"
-        >
-          <h3 class="text-xl md:text-4xl font-bold text-center">
-            Nu solliciteren
-          </h3>
-          <p class="md:text-2xl text-center">
-            Sluit je aan bij 2000+ succesvolle studenten
+    <!-- Tab -->
+    <section class="p-5 md:p-10">
+      <div class="page-width">
+        <div class="max-w-[70ch]">
+          <h2
+            class="text-white text-3xl md:text-4xl mb-5"
+            style="word-spacing: -5px"
+          >
+            AI voor jouw webshop
+          </h2>
+          <p class="text-white text-start">
+            Automatisch betere advertenties, meer leads en slimme integratie met
+            Shopify & social media.
           </p>
         </div>
-      </a>
-    </section>
 
-    <section
-      class="min-h-screen flex items-center justify-center p-4 overflow-hidden"
-    >
-      <div class="rounded-xl shadow-lg p-6 md:p-8 w-full h-full max-w-3xl">
-        <div class="space-y-6">
-          <!-- Question 1 -->
-          <div data-q="1" class="active">
-            <div
-              class="text-lg md:text-2xl flex flex-row gap-2 font-bold text-[var(--website)]"
+        <!-- Tabs -->
+        <div
+          class="mt-4 overflow-x-scroll md:overflow-auto w-fit max-w-full rounded-2xl border border-[var(--website)] bg-[#f9f9fc40] shadow-color relative"
+          style="scrollbar-width: 0"
+        >
+          <ul id="tabs" class="inline-flex p-1 w-fit">
+            <li
+              class="px-4 font-semibold py-2 rounded-xl bg-white text-black active"
             >
-              <div>1</div>
-              <div class="flex flex-col gap-5 flex-grow">
-                <label>
-                  <span class="text-white under-Line">
-                    Vul je deze vragenlijst in omdat je wilt starten met AI
-                    <span class="text-[var(--website)]">E-Commerce</span> zodat
-                    je in
-                    <span class="text-[var(--website)]">1-2 uur</span> tijd per
-                    dag <span class="u_l">€10,000+</span> per maand kan gaan
-                    verdienen?
-                  </span>
-                  *
-                </label>
-
-                <!-- Options -->
-                <div class="space-y-3 opt">
-                  <div
-                    class="option1 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                    aria-label="Ja, ik wil graag ontdekken of AI E-Commerce wat voor mij
-                    is, zodat ik een (extra) inkomen kan hebben."
-                  >
-                    <span
-                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
-                    >
-                      A
-                    </span>
-                    <div
-                      class="text-[var(--website)] flex-grow flex items-center"
-                    >
-                      Ja, ik wil graag ontdekken of AI E-Commerce wat voor mij
-                      is, zodat ik een (extra) inkomen kan hebben.
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-
-                  <div
-                    class="option1 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                    aria-label="Nee, ik verlaat deze pagina onmiddellijk."
-                  >
-                    <span
-                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
-                    >
-                      B
-                    </span>
-                    <div
-                      class="text-[var(--website)] flex-grow flex items-center"
-                    >
-                      Nee, ik verlaat deze pagina onmiddellijk.
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 2 -->
-          <div data-q="2" class="hidden">
-            <div
-              class="text-lg md:text-2xl flex gap-2 font-bold text-[var(--website)]"
-            >
-              <div>2</div>
-              <div class="flex flex-col gap-5 flex-grow">
-                <label>
-                  <span class="text-white under-Line"> Wat is je naam? </span>
-                </label>
-
-                <div class="space-y-3 flex flex-col gap-5">
-                  <h2>Voor - en achtermaam - E-mailadres</h2>
-                  <div class="flex flex-col">
-                    <label for="firstName">Voornaam*</label>
-                    <input
-                      id="firstName"
-                      placeholder="Jan"
-                      type="text"
-                      class="bg-transparent border-0 border-b-2 border-b-white"
-                    />
-                  </div>
-
-                  <div class="flex flex-col">
-                    <label for="lastName">Achternaam*</label>
-                    <input
-                      id="lastName"
-                      placeholder="de Vries"
-                      type="text"
-                      class="bg-transparent border-0 border-b-2 border-b-white"
-                    />
-                  </div>
-
-                  <div class="flex flex-col">
-                    <label for="Email">E-mailadres*</label>
-                    <input
-                      id="Email"
-                      placeholder="example@gmail.com"
-                      type="email"
-                      class="bg-transparent border-0 border-b-2 border-b-white"
-                    />
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 3 -->
-          <div data-q="3" class="hidden">
-            <div
-              class="text-lg md:text-2xl flex flex-row gap-2 font-bold text-[var(--website)]"
-            >
-              <div>3</div>
-              <div class="flex flex-col gap-5 w-[90%]">
-                <label>
-                  <span class="text-white"> Hoe oud ben je?</span>*
-                  <span class="text-white"> Wat is je telefoonnummer?</span>*
-                </label>
-
-                <div class="space-y-3">
-                  <div
-                    class="p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                  >
-                    <span
-                      class="h-fit p-1 font-medium border-2 border-[var(--website)] leading-none"
-                    >
-                      A
-                    </span>
-                    <div
-                      class="flex-grow flex flex-col md:flex-row items-center md:gap-5"
-                    >
-                      <label for="age">leeftijd</label>
-                      <input
-                        id="age"
-                        class="bg-transparent border-0 border-b-2"
-                      />
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-
-                  <div
-                    class="p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                  >
-                    <span
-                      class="h-fit p-1 font-medium border-2 border-[var(--website)] leading-none"
-                    >
-                      B
-                    </span>
-                    <div
-                      class="flex-grow flex flex-col md:flex-row items-center gap-5"
-                    >
-                      <label for="phone">telefoonnummer</label>
-                      <input
-                        id="phone"
-                        type="tel"
-                        class="bg-black text-white placeholder-gray-500 border border-gray-600 rounded px-3 w-full"
-                      />
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 4 -->
-          <div data-q="4" class="hidden">
-            <div
-              class="text-lg md:text-2xl flex flex-row gap-2 font-bold text-[var(--website)]"
-            >
-              <div>4</div>
-              <div class="flex flex-col gap-5 flex-grow">
-                <label>
-                  <span class="text-white under-Line">
-                    Hoe ziet jouw huldige situatle er uit?
-                  </span>
-                  *
-                </label>
-
-                <!-- Options -->
-                <div class="space-y-3 opt">
-                  <div
-                    class="option4 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                    aria-label="Ik werk/studeer en will beginnen met e-commerce"
-                  >
-                    <span
-                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
-                    >
-                      A
-                    </span>
-                    <div
-                      class="text-[var(--website)] flex-grow flex items-center"
-                    >
-                      Ik werk/studeer en will beginnen met e-commerce
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-
-                  <div
-                    class="option4 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                    aria-label="Ik heb een bedrijf en wil e-commerce erbij doen"
-                  >
-                    <span
-                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
-                    >
-                      B
-                    </span>
-                    <div
-                      class="text-[var(--website)] flex-grow flex items-center"
-                    >
-                      Ik heb een bedrijf en wil e-commerce erbij doen
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-
-                  <div
-                    class="option4 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                    aria-label="Ik gen al bezig met e-commerce maar wil naar het"
-                  >
-                    <span
-                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
-                    >
-                      C
-                    </span>
-                    <div
-                      class="text-[var(--website)] flex-grow flex items-center"
-                    >
-                      Ik gen al bezig met e-commerce maar wil naar het
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-
-                  <div
-                    class="option4 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                    aria-label="Anders"
-                  >
-                    <span
-                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
-                    >
-                      D
-                    </span>
-                    <div
-                      class="text-[var(--website)] flex-grow flex items-center"
-                    >
-                      Anders
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 5 -->
-          <div data-q="5" class="hidden">
-            <div
-              class="text-lg md:text-2xl flex flex-row gap-2 font-bold text-[var(--website)]"
-            >
-              <div>4</div>
-              <div class="flex flex-col gap-5 flex-grow">
-                <label>
-                  <span class="text-white under-Line">
-                    Wat is je doel met AI E-commerce?
-                  </span>
-                  *
-                </label>
-
-                <!-- Options -->
-                <div class="space-y-3 opt">
-                  <div
-                    class="option5 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                    aria-label="Stoppen met mijn baan of mijn onerneming"
-                  >
-                    <span
-                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
-                    >
-                      A
-                    </span>
-                    <div
-                      class="text-[var(--website)] flex-grow flex items-center"
-                    >
-                      Stoppen met mijn baan of mijn onerneming
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-
-                  <div
-                    class="option5 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                    aria-label="Extra inkomen verdienen nasst mijn baan of studie"
-                  >
-                    <span
-                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
-                    >
-                      B
-                    </span>
-                    <div
-                      class="text-[var(--website)] flex-grow flex items-center"
-                    >
-                      Extra inkomen verdienen nasst mijn baan of studie
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-
-                  <div
-                    class="option5 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                    aria-label="Vermogen laten groeien en zo snel mogelijk financieel
-                    onafhankelijk worden"
-                  >
-                    <span
-                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
-                    >
-                      C
-                    </span>
-                    <div
-                      class="text-[var(--website)] flex-grow flex items-center"
-                    >
-                      Vermogen laten groeien en zo snel mogelijk financieel
-                      onafhankelijk worden
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-
-                  <div
-                    class="option5 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                    aria-label="online en locatie onafhankelijk geld verdienen."
-                  >
-                    <span
-                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
-                    >
-                      D
-                    </span>
-                    <div
-                      class="text-[var(--website)] flex-grow flex items-center"
-                    >
-                      online en locatie onafhankelijk geld verdienen.
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-
-                  <div
-                    class="option5 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
-                    aria-label="Producten verkopen met passie, warrde bieden aan klanten"
-                  >
-                    <span
-                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
-                    >
-                      E
-                    </span>
-                    <div
-                      class="text-[var(--website)] flex-grow flex items-center"
-                    >
-                      Producten verkopen met passie, warrde bieden aan klanten
-                    </div>
-                    <div>
-                      <i class="fa-solid fa-check opacity-0"></i>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Question 6 -->
-          <div data-q="6" class="hidden">
-            <div
-              class="text-lg md:text-2xl flex flex-row gap-2 font-bold text-[var(--website)]"
-            >
-              <div>6</div>
-              <div class="flex flex-col gap-5 flex-grow">
-                <label>
-                  <span class="text-white under-Line">
-                    Op een schaal van 1 tot 10 hoe gemotiveerd ben jij om een
-                    succesvolle online ondernemer te worden?
-                  </span>
-                  *
-                </label>
-
-                <!-- Rating -->
-                <div class="space-y-3 rate">
-                  <div class="flex flex-row gap-3">
-                    <div
-                      class="rating flex flex-col items-center"
-                      data-rate="1"
-                    >
-                      <i
-                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
-                      ></i>
-                      <div>1</div>
-                    </div>
-                    <div
-                      class="rating flex flex-col items-center"
-                      data-rate="2"
-                    >
-                      <i
-                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
-                      ></i>
-                      2
-                    </div>
-                    <div
-                      class="rating flex flex-col items-center"
-                      data-rate="3"
-                    >
-                      <i
-                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
-                      ></i>
-                      3
-                    </div>
-                    <div
-                      class="rating flex flex-col items-center"
-                      data-rate="4"
-                    >
-                      <i
-                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
-                      ></i
-                      >4
-                    </div>
-                    <div
-                      class="rating flex flex-col items-center"
-                      data-rate="5"
-                    >
-                      <i
-                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
-                      ></i
-                      >5
-                    </div>
-                    <div
-                      class="rating flex flex-col items-center"
-                      data-rate="6"
-                    >
-                      <i
-                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
-                      ></i
-                      >6
-                    </div>
-                    <div
-                      class="rating flex flex-col items-center"
-                      data-rate="7"
-                    >
-                      <i
-                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
-                      ></i>
-                      7
-                    </div>
-                    <div
-                      class="rating flex flex-col items-center"
-                      data-rate="8"
-                    >
-                      <i
-                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
-                      ></i>
-                      8
-                    </div>
-                    <div
-                      class="rating flex flex-col items-center"
-                      data-rate="9"
-                    >
-                      <i
-                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
-                      ></i>
-                      9
-                    </div>
-                    <div
-                      class="rating flex flex-col items-center"
-                      data-rate="10"
-                    >
-                      <i
-                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
-                      ></i>
-                      10
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
+              <a id="default-tab" class="text-nowrap" href="#tab1">
+                logo genereren
+              </a>
+              <div
+                class="loading-bar h-[2px] rounded-full bg-red-500 transition-all w-0"
+              ></div>
+            </li>
+            <li class="px-4 font-semibold py-2 rounded-xl text-white">
+              <a class="text-nowrap" href="#tab2">video genereren</a>
+              <div
+                class="loading-bar h-[2px] rounded-full bg-blue-500 transition-all w-0"
+              ></div>
+            </li>
+            <li class="px-4 font-semibold py-2 rounded-xl text-white">
+              <a class="text-nowrap" href="#tab3">Shopify</a>
+              <div
+                class="loading-bar h-[2px] rounded-full bg-green-500 transition-all w-0"
+              ></div>
+            </li>
+            <li class="px-4 font-semibold py-2 rounded-xl text-white">
+              <a class="text-nowrap" href="#tab4">Voorinstellingen</a>
+              <div
+                class="loading-bar h-[2px] rounded-full bg-orange-500 transition-all w-0"
+              ></div>
+            </li>
+          </ul>
         </div>
-        <div class="mt-5 flex flex-row gap-2">
-          <button
-            id="backBtn"
-            class="w-fit md:w-auto text-2xl px-3 py-3 bg-[var(--website)] text-white font-bold rounded-lg transition-colors duration-200 cursor-pointer hidden"
+
+        <!-- Tab Contents -->
+        <div
+          id="tab-contents"
+          class="bg-[var(--website)] p-1 md:p-2 rounded-2xl mt-5 border-[1px] md:border-2 relative"
+        >
+          <!--  -->
+          <div id="tab1" class="md:p-2 rounded-xl md:border-2 bg-white">
+            <div
+              class="bg-[#F3FFF8] min-h-96 h-full rounded-xl md:rounded-lg md:border-2 flex flex-col justify-center items-center"
+            >
+              <div
+                class="w-full h-full flex flex-col justify-center items-center gap-5 p-5"
+              >
+                <div class="bg-white p-5 shadow-2xl rounded-2xl my-5">
+                  <!-- Name -->
+                  <div class="flex flex-col gap-2 md:flex-row mb-5">
+                    <label for="">Naam:</label>
+                    <input type="text" class="border-2" id="naam_" />
+                  </div>
+                  <!-- Product -->
+                  <div class="flex flex-col gap-2 md:flex-row mb-5">
+                    <label for="">Producten of Diensten:</label>
+                    <input type="text" class="border-2" id="producten_" />
+                  </div>
+                  <!-- Choose a style -->
+                  <div class="flex gap-2 flex-col md:flex-row mb-5">
+                    <label for="style-choice">Stijl keuze:</label>
+                    <select id="style-choice" class="border-2">
+                      <option value="simplistic">Simplistic</option>
+                      <option value="3d">3D</option>
+                      <option value="futuristic">Futuristic</option>
+                      <option value="minimalistic">Minimalistic</option>
+                    </select>
+                  </div>
+                  <!-- Choose a color -->
+                  <div class="flex gap-2 flex-col md:flex-row mb-5">
+                    <label for="color">Kleur keuze:</label>
+                    <input type="color" id="color" />
+                    <input
+                      type="text"
+                      id="color-text"
+                      value="#000000"
+                      class="border-2 w-20"
+                    />
+                    <button
+                      onclick="suggestColor()"
+                      class="border-2 px-4 rounded bg-[var(--website)] hover:bg-yellow-400"
+                    >
+                      AI Suggest
+                    </button>
+                  </div>
+                  <!-- logo Text -->
+                  <div class="flex gap-2 flex-col md:flex-row mb-5">
+                    <label for="">logoTekst Optional:</label>
+                    <input type="text" class="border-2" id="logotext" />
+                  </div>
+                  <!-- Upload Custom Icon -->
+                  <div class="flex gap-2 flex-col md:flex-row mb-5">
+                    <label for="custom-icon">
+                      Optie product/dienst verwerkt in logo:
+                    </label>
+                    <input type="file" id="custom-icon" accept="image/*" />
+                    <style>
+                      @media screen and (max-width: 350px) {
+                        #custom-icon {
+                          width: 100px;
+                        }
+                      }
+                    </style>
+                  </div>
+                  <!--  Upload logo -->
+                  <div class="flex gap-2 flex-col md:flex-row mb-5">
+                    <label>Optie uploaden eigen logo:</label>
+                    <div
+                      id="drop-area"
+                      style="
+                        border: 2px dashed #ccc;
+                        padding: 15px;
+                        text-align: center;
+                        display: flex;
+                        align-items: center;
+                        min-height: 75px;
+                      "
+                    >
+                      <p>
+                        Drag & Drop <br />
+                        Your Logo Here
+                      </p>
+                      <input
+                        type="file"
+                        id="logo-file"
+                        accept="image/*"
+                        hidden
+                      />
+                    </div>
+                    <img
+                      id="logo-preview"
+                      src=""
+                      style="display: none"
+                      class="object-contain max-h-[85px]"
+                    />
+                  </div>
+                  <!-- Button -->
+                  <div class="flex justify-center items-center">
+                    <button
+                      class="border-2 bg-[var(--website)] hover:bg-yellow-400 px-4 py-2 rounded-full"
+                      onclick="sendFormData()"
+                    >
+                      Logo genereren
+                    </button>
+                  </div>
+                  <!-- 1 -->
+                  <div id="loader" class="loader"><div></div></div>
+                  <div
+                    id="logo-result"
+                    class="grid grid-cols-1 md:grid-cols-3 justify-center items-center gap-6 mt-6"
+                  >
+                    <!-- <div class="flex flex-col items-center mb-6">
+                      <img
+                        id="create_logoImageUrl1"
+                        src="./image/tab/tab1.svg"
+                        alt="Generated Logo 1"
+                        style="
+                          max-width: 300px;
+                          width: -webkit-fill-available;
+                          margin-top: 20px;
+                        "
+                      /><a
+                        href="https://oaidalleapiprodscus.blob.core.windows.net/private/org-4UR8XrhJ1sChu1OC4hh2rvs5/user-UIbXInSW4DzJ3yDtOP1TyRKv/img-0pIMyknEsbtctat5cTBYsbWG.png?st=2025-05-15T07%3A45%3A27Z&amp;se=2025-05-15T09%3A45%3A27Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-05-14T20%3A31%3A04Z&amp;ske=2025-05-15T20%3A31%3A04Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=QtF%2BbxB3GTWnLw6ZxHjOkIY5/LFYvX1bgys0Q3fqzRQ%3D"
+                        download="generated-logo-1.png"
+                        style="
+                          display: inline-block;
+                          margin-top: 10px;
+                          color: rgb(0, 0, 255);
+                          text-decoration: underline;
+                        "
+                      >
+                        Download Logo
+                      </a>
+                    </div> -->
+                    <!-- <div class="flex flex-col items-center mb-6">
+                      <img
+                        id="create_logoImageUrl2"
+                        src="./image/tab/tab1.svg"
+                        alt="Generated Logo 2"
+                        style="
+                          max-width: 300px;
+                          width: -webkit-fill-available;
+                          margin-top: 20px;
+                        "
+                      /><a
+                        href="https://oaidalleapiprodscus.blob.core.windows.net/private/org-4UR8XrhJ1sChu1OC4hh2rvs5/user-UIbXInSW4DzJ3yDtOP1TyRKv/img-bE3ARt1NJhrqJFMupU9KCu1T.png?st=2025-05-15T07%3A45%3A26Z&amp;se=2025-05-15T09%3A45%3A26Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-05-14T20%3A31%3A04Z&amp;ske=2025-05-15T20%3A31%3A04Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=GewUUUs5I4R%2B/rvsbSN01wGicZE/JMM0QJw78mzjUSE%3D"
+                        download="generated-logo-2.png"
+                        style="
+                          display: inline-block;
+                          margin-top: 10px;
+                          color: rgb(0, 0, 255);
+                          text-decoration: underline;
+                        "
+                      >
+                        Download Logo
+                      </a>
+                    </div> -->
+                    <!-- <div class="flex flex-col items-center mb-6">
+                      <img
+                        id="create_logoImageUrl3"
+                        src="./image/tab/tab1.svg"
+                        alt="Generated Logo 3"
+                        style="
+                          max-width: 300px;
+                          width: -webkit-fill-available;
+                          margin-top: 20px;
+                        "
+                      /><a
+                        href="https://oaidalleapiprodscus.blob.core.windows.net/private/org-4UR8XrhJ1sChu1OC4hh2rvs5/user-UIbXInSW4DzJ3yDtOP1TyRKv/img-58UCvaII16f4ZwGdT0yKNDxt.png?st=2025-05-15T07%3A45%3A27Z&amp;se=2025-05-15T09%3A45%3A27Z&amp;sp=r&amp;sv=2024-08-04&amp;sr=b&amp;rscd=inline&amp;rsct=image/png&amp;skoid=cc612491-d948-4d2e-9821-2683df3719f5&amp;sktid=a48cca56-e6da-484e-a814-9c849652bcb3&amp;skt=2025-05-14T20%3A31%3A04Z&amp;ske=2025-05-15T20%3A31%3A04Z&amp;sks=b&amp;skv=2024-08-04&amp;sig=Xek3jxhmoAwAu6t1MvnWz2O%2Bp1/T%2BMX1JGTiRxpieZ4%3D"
+                        download="generated-logo-3.png"
+                        style="
+                          display: inline-block;
+                          margin-top: 10px;
+                          color: rgb(0, 0, 255);
+                          text-decoration: underline;
+                        "
+                      >
+                        Download Logo
+                      </a>
+                    </div> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div id="tab2" class="hidden md:p-2 rounded-xl md:border-2 bg-white">
+            <div
+              class="bg-[#F3FFF8] min-h-96 h-full rounded-xl md:rounded-lg md:border-2 flex flex-col justify-center items-center"
+            >
+              <div
+                class="w-full h-full flex flex-col justify-center items-center gap-5 p-5"
+              >
+                <div class="bg-white p-5 shadow-2xl rounded-2xl my-5">
+                  <!-- Name -->
+                  <div class="flex flex-col gap-2 md:flex-row mb-5">
+                    <label for="">bedrijfsnaam:</label>
+                    <input type="text" class="border-2" id="bedrijfsnaam_" />
+                  </div>
+                  <!-- Product name -->
+                  <div class="flex flex-col gap-2 md:flex-row mb-5">
+                    <label for="">Naam product:</label>
+                    <input type="text" class="border-2" id="Naam product_" />
+                  </div>
+                  <!-- Product price -->
+                  <div class="flex flex-col gap-2 md:flex-row mb-5">
+                    <label for="">Prijs van product:</label>
+                    <input
+                      type="text"
+                      class="border-2"
+                      id="Prijs_van_product_"
+                    />
+                  </div>
+                  <!-- Upload Product Image -->
+                  <div class="section-tab">
+                    <label for="productImage">Upload Product Picture:</label>
+                    <input type="file" id="productImage" accept="image/*" />
+
+                    <div>
+                      <img
+                        id="productPreview"
+                        class="preview hidden bg-gray-500"
+                        alt="Product Preview"
+                      />
+                    </div>
+                  </div>
+                  <!-- Upload Logo -->
+                  <div class="section-tab">
+                    <label for="logoSource">Select Logo Source:</label>
+                    <select id="logoSource" class="border-2">
+                      <option>select</option>
+                      <option value="existing">Use Previous Logo</option>
+                      <option value="upload">Upload New Logo</option>
+                    </select>
+
+                    <div
+                      id="logoUploadSection"
+                      style="display: none; margin-top: 10px"
+                    >
+                      <input type="file" id="logoFileInput" accept="image/*" />
+                    </div>
+
+                    <div>
+                      <img
+                        id="logoPreview"
+                        class="preview hidden bg-gray-500"
+                        alt="Logo Preview"
+                      />
+                    </div>
+                  </div>
+                  <style>
+                    .section-tab .preview {
+                      margin-top: 10px;
+                      max-width: 200px;
+                      height: auto;
+                    }
+
+                    .section-tab {
+                      margin-bottom: 20px;
+                    }
+                  </style>
+                  <!-- Button -->
+                  <div class="flex justify-center mt-5">
+                    <button
+                      id="generate-video-btn"
+                      class="border-2 bg-[var(--website)] hover:bg-yellow-400 px-6 py-3 rounded-full text-xl font-bold"
+                    >
+                      Video Genereren
+                    </button>
+                  </div>
+                  <!-- 1 -->
+                  <div id="loader_video" class="loader"><div></div></div>
+                  <div id="video-container" class="mt-5 flex justify-center">
+                    <!-- Video will be inserted here dynamically -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div
+            id="tab3"
+            class="hidden overflow-hidden md:p-2 rounded-xl md:border-2 relative bg-white"
           >
-            <i class="fa-solid fa-angle-left"></i>
-          </button>
-          <!-- Button -->
-          <button
-            id="submitBtn"
-            class="w-full md:w-auto text-2xl px-6 py-3 bg-[var(--website)] text-white font-bold rounded-lg transition-colors duration-200 cursor-pointer"
-            disabled
-          >
-            Oké
-          </button>
+            <div
+              class="relative rounded-xl md:rounded-lg md:border-2 bg-[#061a1c] overflow-hidden"
+            >
+              <div
+                class="absolute glow-0 top-[5cqw] left-[20cqw] w-[50cqw] h-[55cqw] rounded-[340px] transform scale-160 rotate-[53deg] bg-[radial-gradient(#1c4e50,#133032_34%,#091a1c_70%,#061a1c_100%)]"
+              ></div>
+              <div class="relative z-10">
+                <img
+                  src="./image/tab/tab3.webp"
+                  alt=""
+                  class="w-full max-w-[450px] m-auto"
+                />
+                <div class="p-5 md:p-10 flex flex-col gap-5">
+                  <h3 class="text-2xl md:text-6xl text-white">
+                    Publish across channels
+                  </h3>
+                  <p class="text-base md:text-xl text-white">
+                    Show up where shoppers scroll, search, and shop with
+                    multichannel integration.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <!--  -->
+          <div id="tab4" class="hidden md:p-2 rounded-xl md:border-2 bg-white">
+            <img
+              src="./image/tab/tab5.svg"
+              alt=""
+              class="w-full rounded-xl md:rounded-lg md:border-2"
+            />
+          </div>
+          <!-- Lock if account not login -->
+          <div class="absolute bottom-0 right-0 p-10 z-10">
+            <img src="./image/Lock-logo.png" alt="" class="w-20" />
+          </div>
         </div>
       </div>
     </section>
 
-    <!--  -->
-    <!-- Css -->
-    <!--  -->
+    <!-- Tracking Ecommerce -->
+    <section class="icon-set-circle">
+      <!-- Icon Iamge Circle Around -->
+      <div class="hero-circle-items -z-10">
+        <div class="circle-1">
+          <img
+            src="./image/circle_icon/f.webp"
+            alt=""
+            class="img-circle-1-1 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/tiktok.webp"
+            alt=""
+            class="img-circle-1-2 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/pinterest.png"
+            alt=""
+            class="img-circle-1-3 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/tiktok.webp"
+            alt=""
+            class="img-circle-1-4 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/pinterest.png"
+            alt=""
+            class="img-circle-1-5 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/f.webp"
+            alt=""
+            class="img-circle-1-6 rotate-back circle-icon-shadow"
+          />
+        </div>
+        <div class="circle-2">
+          <img
+            src="./image/circle_icon/facebook.webp"
+            alt=""
+            class="img-circle-2-1 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/twitter.webp"
+            alt=""
+            class="img-circle-2-2 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/shopify.webp"
+            alt=""
+            class="img-circle-2-3 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/shopify.webp"
+            alt=""
+            class="img-circle-2-4 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/twitter.webp"
+            alt=""
+            class="img-circle-2-5 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/facebook.webp"
+            alt=""
+            class="img-circle-2-6 rotate-back circle-icon-shadow"
+          />
+        </div>
+        <div class="circle-3">
+          <img
+            src="./image/circle_icon/google.webp"
+            alt=""
+            class="img-circle-3-1 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/google.webp"
+            alt=""
+            class="img-circle-3-3 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/snapchat.webp"
+            alt=""
+            class="img-circle-3-2 rotate-back circle-icon-shadow"
+          /><img
+            src="./image/circle_icon/snapchat.webp"
+            alt=""
+            class="img-circle-3-4 rotate-back circle-icon-shadow"
+          />
+        </div>
+      </div>
+      <!-- End Icon Iamge Circle Around -->
+      <div
+        class="flex gap-10 flex-col w-full h-full justify-around items-center p-5 md:pt-52"
+      >
+        <!--  -->
+        <div
+          class="circle_line text-white py-1 px-3 rounded-full bg-black text-center"
+        >
+          #1 Hoogst gewaardeerde advertentietrackingsoftware voor Shopify
+        </div>
+        <!--  -->
+        <p class="text-white max-w-[750px] text-center">
+          De enige oplossing die nauwkeurige, echte gegevens naar uw
+          advertentiebeheer stuurt. Verhoog uw ROAS met 50% in slechts één week.
+          Geen code. Geen extra dashboards. Gewoon echte resultaten.
+        </p>
+        <!--  -->
+        <ul class="text-white flex gap-2 mg:gap-5 flex-col md:flex-row">
+          <li class="flex gap-5 items-center">
+            <img
+              src="https://cdn.prod.website-files.com/66104964a796becccaa06f03/6615359ea294ea35469457d0_check.svg"
+              loading="lazy"
+              class="w-5 h-5"
+              alt=""
+            />
+            Binnen 5 minuten opgezet
+          </li>
+          <li class="flex gap-5 items-center">
+            <img
+              src="https://cdn.prod.website-files.com/66104964a796becccaa06f03/6615359ea294ea35469457d0_check.svg"
+              loading="lazy"
+              class="w-5 h-5"
+              alt=""
+            />
+            Geen codering vereist
+          </li>
+          <li class="flex gap-5 items-center">
+            <img
+              src="https://cdn.prod.website-files.com/66104964a796becccaa06f03/6615359ea294ea35469457d0_check.svg"
+              loading="lazy"
+              class="w-5 h-5"
+              alt=""
+            />
+            Uitzonderlijke 24/7 ondersteuning
+          </li>
+        </ul>
+        <!--  -->
+        <div
+          class="bg-[#9bb0ff0a] border-2 border-[#ffffff0a] py-3 px-5 text-white"
+        >
+          <div class="flex items-center justify-center gap-3">
+            <img
+              src="https://cdn.prod.website-files.com/66104964a796becccaa06f03/6615359e298134adb91d6ca7_startsrating.svg"
+              loading="lazy"
+              width="61"
+              alt=""
+            />
+            <div class="hero_logo_title is-rating">
+              Gemiddelde beoordeling van<span class="hero_logo_title_span">
+                4.9/5
+              </span>
+            </div>
+          </div>
+        </div>
+        <!--  -->
+        <p class="text-[#b5d2ff80]">
+          Trusted by <span class="text-white">4,000+</span> satisfied merchants
+        </p>
+      </div>
+    </section>
+
+    <!-- Neon Line -->
+    <section class="page-width pt-10">
+      <img
+        src="./image/neon green.png"
+        loading="lazy"
+        alt=""
+        class="max-w-[200%] md:max-w-full w-full"
+      />
+      <div
+        class="m-auto w-fit flex flex-col justify-center items-center gap-2 under-Line"
+      >
+        <img src="./image/face_book.svg" alt="" />
+        <span class="uppercase text-white u_l">Zakenpartner</span>
+      </div>
+    </section>
+
+    <!-- Al ads  Services -->
+    <section
+      class="max-w-[2000px] m-auto relative pt-5 md:pt-28 px-5 overflow-hidden"
+    >
+      <div class="absolute top-0 left-0 w-full h-full">
+        <img src="./image/ads background.svg" alt="" class="w-full h-full" />
+      </div>
+      <div
+        class="text-white flex gap-2 m-auto w-fit my-10 border-2 border-[var(--website)] py-1 px-3 rounded-full text-sm"
+      >
+        Services
+      </div>
+      <div class="z-10 relative pb-40 md:pb-20">
+        <!-- Swiper -->
+        <div class="carousel-slider max-w-full w-screen p-2">
+          <div class="carousel-content-slider flex justify-center gap-4">
+            <!-- Supplier -->
+            <div
+              class="card-slider min-w-[300px] p-[2px] border-2 rounded-[2.5rem] m-5 image_lr_line"
+            >
+              <div
+                class="flex flex-col gap-10 justify-center items-center bg-[#0c081d] p-4 rounded-[2.5rem] h-full"
+              >
+                <div
+                  class="w-[50px] h-[50px] flex justify-center items-center rounded border-2 border-[#4b4b4b] bg-[#363535]"
+                >
+                  <div
+                    class="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-orange-600"
+                  >
+                    <i class="fa-solid fa-box text-white"></i>
+                  </div>
+                </div>
+                <h2 class="text-white text-2xl font-bold">Supplier</h2>
+                <p class="text-white text-center">
+                  Check out our services for Supplier
+                </p>
+                <a
+                  href="#"
+                  class="integration-button w-fit bg-[#282828] rounded-md ml-auto flex justify-start items-center py-2 px-4 font-medium"
+                >
+                  <div class="text-block-5 text-white">Services</div>
+                  <div
+                    class="w-5 h-5 bg-white flex justify-center items-center"
+                  >
+                    <i class="fa-solid fa-angle-right" style="color: black"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- Google -->
+            <div
+              class="card-slider min-w-[300px] p-[2px] border-2 rounded-[2.5rem] m-5 image_lr_line"
+            >
+              <div
+                class="flex flex-col gap-10 justify-center items-center bg-[#0c081d] p-4 rounded-[2.5rem] h-full"
+              >
+                <div
+                  class="w-[50px] h-[50px] flex justify-center items-center rounded border-2 border-[#4b4b4b] bg-[#363535]"
+                >
+                  <div
+                    class="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-black"
+                  >
+                    <i
+                      class="fa-brands fa-google text-white"
+                      style="
+                        background: linear-gradient(
+                          to right,
+                          blue,
+                          green,
+                          orange,
+                          red
+                        );
+                        -webkit-background-clip: text;
+                        color: transparent;
+                      "
+                    ></i>
+                  </div>
+                </div>
+                <h2 class="text-white text-2xl font-bold">Google</h2>
+                <p class="text-white text-center">
+                  Check out our services for Google
+                </p>
+                <a
+                  href="#"
+                  class="integration-button w-fit bg-[#282828] rounded-md ml-auto flex justify-start items-center py-2 px-4 font-medium"
+                >
+                  <div class="text-block-5 text-white">Services</div>
+                  <div
+                    class="w-5 h-5 bg-white flex justify-center items-center"
+                  >
+                    <i class="fa-solid fa-angle-right" style="color: black"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- Tiktok -->
+            <div
+              class="card-slider min-w-[300px] p-[2px] border-2 rounded-[2.5rem] m-5 image_lr_line"
+            >
+              <div
+                class="flex flex-col gap-10 justify-center items-center bg-[#0c081d] p-4 rounded-[2.5rem] h-full"
+              >
+                <div
+                  class="w-[50px] h-[50px] flex justify-center items-center rounded border-2 border-[#4b4b4b] bg-[#363535]"
+                >
+                  <div
+                    class="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-black"
+                  >
+                    <i class="fa-brands fa-tiktok text-white"></i>
+                  </div>
+                </div>
+                <h2 class="text-white text-2xl font-bold">Tiktok</h2>
+                <p class="text-white text-center">
+                  Check out our services for Tiktok
+                </p>
+                <a
+                  href="#"
+                  class="integration-button w-fit bg-[#282828] rounded-md ml-auto flex justify-start items-center py-2 px-4 font-medium"
+                >
+                  <div class="text-block-5 text-white">Services</div>
+                  <div
+                    class="w-5 h-5 bg-white flex justify-center items-center"
+                  >
+                    <i class="fa-solid fa-angle-right" style="color: black"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- Shopify -->
+            <div
+              class="card-slider min-w-[300px] p-[2px] border-2 rounded-[2.5rem] m-5 image_lr_line"
+            >
+              <div
+                class="flex flex-col gap-10 justify-center items-center bg-[#0c081d] p-4 rounded-[2.5rem] h-full"
+              >
+                <div
+                  class="w-[50px] h-[50px] flex justify-center items-center rounded border-2 border-[#4b4b4b] bg-[#363535]"
+                >
+                  <div
+                    class="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-[#96bf48]"
+                  >
+                    <i class="fa-brands fa-shopify"></i>
+                  </div>
+                </div>
+                <h2 class="text-white text-2xl font-bold">Shopify</h2>
+                <p class="text-white text-center">
+                  Check out our services for Shopify
+                </p>
+                <a
+                  href="#"
+                  class="integration-button w-fit bg-[#282828] rounded-md ml-auto flex justify-start items-center py-2 px-4 font-medium"
+                >
+                  <div class="text-block-5 text-white">Services</div>
+                  <div
+                    class="w-5 h-5 bg-white flex justify-center items-center"
+                  >
+                    <i class="fa-solid fa-angle-right" style="color: black"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- Facebook -->
+            <div
+              class="card-slider min-w-[300px] p-[2px] border-2 rounded-[2.5rem] m-5 image_lr_line"
+            >
+              <div
+                class="flex flex-col gap-10 justify-center items-center bg-[#0c081d] p-4 rounded-[2.5rem] h-full"
+              >
+                <div
+                  class="w-[50px] h-[50px] flex justify-center items-center rounded border-2 border-[#4b4b4b] bg-[#363535]"
+                >
+                  <div
+                    class="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-[#3B5998]"
+                  >
+                    <i class="fa-brands fa-facebook-f text-white"></i>
+                  </div>
+                </div>
+                <h2 class="text-white text-2xl font-bold">Facebook</h2>
+                <p class="text-white text-center">
+                  Check out our services for Facebook
+                </p>
+                <a
+                  href="#"
+                  class="integration-button w-fit bg-[#282828] rounded-md ml-auto flex justify-start items-center py-2 px-4 font-medium"
+                >
+                  <div class="text-block-5 text-white">Services</div>
+                  <div
+                    class="w-5 h-5 bg-white flex justify-center items-center"
+                  >
+                    <i class="fa-solid fa-angle-right" style="color: black"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- Email Marketing -->
+            <div
+              class="card-slider min-w-[300px] p-[2px] border-2 rounded-[2.5rem] m-5 image_lr_line"
+            >
+              <div
+                class="flex flex-col gap-10 justify-center items-center bg-[#0c081d] p-4 rounded-[2.5rem] h-full"
+              >
+                <div
+                  class="w-[50px] h-[50px] flex justify-center items-center rounded border-2 border-[#4b4b4b] bg-[#363535]"
+                >
+                  <div
+                    class="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-black"
+                  >
+                    <i class="fa-solid fa-envelopes-bulk text-white"></i>
+                  </div>
+                </div>
+                <h2 class="text-white text-2xl font-bold">Email Marketing</h2>
+                <p class="text-white text-center">
+                  Check out our services for Email Marketing
+                </p>
+                <a
+                  href="#"
+                  class="integration-button w-fit bg-[#282828] rounded-md ml-auto flex justify-start items-center py-2 px-4 font-medium"
+                >
+                  <div class="text-block-5 text-white">Services</div>
+                  <div
+                    class="w-5 h-5 bg-white flex justify-center items-center"
+                  >
+                    <i class="fa-solid fa-angle-right" style="color: black"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+            <!-- Tax & Accounting -->
+            <div
+              class="card-slider min-w-[300px] p-[2px] border-2 rounded-[2.5rem] m-5 image_lr_line"
+            >
+              <div
+                class="flex flex-col gap-10 justify-center items-center bg-[#0c081d] p-4 rounded-[2.5rem] h-full"
+              >
+                <div
+                  class="w-[50px] h-[50px] flex justify-center items-center rounded border-2 border-[#4b4b4b] bg-[#363535]"
+                >
+                  <div
+                    class="w-[30px] h-[30px] flex justify-center items-center rounded-full bg-black"
+                  >
+                    <i class="fa-solid fa-book text-white"></i>
+                  </div>
+                </div>
+                <h2 class="text-white text-2xl font-bold">Tax & Accounting</h2>
+                <p class="text-white text-center">
+                  Check out our services for Tax & Accounting
+                </p>
+                <a
+                  href="#"
+                  class="integration-button w-fit bg-[#282828] rounded-md ml-auto flex justify-start items-center py-2 px-4 font-medium"
+                >
+                  <div class="text-block-5 text-white">Services</div>
+                  <div
+                    class="w-5 h-5 bg-white flex justify-center items-center"
+                  >
+                    <i class="fa-solid fa-angle-right" style="color: black"></i>
+                  </div>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="under-Line text-white m-auto flex flex-col items-center">
+        <h2 class="text-2xl md:text-5xl font-bold text-center">
+          Beheers <span class="u_l">Meta-advertenties</span> met AI
+        </h2>
+        <p class="text-center max-w-[450px] py-5">
+          <span>Meta-advertenties</span> hoeven geen rocket science te zijn.
+          Besteed minder tijd in <span>Ads Manager</span> en bereik meer met
+          <span>AI.</span>
+        </p>
+      </div>
+    </section>
+
+    <!-- half circle line -->
+    <section class="cir_line_half relative">
+      <div class="w-full h-72">
+        <svg width="100%" height="100%">
+          <defs>
+            <radialGradient id="fade" cx="50%" cy="50%" r="50%">
+              <stop offset="0%" stop-color="transparent" />
+              <stop offset="100%" stop-color="white" />
+            </radialGradient>
+          </defs>
+          <g stroke="rgba(255, 255, 255, 0.2)" fill="none" stroke-width="1">
+            <circle cx="50%" cy="300" r="125" />
+            <circle cx="50%" cy="300" r="150" />
+            <circle cx="50%" cy="300" r="175" />
+            <circle cx="50%" cy="300" r="200" />
+            <circle cx="50%" cy="300" r="225" />
+            <circle cx="50%" cy="300" r="250" />
+            <circle cx="50%" cy="300" r="275" />
+            <circle cx="50%" cy="300" r="300" />
+          </g>
+        </svg>
+      </div>
+      <div class="absolute bottom-5 w-full">
+        <div
+          class="text-[#83a7cd] text-sm flex gap-5 m-auto w-fit border-[1px] border-[var(--website)] py-2 px-4 rounded-full bg-[#5276a0]"
+          style="--tw-bg-opacity: 0.25"
+        >
+          <div class="flex gap-3 items-center">
+            <div
+              class="w-2 h-2 bg-[#5a45c2] rounded-full"
+              style="box-shadow: 0 0 10px 5px #5a45c2"
+            ></div>
+            Optimization
+          </div>
+          <div
+            class="flex gap-3 items-center border-l-2 border-r-2 px-5 border-[#83a7cd]"
+          >
+            <div
+              class="w-2 h-2 bg-[#5bb5e0] rounded-full"
+              style="box-shadow: 0 0 10px 5px #5bb5e0"
+            ></div>
+            Analytics
+          </div>
+          <div class="flex gap-3 items-center">
+            <div
+              class="w-2 h-2 bg-[#8c337a] rounded-full"
+              style="box-shadow: 0 0 10px 5px #8c337a"
+            ></div>
+            Creatives
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- neon line -->
+    <section class="page-width">
+      <div class="flex flex-col justify-center items-center">
+        <img
+          src="./image/neon green.png"
+          loading="lazy"
+          alt=""
+          class="max-w-[200%] md:max-w-full w-full"
+        />
+      </div>
+    </section>
+
+    <!-- AI Media -->
+    <section class="page-width px-5 z-0">
+      <div
+        class="border-[#cab7ff1a] border-[1px] bg-[#0c081d] pt-10 md:pt-20 pb-5 px-2 md:px-10 rounded-3xl"
+      >
+        <div
+          class="text-white flex gap-2 m-auto w-fit mb-10 border-2 border-[var(--website)] py-1 px-3 rounded-full text-sm"
+        >
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="18"
+            viewBox="0 0 18 18"
+            fill="none"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M7.61557 2.08446C7.859 1.71932 8.2688 1.5 8.70764 1.5H9.29236C9.7312 1.5 10.141 1.71932 10.3844 2.08446L11.2617 3.4004C11.305 3.46529 11.3839 3.49662 11.4599 3.47909L12.8044 3.16881C13.2454 3.06706 13.7076 3.19963 14.0276 3.51962L14.4804 3.97238C14.8004 4.29237 14.9329 4.75464 14.8312 5.19559L14.5209 6.54011C14.5034 6.6161 14.5347 6.69502 14.5996 6.73828L15.9155 7.61557C16.2807 7.859 16.5 8.2688 16.5 8.70764V9.29236C16.5 9.7312 16.2807 10.141 15.9155 10.3844L14.5996 11.2617C14.5347 11.305 14.5034 11.3839 14.5209 11.4599L14.8312 12.8044C14.9329 13.2454 14.8004 13.7076 14.4804 14.0276L14.0276 14.4804C13.7076 14.8004 13.2454 14.9329 12.8044 14.8312L11.4599 14.5209C11.3839 14.5034 11.305 14.5347 11.2617 14.5996L10.3844 15.9155C10.141 16.2807 9.7312 16.5 9.29236 16.5H8.70764C8.2688 16.5 7.859 16.2807 7.61557 15.9155L6.73828 14.5996C6.69502 14.5347 6.6161 14.5034 6.54011 14.5209L5.19559 14.8312C4.75464 14.9329 4.29237 14.8004 3.97238 14.4804L3.51962 14.0276C3.19963 13.7076 3.06706 13.2454 3.16881 12.8044L3.47909 11.4599C3.49662 11.3839 3.46529 11.305 3.4004 11.2617L2.08446 10.3844C1.71932 10.141 1.5 9.7312 1.5 9.29236V8.70764C1.5 8.2688 1.71932 7.859 2.08446 7.61557L3.4004 6.73828C3.46529 6.69502 3.49662 6.6161 3.47909 6.54011L3.16881 5.19559C3.06706 4.75464 3.19963 4.29237 3.51962 3.97238L3.97238 3.51962C4.29237 3.19963 4.75464 3.06706 5.19559 3.16881L6.54011 3.47909C6.6161 3.49662 6.69502 3.46529 6.73828 3.4004L7.61557 2.08446ZM6.65625 9C6.65625 7.70558 7.70558 6.65625 9 6.65625C10.2944 6.65625 11.3438 7.70558 11.3438 9C11.3438 10.2944 10.2944 11.3438 9 11.3438C7.70558 11.3438 6.65625 10.2944 6.65625 9Z"
+              fill="currentColor"
+            ></path>
+          </svg>
+          Optimization
+        </div>
+        <div class="text-white m-auto flex flex-col items-center">
+          <h2 class="text-2xl md:text-5xl font-bold text-center">
+            Krijg een
+            <span class="text-[var(--website)]">
+              persoonlijke Al-mediakoper
+            </span>
+          </h2>
+          <p class="text-center max-w-[500px] py-5">
+            <span class="text-[var(--website)]">Creatieven</span> testen?
+            Publiek schalen?
+            <span class="text-[var(--website)]">Automatisering</span> instellen?
+            De
+            <span class="text-[var(--website)]">AI marketeer</span> controleert
+            uw account, identificeert zwakke punten en kansen en vertelt u
+            precies wat u vervolgens moet doen!
+          </p>
+        </div>
+        <!-- Circle Line animation with image -->
+        <div class="relative image_lr_line p-[1px] overflow-hidden z-0">
+          <div
+            class="p-2 rounded-[40px] overflow-hidden border-[1px] border-[#cab7ff1a] bg-[#0c081d]"
+          >
+            <img
+              src="https://cdn.prod.website-files.com/614069317241cba124a0dd3b/675aeecb79db787e921149f1_Ad%20Library%20(2).avif"
+              alt=""
+              class="w-full h-full rounded-[40px] border-[1px] border-[#cab7ff1a]"
+            />
+          </div>
+        </div>
+        <div>
+          <div
+            class="circle_line shadow-color bg-[var(--website)] w-fit m-auto px-5 py-2 mt-7 rounded-full z-0"
+          >
+            <p class="md:text-2xl text-center">
+              Optimaliseer mijn advertenties
+            </p>
+          </div>
+        </div>
+        <div class="flex flex-col justify-center items-center mt-10 md:mt-20">
+          <img
+            src="./image/neon green.png"
+            loading="lazy"
+            alt=""
+            class="max-w-[200%] md:max-w-full w-full"
+          />
+        </div>
+      </div>
+    </section>
+
+    <!-- neon line -->
+    <section></section>
+
+    <!-- video box -->
+    <section class="p-5 md:p-10 relative z-10">
+      <div class="page-width">
+        <div class="max-w-[110ch]">
+          <h2 class="text-[var(--website)] text-3xl md:text-6xl font-bold">
+            Werk samen.
+          </h2>
+          <h2 class="text-[var(--website)] text-3xl md:text-6xl font-bold">
+            Zoals op kantoor.
+          </h2>
+          <p class="text-white text-base md:text-2xl my-5">
+            Creëer op maat gemaakte virtuele kantoorruimtes voor elke afdeling
+            of evenement met audio- en videoconferenties van hoge kwaliteit
+          </p>
+        </div>
+        <div class="border-2 rounded-2xl p-2 bg-[var(--website)] shadow-color">
+          <div class="bg-white border-2 rounded-xl">
+            <img src="./image/tab/tab1.svg" alt="" class="w-full h-full" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- button -->
+    <section class="p-10 md:p-15 relative">
+      <div class="m-auto w-fit">
+        <a
+          class="block bg-transparent p-5 cursor-pointer text-center text-[var(--website)] text-xl md:text-3xl font-bold hover:scale-110 hover:bg-[var(--website)] hover:text-black duration-300"
+          style="box-shadow: 0 0 15px 0 white"
+        >
+          Interesse? Boek jouw Vrijblijvende Call!
+        </a>
+      </div>
+    </section>
+
+    <!-- Image  -->
+    <section
+      class="page-width p-10 md:p-15"
+      style="
+        background-image: linear-gradient(
+          to bottom,
+          transparent 50%,
+          var(--website) 200%
+        );
+      "
+    >
+      <div class="text-white">
+        <img
+          src="https://assets.cdn.filesafe.space/Kp5DnR6YLdMz9awSDW8U/media/65b91419b7ea18729f78e2df.png"
+          alt=""
+        />
+      </div>
+    </section>
+
+    <!-- srcoll tab -->
+    <section class="hidden py-10 px-5 md:p-15 page-width">
+      <div class="sticky top-5 h-[100vh]">
+        <div class="flex text-white gap-10">
+          <div class="w-1/12 flex flex-col items-end gap-3">
+            <a
+              href="#boards"
+              class="h-[100px] w-[10px] rounded-full bg-[hsla(0,0%,100%,.16)] relative p-[2px]"
+            >
+              <span class="h-0 overflow-hidden w-0 absolute">Boards</span>
+              <span
+                class="scroll-Line h-1/2 bg-red-500 w-full absolute top-0 rounded-full left-0"
+                style="top: 10%"
+              >
+              </span>
+            </a>
+            <a
+              href="#docs"
+              class="h-[100px] w-[10px] rounded-full bg-[hsla(0,0%,100%,.16)] relative p-[2px]"
+            >
+              <span class="h-0 overflow-hidden w-0 absolute"> Docs </span>
+              <span
+                class="scroll-Line h-1/2 bg-red-500 w-full absolute top-0 rounded-full left-0"
+                style="top: 0%"
+              >
+              </span>
+            </a>
+          </div>
+          <div class="w-11/12">
+            <div id="scroll_tab_1" class="text-xl">
+              <p>
+                <b>Boards</b> are the perfect place to express ideas with mind
+                maps, flowcharts, wireframes, and more.
+              </p>
+              <br />
+              <p>
+                Sticky notes, voting, and timers makes boards great for retros
+                and workshops, too.
+              </p>
+            </div>
+            <div id="scroll_tab_2" class="text-xl hidden">
+              <p>
+                <b>Docs</b> are where ideas become plans. Create shared notes,
+                write PRDs, embed boards into docs to add important context, and
+                align your team before you build.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div id="boards" class="h-[120vh]"></div>
+      <div id="docs" class="h-[120vh]"></div>
+    </section>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        const scrollLines = document.querySelectorAll(".scroll-Line");
+        const sections = {
+          boards: {
+            element: document.getElementById("boards"),
+            tab: document.getElementById("scroll_tab_1"),
+            line: scrollLines[0],
+          },
+          docs: {
+            element: document.getElementById("docs"),
+            tab: document.getElementById("scroll_tab_2"),
+            line: scrollLines[1],
+          },
+        };
+
+        // Set initial positions
+        sections.boards.line.style.top = "10%";
+        sections.docs.line.style.top = "0%";
+        sections.boards.tab.classList.remove("hidden");
+        sections.docs.tab.classList.add("hidden");
+
+        // Calculate scroll ranges
+        const stickyHeight = document.querySelector(".sticky").offsetHeight;
+        const boardsHeight = sections.boards.element.offsetHeight;
+        const docsHeight = sections.docs.element.offsetHeight;
+        const totalScrollRange = boardsHeight + docsHeight;
+
+        // Scroll event listener with debounce
+        let isScrolling;
+        window.addEventListener("scroll", function () {
+          window.clearTimeout(isScrolling);
+          isScrolling = setTimeout(function () {
+            const scrollPosition = window.scrollY;
+            const scrollPercent = (scrollPosition / totalScrollRange) * 100;
+
+            // Boards section (0-50% of total scroll)
+            if (scrollPercent <= 50) {
+              const progress = scrollPercent * 2; // 0-100% of section
+              sections.boards.line.style.top = `${10 + progress * 0.4}%`; // 10-50% animation
+              sections.docs.line.style.top = "0%";
+              sections.boards.tab.classList.remove("hidden");
+              sections.docs.tab.classList.add("hidden");
+            }
+            // Docs section (50-100% of total scroll)
+            else {
+              const progress = (scrollPercent - 50) * 2; // 0-100% of section
+              sections.boards.line.style.top = "50%";
+              sections.docs.line.style.top = `${progress * 0.5}%`; // 0-50% animation
+              sections.boards.tab.classList.add("hidden");
+              sections.docs.tab.classList.remove("hidden");
+            }
+          }, 50);
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+          anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            const targetId = this.getAttribute("href");
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+              targetElement.scrollIntoView({
+                behavior: "smooth",
+              });
+            }
+          });
+        });
+      });
+    </script>
+
     <style>
-      @layer utilities {
-        .loader-animation {
-          animation: load 1.5s infinite linear;
-        }
-        @keyframes load {
-          0% {
-            left: -100%;
-          }
-          100% {
-            left: 100%;
-          }
-        }
-      }
-
-      .swiper.mySwiper_reel {
+      .scroll-Line {
+        position: absolute;
+        left: 0;
         width: 100%;
-        padding: 50px;
+        height: 50%;
+        background-color: #ff4d4d;
+        border-radius: 9999px;
+        transition: top 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
       }
 
-      .mySwiper_reel .swiper-slide {
-        background-position: center;
-        background-size: cover;
-        width: 300px;
-        height: 500px;
-        border: 2px solid white;
-        border-radius: 25px;
-        overflow: hidden;
-        box-shadow: 0 0 30px -5px var(--website);
-      }
-      @media screen and (max-width: 767px) {
-        .mySwiper_reel .swiper-slide {
-          height: fit-content;
-        }
-      }
-      @media screen and (min-width: 1400px) {
-        .mySwiper_reel .swiper-slide {
-          height: 700px;
-        }
-      }
-
-      .mySwiper_reel .swiper-slide img {
+      /* Navigation link styles */
+      .sticky a {
+        position: relative;
         display: block;
-        width: 100%;
-      }
-      .mySwiper_reel .swiper-pagination-bullet-active,
-      .mySwiper_reel .swiper-pagination-bullet {
-        background-color: var(--website);
+        transition: background-color 0.3s ease;
       }
 
-      [data-q] {
-        transition: opacity 0.3s ease;
-        /* transform: translateX(100%); */
-        /* opacity: 0; */
-        /* transition: transform 0.5s ease, opacity 0.5s ease; */
-        /* z-index: 0; */
+      .sticky a:hover {
+        background-color: rgba(255, 255, 255, 0.1);
       }
 
-      /* [data-q].active {
-        transform: translateX(0);
-        opacity: 1;
-        z-index: 1;
+      /* Section transition */
+      #scroll_tab_1,
+      #scroll_tab_2 {
+        transition: opacity 0.5s ease;
       }
 
-      [data-q].slide-out-up {
-        transform: translateX(-100%);
+      #scroll_tab_1.hidden,
+      #scroll_tab_2.hidden {
+        display: none;
         opacity: 0;
-        z-index: 0;
       }
 
-      [data-q].slide-out-down {
-        transform: translateX(100%);
-        opacity: 0;
-        z-index: 0;
-      } */
-
-      button[disabled] {
-        opacity: 0.5;
-        cursor: not-allowed;
-      }
-      .opt .selected {
-        background-color: var(--website-hover);
-        border-color: var(--website);
-      }
-
-      .opt .selected .la {
-        background-color: var(--website);
-        color: black;
-      }
-
-      .opt .selected i {
-        color: var(--website);
+      #scroll_tab_1:not(.hidden),
+      #scroll_tab_2:not(.hidden) {
+        display: block;
         opacity: 1;
-      }
-      .rate .selected i {
-        background: var(--website-hover);
-        border-radius: 100px;
-      }
-
-      /*  */
-      /* Country Flag phone */
-      /*  */
-      .iti {
-        width: 100%;
-      }
-
-      .iti__flag-container {
-        background-color: black;
-      }
-
-      .iti__selected-flag,
-      .iti__country-list {
-        background-color: black;
-        color: white;
-      }
-
-      .iti__country:hover {
-        background-color: #374151;
-      }
-
-      .iti__country-name,
-      .iti__flag-box {
-        text-wrap: wrap;
       }
     </style>
 
-    <!-- Swiper JS -->
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <!--  -->
+    <!-- End OF Code  -->
+    <!--  -->
 
+    <!--  -->
+    <!-- Chat Assistant UI -->
+    <!--  -->
+    <div class="fixed bottom-5 right-5">
+      <!-- button -->
+      <button
+        id="chat-toggle"
+        class="fixed bottom-5 w-[50px] h-[50px] right-5 bg-[var(--website)] text-white p-3 rounded-full shadow-lg z-40 hover:bg-yellow-500 transition-all"
+        onclick="toggleChat()"
+      >
+        <i class="fa-solid fa-comment-sms fa-xl"></i>
+      </button>
+      <!-- chat -->
+      <div
+        id="chat-ui"
+        class="hidden bg-white border p-4 w-80 rounded-lg shadow-lg z-50"
+      >
+        <button
+          onclick="toggleChat()"
+          class="absolute top-2 right-2 text-gray-500 hover:text-gray-700"
+        >
+          <i class="fa-solid fa-xmark fa-lg"></i>
+        </button>
+        <div id="chat-messages" class="h-48 overflow-y-auto text-sm mb-2"></div>
+        <input
+          type="text"
+          id="chat-input"
+          placeholder="Typ je vraag..."
+          class="w-full border px-2 py-1 mb-2 rounded"
+        />
+        <button
+          onclick="sendChatMessage()"
+          class="w-full bg-[var(--website)] text-white font-bold py-1 rounded hover:bg-yellow-500"
+        >
+          Verstuur
+        </button>
+      </div>
+    </div>
     <script>
-      // Loading bar
-      {
-        window.scrollTo(0, 0);
-        history.scrollRestoration = "manual";
-        window.addEventListener("load", function () {
-          setTimeout(() => {
-            document.getElementById("loader").classList.add("opacity-0");
-            setTimeout(() => {
-              document.getElementById("loader").remove();
-            }, 500);
-          }, 2000);
-        });
+      //
+      // Assistant Logic Script
+      //
+      const userId = localStorage.getItem("user_id") || generateRandomUserId();
+      localStorage.setItem("user_id", userId);
+
+      let threadId = localStorage.getItem("thread_id");
+
+      function generateRandomUserId() {
+        return "user_" + Math.random().toString(36).substring(2, 12);
       }
 
-      // Gasp Number Counter
-      {
-        gsap.registerPlugin(ScrollTrigger);
+      async function sendChatMessage() {
+        const input = document.getElementById("chat-input");
+        const message = input.value.trim();
+        if (!message) return;
 
-        // First counter
-        gsap.to("#counter1", {
-          innerText: 7,
-          duration: 5,
-          snap: { innerText: 1 },
-          ease: "power1.out",
-          scrollTrigger: {
-            trigger: "#counter1",
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        });
+        const chatBox = document.getElementById("chat-messages");
+        const userMsg = document.createElement("div");
+        userMsg.className = "mb-2";
+        userMsg.innerHTML = `<strong>Jij:</strong> ${message}`;
+        chatBox.appendChild(userMsg);
+        chatBox.scrollTop = chatBox.scrollHeight;
+        input.value = "";
 
-        // Second counter
-        gsap.to("#counter2", {
-          innerText: 23,
-          duration: 5,
-          snap: { innerText: 1 },
-          ease: "power1.out",
-          onUpdate: function () {
-            this.targets()[0].innerText = String(
-              Math.floor(this.targets()[0].innerText)
-            ).padStart(2, "0");
-          },
-          scrollTrigger: {
-            trigger: "#counter2",
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        });
-
-        // Third counter
-        gsap.to("#counter3", {
-          innerText: 100.0,
-          duration: 5,
-          ease: "power1.out",
-          modifiers: {
-            innerText: function (innerText) {
-              // Round to nearest 0.5 (0.0, 0.5, 1.0, etc.)
-              const roundedValue = Math.round(parseFloat(innerText) * 2) / 2;
-              // Format to 1 decimal place (e.g., "0.0", "0.5", "1.0")
-              return roundedValue.toFixed(1);
-            },
-          },
-          scrollTrigger: {
-            trigger: "#counter3",
-            start: "top 80%",
-            toggleActions: "play none none none",
-          },
-        });
-      }
-
-      // Silder
-      {
-        var swiper = new Swiper(".mySwiper_reel", {
-          effect: "coverflow",
-          grabCursor: true,
-          loop: true,
-          slidesPerView: 2,
-          spaceBetween: 25,
-          coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 0,
-            modifier: 1,
-            slideShadows: true,
-          },
-          autoplay: {
-            delay: 3000,
-          },
-          pagination: {
-            el: ".swiper-pagination",
-          },
-          breakpoints: {
-            640: {
-              slidesPerView: 2,
-              spaceBetween: 50,
-            },
-            1024: {
-              slidesPerView: 3,
-              spaceBetween: 100,
-            },
-          },
-        });
-      }
-
-      // Phone
-      {
-        const input = document.querySelector("#phone");
-
-        window.intlTelInput(input, {
-          initialCountry: "nl",
-          preferredCountries: ["nl", "us", "ca"],
-          utilsScript:
-            "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js", // for formatting/validation
-        });
-      }
-
-      {
-        document.addEventListener("DOMContentLoaded", () => {
-          const questions = document.querySelectorAll("[data-q]");
-          const nextBtn = document.getElementById("submitBtn");
-          const backBtn = document.getElementById("backBtn");
-          let currentStep = 0,
-            prevStep = 0;
-          var rate = 0;
-
-          const showStep = (step) => {
-            const totalSteps = questions.length;
-            // questions.forEach((q, i) => {
-            //   q.classList.add("hidden");
-            // });
-            // questions[0].classList.remove("hidden");
-            // questions[0].classList.add("active");
-
-            questions.forEach((q, i) => {
-              q.classList.toggle("hidden", i !== step);
-              // q.classList.remove("active", "slide-out-up", "slide-out-down");
-              // setTimeout(() => {
-              // q.classList.add("hidden");
-              // }, 100);
-              // if (i === prevStep && i !== step) {
-              //   // Animate old step out
-              //   q.classList.add(
-              //     step > prevStep ? "slide-out-up" : "slide-out-down"
-              //   );
-              // } else if (i === step) {
-              //   // Animate new step in
-              //   q.classList.add("active");
-              //   q.classList.remove("hidden");
-              // } else {
-              //   q.classList.add("hidden");
-              // }
-            });
-
-            backBtn.classList.toggle("hidden", step === 0);
-            nextBtn.disabled = !isStepValid(step);
-            prevStep = step;
-          };
-
-          const isStepValid = (step) => {
-            switch (step) {
-              case 0:
-                return !!questions[0].querySelector(".option1.selected");
-              case 1:
-                return (
-                  document.getElementById("firstName").value.trim() &&
-                  document.getElementById("lastName").value.trim() &&
-                  document.getElementById("Email").value.trim()
-                );
-              case 2:
-                return (
-                  document.getElementById("age").value.trim() &&
-                  document.getElementById("phone").value.trim()
-                );
-              case 3:
-                return !!questions[3].querySelector(".option4.selected");
-              case 4:
-                return (
-                  questions[4].querySelectorAll(".option5.selected").length > 0
-                );
-              case 5:
-                return (
-                  questions[5].querySelectorAll(".rating.selected").length > 0
-                );
-              default:
-                return false;
+        try {
+          const res = await fetch(
+            "https://lucas37.app.n8n.cloud/webhook/chatagent",
+            {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({
+                user_id: userId,
+                message: message,
+                thread_id: threadId || null,
+              }),
             }
-          };
+          );
 
-          const updateNextBtn = () => {
-            nextBtn.disabled = !isStepValid(currentStep);
-          };
+          const data = await res.json();
 
-          const handleOptionClick = (groupClass, e) => {
-            const options = document.querySelectorAll(`.${groupClass}`);
-            options.forEach((opt) => opt.classList.remove("selected"));
-            e.currentTarget.classList.add("selected");
-            updateNextBtn();
-          };
+          if (data.thread_id && data.thread_id !== threadId) {
+            threadId = data.thread_id;
+            localStorage.setItem("thread_id", threadId);
+          }
 
-          // Option selection handling
-          document.querySelectorAll(".option1").forEach((el) => {
-            el.addEventListener("click", (e) =>
-              handleOptionClick("option1", e)
-            );
-          });
-          document.querySelectorAll(".option4").forEach((el) => {
-            el.addEventListener("click", (e) =>
-              handleOptionClick("option4", e)
-            );
-          });
-          document.querySelectorAll(".option5").forEach((el) => {
-            el.addEventListener("click", (e) => {
-              e.currentTarget.classList.toggle("selected");
-              updateNextBtn();
+          const botMsg = document.createElement("div");
+          botMsg.className = "mb-2";
+          botMsg.innerHTML = `<strong>Assistent:</strong> ${
+            data.response || "Geen antwoord ontvangen."
+          }`;
+          chatBox.appendChild(botMsg);
+          chatBox.scrollTop = chatBox.scrollHeight;
+        } catch (error) {
+          const errorMsg = document.createElement("div");
+          errorMsg.className = "mb-2 text-red-500";
+          errorMsg.innerHTML = `<strong>Fout:</strong> Kon geen verbinding maken met de assistent.`;
+          chatBox.appendChild(errorMsg);
+        }
+      }
+    </script>
+
+    <!--  -->
+    <!-- style css -->
+    <!--  -->
+    <style>
+      .loader {
+        display: none;
+        width: 100%;
+        height: 25px;
+        margin-top: 10px;
+        justify-content: center;
+        align-items: center;
+      }
+      .loader div {
+        border: 3px solid #f3f3f3;
+        border-top: 3px solid #3498db;
+        border-radius: 50%;
+        width: 25px;
+        height: 25px;
+        animation: Loaderspin 1s linear infinite;
+      }
+
+      @keyframes Loaderspin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+      .animation-bounce {
+        animation: ani-bou 1s infinite ease-in-out;
+        z-index: 10;
+      }
+      @keyframes ani-bou {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+      }
+      /* .image-bon div {
+        animation: image-bou 1s forwards ease-in-out;
+      } */
+      @keyframes image-bou {
+        0%,
+        100% {
+          transform: translateX(0);
+        }
+        25% {
+          transform: translateX(5px);
+        }
+        75% {
+          transform: translateX(-5px);
+        }
+      }
+      /*  */
+      /* line animation */
+      /*  */
+      .image_lr_line::before,
+      .image_lr_line::after {
+        content: "";
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 50%;
+        left: 50%;
+        translate: -50% -50%;
+        z-index: -1;
+        padding: 1px;
+        border-radius: 40px;
+      }
+      .image_lr_line::before {
+        background-image: conic-gradient(
+          from var(--angleScreenTwo),
+          var(--website),
+          transparent 5%
+        );
+        animation: 9s spinScreenTwolinear infinite linear;
+      }
+      @keyframes spinScreenTwolinear {
+        0% {
+          --angleScreenTwo: 360deg;
+        }
+        100% {
+          --angleScreenTwo: 0deg;
+        }
+      }
+      .image_lr_line::after {
+        background-image: conic-gradient(
+          from var(--angleScreen),
+          transparent 95%,
+          var(--website)
+        );
+        animation: 9s spinScreenlinear infinite linear;
+      }
+      @keyframes spinScreenlinear {
+        0% {
+          --angleScreen: 0deg;
+        }
+        100% {
+          --angleScreen: 360deg;
+        }
+      }
+
+      /*  */
+      /* Swiper Slider */
+      /*  */
+      .carousel-content-slider {
+        flex-flow: row nowrap;
+      }
+      .card-slider {
+        flex-flow: column nowrap;
+        border: 1px solid black;
+        box-shadow: 0 0 1px white;
+      }
+
+      .integration-button {
+        grid-column-gap: 8px;
+        grid-row-gap: 8px;
+        text-decoration: none;
+        transition: background-color 0.3s;
+      }
+      .integration-button:hover {
+        background-color: black;
+      }
+      .integration-button:hover .text-block-5 {
+        color: var(--website);
+      }
+    </style>
+    <!--  -->
+
+    <!--  -->
+    <!-- Tab -->
+    <!--  -->
+    <script>
+      //Select Color
+      {
+        document.addEventListener("DOMContentLoaded", function () {
+          function suggestColor() {
+            let randomColor =
+              "#" + Math.floor(Math.random() * 16777215).toString(16);
+            document.getElementById("color").value = randomColor;
+            document.getElementById("color-text").value = randomColor;
+          }
+          // Update the text input when the user picks a color
+          document
+            .getElementById("color")
+            .addEventListener("input", function () {
+              document.getElementById("color-text").value = this.value;
             });
+          // When user types a color, update color picker (only if valid hex)
+          document
+            .getElementById("color-text")
+            .addEventListener("input", function () {
+              let color = this.value;
+              if (/^#([0-9A-F]{3}){1,2}$/i.test(color)) {
+                document.getElementById("color").value = color;
+              }
+            });
+        });
+      }
+
+      // Tab Logo drag Option
+      {
+        document.addEventListener("DOMContentLoaded", function () {
+          const dropArea = document.getElementById("drop-area");
+          const inputFile = document.getElementById("logo-file");
+
+          dropArea.addEventListener("dragover", (event) => {
+            event.preventDefault();
+            dropArea.style.border = "2px solid #000";
           });
 
-          // Input field tracking for step 2 and 3
-          ["firstName", "lastName", "Email", "age", "phone"].forEach((id) => {
-            document
-              .getElementById(id)
-              ?.addEventListener("input", updateNextBtn);
+          dropArea.addEventListener("dragleave", () => {
+            dropArea.style.border = "2px dashed #ccc";
           });
 
-          // Rating selection logic
-          document.querySelectorAll(".rating").forEach((item) => {
-            item.addEventListener("click", (e) => {
-              const selectedRate = parseInt(item.getAttribute("data-rate"));
-              rate = selectedRate;
+          dropArea.addEventListener("drop", (event) => {
+            event.preventDefault();
+            dropArea.style.border = "2px dashed #ccc";
+            const file = event.dataTransfer.files[0];
+            previewLogo(file);
+          });
 
-              // Clear all first
-              document.querySelectorAll(".rating").forEach((rateEl) => {
-                rateEl.classList.remove("selected");
-              });
+          dropArea.addEventListener("click", () => inputFile.click());
 
-              // Highlight up to selected
-              document.querySelectorAll(".rating").forEach((rateEl) => {
-                const rate = parseInt(rateEl.getAttribute("data-rate"));
-                if (rate <= selectedRate) {
-                  rateEl.classList.add("selected");
+          inputFile.addEventListener("change", (event) => {
+            previewLogo(event.target.files[0]);
+          });
+
+          function previewLogo(file) {
+            if (file) {
+              const reader = new FileReader();
+              reader.onload = function (e) {
+                document.getElementById("logo-preview").src = e.target.result;
+                document.getElementById("logo-preview").style.display = "block";
+              };
+              reader.readAsDataURL(file);
+            }
+          }
+        });
+      }
+
+      // button create Logo
+      function sendFormData() {
+        if ("check if Login") {
+        }
+        // Reclick
+        document.getElementById("loader").style.display = "flex";
+        const resultContainer = document.getElementById("logo-result");
+        resultContainer.innerHTML = "";
+        //
+        const formData = new FormData();
+
+        // ===== Algemene Informatie =====
+        const naam = document.querySelector("#naam_").value;
+        const producten = document.querySelector("#producten_").value;
+
+        formData.append("naam", naam);
+        formData.append("producten", producten);
+
+        // ===== Logo-opties =====
+        const style = document.getElementById("style-choice").value;
+        const color = document.getElementById("color").value;
+        const logoText = document.querySelector("#logotext").value;
+
+        formData.append("style", style);
+        formData.append("color", color);
+        formData.append("logoText", logoText);
+
+        // ===== Files =====
+        const iconFile = document.getElementById("custom-icon").files[0];
+        const logoFile = document.getElementById("logo-file").files[0];
+
+        if (iconFile) formData.append("customIcon", iconFile);
+        if (logoFile) formData.append("logoFile", logoFile);
+
+        // ===== Webhook URL & Optional Auth (uncomment if needed) =====
+        const webhookURL =
+          "https://lucas37.app.n8n.cloud/webhook/webhook-test/Logo-options";
+
+        fetch(webhookURL, {
+          method: "POST",
+          // headers, // ← Uncomment if using Basic Auth
+          body: formData,
+        })
+          .then((res) => {
+            if (!res.ok) throw new Error("Failed to connect to server.");
+            return res.json();
+          })
+          .then((data) => {
+            // alert("Data sent successfully!");
+            document.getElementById("loader").style.display = "none";
+            if (data) {
+              console.log(data);
+              console.log("Image set");
+              const resultContainer = document.getElementById("logo-result");
+              resultContainer.innerHTML = ""; // Clear previous content
+
+              // Loop through all logoImageUrls
+              ["logoImageUrl1", "logoImageUrl2", "logoImageUrl3"].forEach(
+                (key, index) => {
+                  if (data[key]) {
+                    const wrapper = document.createElement("div");
+                    wrapper.className = "flex flex-col items-center mb-6";
+
+                    const img = document.createElement("img");
+                    img.src = data[key];
+                    img.alt = `Generated Logo ${index + 1}`;
+                    img.style.maxWidth = "300px";
+                    img.style.width = "-webkit-fill-available";
+                    img.style.marginTop = "20px";
+
+                    const downloadLink = document.createElement("a");
+                    downloadLink.href = data[key];
+                    downloadLink.download = `generated-logo-${index + 1}.png`;
+                    downloadLink.textContent = " Download Logo ";
+                    downloadLink.style.display = "inline-block";
+                    downloadLink.style.marginTop = "10px";
+                    downloadLink.style.color = "#00f";
+                    downloadLink.style.textDecoration = "underline";
+
+                    wrapper.appendChild(img);
+                    wrapper.appendChild(downloadLink);
+                    resultContainer.appendChild(wrapper);
+                  }
                 }
-              });
+              );
+            } else {
+              console.warn("No logoImageUrl in response:", data);
+            }
+          })
+          .catch((err) => {
+            alert("Error sending data");
+            console.error(err);
+            document.getElementById("loader").style.display = "none";
+          });
+      }
 
-              // Update button enabled status
-              updateNextBtn();
+      // button create video
+      {
+        async function uploadToCloudinary(file) {
+          const url = "https://api.cloudinary.com/v1_1/dyaoyutnu/image/upload";
+          const formData = new FormData();
+          formData.append("file", file);
+          formData.append("upload_preset", "unsigned_upload"); // Use your actual unsigned preset name
+
+          const response = await fetch(url, {
+            method: "POST",
+            body: formData,
+          });
+
+          if (!response.ok) {
+            throw new Error("Cloudinary upload failed");
+          }
+
+          const data = await response.json();
+          return data.secure_url;
+        }
+        document
+          .getElementById("generate-video-btn")
+          .addEventListener("click", async function () {
+            const loader = document.getElementById("loader_video");
+            const container = document.getElementById("video-container");
+            loader.style.display = "flex";
+            container.innerHTML =
+              "<p class='text-black'>Bezig met uploaden...</p>";
+
+            try {
+              const logoFileInput = document.getElementById("logoFileInput");
+              const logoFile =
+                logoFileInput && logoFileInput.files.length
+                  ? logoFileInput.files[0]
+                  : null;
+
+              const productImageInput = document.getElementById("productImage");
+              const productFile =
+                productImageInput && productImageInput.files.length
+                  ? productImageInput.files[0]
+                  : null;
+
+              const [logoUrl, productImageUrl] = await Promise.all([
+                logoFile ? uploadToCloudinary(logoFile) : "",
+                productFile ? uploadToCloudinary(productFile) : "",
+              ]);
+
+              const payload = {
+                bedrijf: document.getElementById("bedrijfsnaam_").value,
+                product: document.getElementById("Naam product_").value,
+                prijs: document.getElementById("Prijs_van_product_").value,
+                logo: logoUrl,
+                afbeelding: productImageUrl,
+              };
+
+              const response = await fetch(
+                "https://n8n-cors-proxy.onrender.com/proxy",
+                {
+                  method: "POST",
+                  headers: {
+                    "Content-Type": "application/json",
+                    "Target-URL":
+                      "https://lucas37.app.n8n.cloud/webhook/bb04fa99-29ea-457b-aea5-16d1f19eb132",
+                  },
+                  body: JSON.stringify(payload),
+                }
+              );
+
+              const data = await response.json();
+              loader.style.display = "none";
+
+              if (data.video_url) {
+                container.innerHTML = `
+                <video controls autoplay muted playsinline
+                  class="w-dvw lg:max-w-[700px] rounded-xl shadow-color object-contain aspect-video">
+                  <source src="${data.video_url}" type="video/mp4" />
+                  Uw browser ondersteunt geen video.
+                </video>`;
+              } else {
+                container.innerHTML =
+                  "<p class='text-red-500'>Geen video ontvangen.</p>";
+              }
+            } catch (error) {
+              loader.style.display = "none";
+              console.error(error);
+              container.innerHTML =
+                "<p class='text-red-500'>Fout bij upload of generatie.</p>";
+            }
+          });
+      }
+
+      // tab 2 select logo and product pic
+      {
+        document.addEventListener("DOMContentLoaded", function () {
+          const logoSource = document.getElementById("logoSource");
+          const logoUploadSection =
+            document.getElementById("logoUploadSection");
+          const logoFileInput = document.getElementById("logoFileInput");
+          const logoPreview = document.getElementById("logoPreview");
+          const productImage = document.getElementById("productImage");
+          const productPreview = document.getElementById("productPreview");
+          var uplo;
+
+          // Toggle between existing and uploaded logo
+          logoSource.addEventListener("change", function () {
+            logoPreview.style.display = "none";
+            if (this.value === "upload") {
+              logoUploadSection.style.display = "block";
+              if (uplo) {
+                logoPreview.src = uplo;
+                logoPreview.style.display = "block";
+              } else logoPreview.style.display = "none";
+            } else if (this.value === "existing") {
+              logoUploadSection.style.display = "none";
+              // if (logoPreview.src === "") logoPreview.style.display = "none";
+              // else logoPreview.style.display = "block";
+              logoPreview.src = "";
+
+              // logoPreview.src = "previous-logo.png"; // replace with actual previous logo URL
+            }
+          });
+
+          // Preview uploaded logo
+          logoFileInput.addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+              uplo = URL.createObjectURL(file);
+              logoPreview.src = URL.createObjectURL(file);
+              logoPreview.style = "display: block";
+            }
+          });
+
+          // Preview product image
+          productImage.addEventListener("change", function () {
+            const file = this.files[0];
+            if (file) {
+              productPreview.src = URL.createObjectURL(file);
+              productPreview.style = "display: block";
+            }
+          });
+        });
+      }
+    </script>
+
+    <!--  -->
+    <!-- partial -->
+    <!--  -->
+    <script src="https://cdn.jsdelivr.net/npm/animejs/lib/anime.iife.min.js"></script>
+    <script src="./script.js"></script>
+
+    <!--  -->
+    <!-- script -->
+    <!--  -->
+    <script>
+      //
+      // image icon bouner
+      //
+      {
+        document
+          .querySelector(".image-bon")
+          .addEventListener("mouseenter", () => {
+            var ibd = document.querySelectorAll(".image-bon div");
+
+            for (i in ibd) {
+              // console.log("remove");
+              if (i != 7) {
+                ibd[i].style = "animation: none;";
+              }
+            }
+
+            setTimeout(() => {
+              for (i in ibd) {
+                // console.log(i);
+                if (i != 7) {
+                  ibd[i].style = `animation: image-bou 0.5s forwards 0.${i}s;`;
+                }
+              }
+            }, 500);
+          });
+      }
+
+      //
+      // Tab select
+      //
+      {
+        document.addEventListener("DOMContentLoaded", function () {
+          const tabs = document.querySelectorAll("#tabs li");
+          const loadingBars = document.querySelectorAll(".loading-bar");
+          const tabContents = document.querySelectorAll("#tab-contents > div");
+          const tabContentsContainer = document.getElementById("tab-contents");
+          let currentTabIndex = 0;
+          const animationDuration = 5000; // 5 seconds per tab
+          let rotationInterval;
+          let isPaused = false;
+
+          function activateTab(index) {
+            // Reset all tabs
+            tabs.forEach((tab, i) => {
+              tab.classList.remove("bg-white", "text-black", "active");
+              tab.classList.add("text-white");
+              loadingBars[i].style.width = "0";
+              loadingBars[i].style.transition = "none";
+              tabContents[i].classList.add("hidden");
+            });
+
+            // Activate current tab
+            tabs[index].classList.add("bg-white", "text-black", "active");
+            tabs[index].classList.remove("text-white");
+            tabContents[index].classList.remove("hidden");
+
+            // Animate loading bar
+            loadingBars[index].style.transition = `${animationDuration}ms`;
+            loadingBars[index].style.width = "100%";
+          }
+
+          function startTabRotation() {
+            // Clear any existing interval
+            stopTabRotation();
+
+            // Start new rotation
+            rotationInterval = setInterval(() => {
+              if (!isPaused) {
+                currentTabIndex = (currentTabIndex + 1) % tabs.length;
+                activateTab(currentTabIndex);
+              }
+            }, animationDuration);
+          }
+
+          function stopTabRotation() {
+            clearInterval(rotationInterval);
+          }
+
+          // // Pause when mouse enters tab contents
+          // tabContentsContainer.addEventListener("mouseenter", () => {
+          //   isPaused = true;
+          //   loadingBars[currentTabIndex].style.width = "100%"; // Keep current progress
+          // });
+
+          // // Resume when mouse leaves
+          // tabContentsContainer.addEventListener("mouseleave", () => {
+          //   isPaused = false;
+          //   startTabRotation(); // Restart with fresh timing
+          // });
+
+          // Manual tab switching
+          tabs.forEach((tab, index) => {
+            tab.addEventListener("click", function (e) {
+              e.preventDefault();
+              currentTabIndex = index;
+              activateTab(index);
+              loadingBars[currentTabIndex].style.width = "0";
+              loadingBars[currentTabIndex].style.transition = "none";
+              // startTabRotation(); // Restart rotation after manual selection
+              stopTabRotation(); // Restart rotation after manual selection
             });
           });
 
-          nextBtn.addEventListener("click", () => {
-            if (!isStepValid(currentStep)) return;
-            if (currentStep < questions.length - 1) {
-              showStep(++currentStep);
-              return;
-            }
+          // Start the automatic rotation initially
+          activateTab(currentTabIndex);
+          startTabRotation();
+        });
+      }
 
-            // Save data
-            const form = [];
-            const q1 = [];
-            const q4 = [];
-            const Ecommerce = [];
+      //
+      // card silder
+      //
+      {
+        const { animate, createDraggable, utils } = anime;
 
-            for (i of questions[4].querySelectorAll(".option1.selected"))
-              q1.push(i.getAttribute("aria-label"));
-            for (i of questions[4].querySelectorAll(".option4.selected"))
-              q4.push(i.getAttribute("aria-label"));
-            for (i of questions[4].querySelectorAll(".option5.selected"))
-              Ecommerce.push(i.getAttribute("aria-label"));
+        document.addEventListener("DOMContentLoaded", () => {
+          const carousel = document.querySelector(".carousel-slider");
+          const carouselContent = carousel.querySelector(
+            ".carousel-content-slider"
+          );
+          const carouselCards =
+            carouselContent.querySelectorAll(".card-slider");
 
-            form.push({
-              firstName: document.getElementById("firstName").value.trim(),
-              lastName: document.getElementById("lastName").value.trim(),
-              Email: document.getElementById("Email").value.trim(),
-              age: document.getElementById("age").value.trim(),
-              phone: document.getElementById("phone").value.trim(),
-              q1: q1,
-              q4: q4,
-              Ecommerce: Ecommerce,
-              rate: rate,
+          // Updates the transform of all cards depending on their position.
+          const updateCards = () => {
+            const carouselRect = carousel.getBoundingClientRect();
+
+            carouselContent.querySelectorAll(".card-slider").forEach((card) => {
+              const { left, right } = card.getBoundingClientRect();
+              const center = (left + right) / 2;
+              const posFromCenter =
+                (carouselRect.left + carouselRect.right) / 2 - center;
+              const distFromCenter = Math.abs(posFromCenter);
+
+              card.style["transform"] = `rotate(${posFromCenter / -30}deg)
+                translate(
+                  ${
+                    Math.sin((posFromCenter / carouselRect.width) * Math.PI) *
+                    30
+                  }px,
+                  ${
+                    (Math.cos(
+                      ((distFromCenter / carouselRect.width) * Math.PI) / 1
+                    ) -
+                      1) *
+                    -105
+                  }px
+                )`;
+              card.style["z-index"] = Math.round(
+                Math.cos((posFromCenter / carouselRect.width) * Math.PI) * 5
+              );
+              card.style["opacity"] = `${Math.min(
+                ((carouselRect.width - distFromCenter) / carouselRect.width) *
+                  1.675,
+                1
+              )}`;
             });
-            console.log(form);
-            alert("Form submitted!");
+          };
+
+          const draggable = createDraggable(carouselContent, {
+            x: {
+              snap: 316,
+              modifier: (value) => {
+                const carouselSize = carouselCards.length * 316;
+                return utils.wrap(
+                  value,
+                  -carouselSize / 2 - 1,
+                  carouselSize / 2 + 1
+                );
+              },
+            },
+            y: false,
+            velocityMultiplier: 3,
+            onUpdate: updateCards,
+            onResize: updateCards,
           });
 
-          backBtn.addEventListener("click", () => {
-            if (currentStep > 0) {
-              showStep(--currentStep);
-            }
+          animate(carouselContent, {
+            x: {
+              from: 4000,
+              to: 0,
+              ease: "out(4)",
+            },
+            duration: 2400,
+            onUpdate: updateCards,
           });
 
-          // Initialize the form
-          showStep(currentStep);
+          {
+            let lastCard = null;
+            carouselCards.forEach((card) => {
+              const duplicateCard = card.cloneNode(true);
+              duplicateCard.ariaHidden = true;
+
+              if (lastCard) {
+                lastCard.after(duplicateCard);
+                lastCard = duplicateCard;
+              } else {
+                carouselContent.prepend(duplicateCard);
+              }
+
+              lastCard = duplicateCard;
+            });
+          }
+          carouselCards.forEach((card) => {
+            const duplicateCard = card.cloneNode(true);
+            duplicateCard.ariaHidden = true;
+            carouselContent.append(duplicateCard);
+          });
+          updateCards();
+        });
+      }
+
+      //
+      // Toggle chat visibility
+      //
+      {
+        function toggleChat() {
+          const widget = document.getElementById("chat-ui").classList,
+            widgetButton = document.getElementById("chat-toggle").classList;
+          widget.toggle("hidden");
+          widgetButton.toggle("hidden");
+
+          // Optional: Store state in localStorage
+          localStorage.setItem(
+            "chatOpen",
+            widget.contains("hidden") ? "false" : "true"
+          );
+        }
+
+        // Optional: Remember chat state on page load
+        document.addEventListener("DOMContentLoaded", function () {
+          if (localStorage.getItem("chatOpen") === "true") {
+            document.getElementById("chat-ui").classList.remove("hidden");
+            document.getElementById("chat-toggle").classList.add("hidden");
+          }
         });
       }
     </script>

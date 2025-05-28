@@ -36,7 +36,7 @@
     <!-- Loading Bar -->
     <div
       id="loader"
-      class="fixed top-0 left-0 w-full h-full bg-black flex flex-col justify-center items-center z-50 transition-opacity duration-500 hidden"
+      class="fixed top-0 left-0 w-full h-full bg-black flex flex-col justify-center items-center z-50 transition-opacity duration-500"
     >
       <div
         class="w-4/5 max-w-[300px] h-1 bg-gray-300 rounded overflow-hidden mb-4 relative"
@@ -165,11 +165,13 @@
       </a>
     </section>
 
-    <section class="min-h-screen flex items-center justify-center p-4">
+    <section
+      class="min-h-screen flex items-center justify-center p-4 overflow-hidden"
+    >
       <div class="rounded-xl shadow-lg p-6 md:p-8 w-full h-full max-w-3xl">
         <div class="space-y-6">
           <!-- Question 1 -->
-          <div data-q="1" class="">
+          <div data-q="1" class="active">
             <div
               class="text-lg md:text-2xl flex flex-row gap-2 font-bold text-[var(--website)]"
             >
@@ -188,10 +190,11 @@
                 </label>
 
                 <!-- Options -->
-                <div class="space-y-3">
+                <div class="space-y-3 opt">
                   <div
-                    id="optionA"
-                    class="option p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    class="option1 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    aria-label="Ja, ik wil graag ontdekken of AI E-Commerce wat voor mij
+                    is, zodat ik een (extra) inkomen kan hebben."
                   >
                     <span
                       class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
@@ -210,8 +213,8 @@
                   </div>
 
                   <div
-                    id="optionB"
-                    class="option p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    class="option1 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    aria-label="Nee, ik verlaat deze pagina onmiddellijk."
                   >
                     <span
                       class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
@@ -248,7 +251,7 @@
                   <div class="flex flex-col">
                     <label for="firstName">Voornaam*</label>
                     <input
-                      id="firstname"
+                      id="firstName"
                       placeholder="Jan"
                       type="text"
                       class="bg-transparent border-0 border-b-2 border-b-white"
@@ -303,8 +306,11 @@
                     <div
                       class="flex-grow flex flex-col md:flex-row items-center md:gap-5"
                     >
-                      <label>leeftijd</label>
-                      <input class="bg-transparent border-0 border-b-2" />
+                      <label for="age">leeftijd</label>
+                      <input
+                        id="age"
+                        class="bg-transparent border-0 border-b-2"
+                      />
                     </div>
                     <div>
                       <i class="fa-solid fa-check opacity-0"></i>
@@ -322,15 +328,342 @@
                     <div
                       class="flex-grow flex flex-col md:flex-row items-center gap-5"
                     >
-                      <label>telefoonnummer</label>
+                      <label for="phone">telefoonnummer</label>
                       <input
                         id="phone"
                         type="tel"
-                        class="bg-black text-white placeholder-gray-500 border border-gray-600 rounded px-3 py-2 w-full"
+                        class="bg-black text-white placeholder-gray-500 border border-gray-600 rounded px-3 w-full"
                       />
                     </div>
                     <div>
                       <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 4 -->
+          <div data-q="4" class="hidden">
+            <div
+              class="text-lg md:text-2xl flex flex-row gap-2 font-bold text-[var(--website)]"
+            >
+              <div>4</div>
+              <div class="flex flex-col gap-5 flex-grow">
+                <label>
+                  <span class="text-white under-Line">
+                    Hoe ziet jouw huldige situatle er uit?
+                  </span>
+                  *
+                </label>
+
+                <!-- Options -->
+                <div class="space-y-3 opt">
+                  <div
+                    class="option4 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    aria-label="Ik werk/studeer en will beginnen met e-commerce"
+                  >
+                    <span
+                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
+                    >
+                      A
+                    </span>
+                    <div
+                      class="text-[var(--website)] flex-grow flex items-center"
+                    >
+                      Ik werk/studeer en will beginnen met e-commerce
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+
+                  <div
+                    class="option4 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    aria-label="Ik heb een bedrijf en wil e-commerce erbij doen"
+                  >
+                    <span
+                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
+                    >
+                      B
+                    </span>
+                    <div
+                      class="text-[var(--website)] flex-grow flex items-center"
+                    >
+                      Ik heb een bedrijf en wil e-commerce erbij doen
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+
+                  <div
+                    class="option4 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    aria-label="Ik gen al bezig met e-commerce maar wil naar het"
+                  >
+                    <span
+                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
+                    >
+                      C
+                    </span>
+                    <div
+                      class="text-[var(--website)] flex-grow flex items-center"
+                    >
+                      Ik gen al bezig met e-commerce maar wil naar het
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+
+                  <div
+                    class="option4 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    aria-label="Anders"
+                  >
+                    <span
+                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
+                    >
+                      D
+                    </span>
+                    <div
+                      class="text-[var(--website)] flex-grow flex items-center"
+                    >
+                      Anders
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 5 -->
+          <div data-q="5" class="hidden">
+            <div
+              class="text-lg md:text-2xl flex flex-row gap-2 font-bold text-[var(--website)]"
+            >
+              <div>4</div>
+              <div class="flex flex-col gap-5 flex-grow">
+                <label>
+                  <span class="text-white under-Line">
+                    Wat is je doel met AI E-commerce?
+                  </span>
+                  *
+                </label>
+
+                <!-- Options -->
+                <div class="space-y-3 opt">
+                  <div
+                    class="option5 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    aria-label="Stoppen met mijn baan of mijn onerneming"
+                  >
+                    <span
+                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
+                    >
+                      A
+                    </span>
+                    <div
+                      class="text-[var(--website)] flex-grow flex items-center"
+                    >
+                      Stoppen met mijn baan of mijn onerneming
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+
+                  <div
+                    class="option5 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    aria-label="Extra inkomen verdienen nasst mijn baan of studie"
+                  >
+                    <span
+                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
+                    >
+                      B
+                    </span>
+                    <div
+                      class="text-[var(--website)] flex-grow flex items-center"
+                    >
+                      Extra inkomen verdienen nasst mijn baan of studie
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+
+                  <div
+                    class="option5 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    aria-label="Vermogen laten groeien en zo snel mogelijk financieel
+                    onafhankelijk worden"
+                  >
+                    <span
+                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
+                    >
+                      C
+                    </span>
+                    <div
+                      class="text-[var(--website)] flex-grow flex items-center"
+                    >
+                      Vermogen laten groeien en zo snel mogelijk financieel
+                      onafhankelijk worden
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+
+                  <div
+                    class="option5 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    aria-label="online en locatie onafhankelijk geld verdienen."
+                  >
+                    <span
+                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
+                    >
+                      D
+                    </span>
+                    <div
+                      class="text-[var(--website)] flex-grow flex items-center"
+                    >
+                      online en locatie onafhankelijk geld verdienen.
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+
+                  <div
+                    class="option5 p-4 border-2 border-[var(--website)] flex flex-row gap-5 hover:bg-[var(--website-hover)] rounded-lg cursor-pointer transition-colors duration-200"
+                    aria-label="Producten verkopen met passie, warrde bieden aan klanten"
+                  >
+                    <span
+                      class="la h-fit p-1 font-medium text-[var(--website)] border-2 border-[var(--website)] leading-none"
+                    >
+                      E
+                    </span>
+                    <div
+                      class="text-[var(--website)] flex-grow flex items-center"
+                    >
+                      Producten verkopen met passie, warrde bieden aan klanten
+                    </div>
+                    <div>
+                      <i class="fa-solid fa-check opacity-0"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Question 6 -->
+          <div data-q="6" class="hidden">
+            <div
+              class="text-lg md:text-2xl flex flex-row gap-2 font-bold text-[var(--website)]"
+            >
+              <div>6</div>
+              <div class="flex flex-col gap-5 flex-grow">
+                <label>
+                  <span class="text-white under-Line">
+                    Op een schaal van 1 tot 10 hoe gemotiveerd ben jij om een
+                    succesvolle online ondernemer te worden?
+                  </span>
+                  *
+                </label>
+
+                <!-- Rating -->
+                <div class="space-y-3 rate">
+                  <div class="flex flex-row gap-3">
+                    <div
+                      class="rating flex flex-col items-center"
+                      data-rate="1"
+                    >
+                      <i
+                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
+                      ></i>
+                      <div>1</div>
+                    </div>
+                    <div
+                      class="rating flex flex-col items-center"
+                      data-rate="2"
+                    >
+                      <i
+                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
+                      ></i>
+                      2
+                    </div>
+                    <div
+                      class="rating flex flex-col items-center"
+                      data-rate="3"
+                    >
+                      <i
+                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
+                      ></i>
+                      3
+                    </div>
+                    <div
+                      class="rating flex flex-col items-center"
+                      data-rate="4"
+                    >
+                      <i
+                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
+                      ></i
+                      >4
+                    </div>
+                    <div
+                      class="rating flex flex-col items-center"
+                      data-rate="5"
+                    >
+                      <i
+                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
+                      ></i
+                      >5
+                    </div>
+                    <div
+                      class="rating flex flex-col items-center"
+                      data-rate="6"
+                    >
+                      <i
+                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
+                      ></i
+                      >6
+                    </div>
+                    <div
+                      class="rating flex flex-col items-center"
+                      data-rate="7"
+                    >
+                      <i
+                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
+                      ></i>
+                      7
+                    </div>
+                    <div
+                      class="rating flex flex-col items-center"
+                      data-rate="8"
+                    >
+                      <i
+                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
+                      ></i>
+                      8
+                    </div>
+                    <div
+                      class="rating flex flex-col items-center"
+                      data-rate="9"
+                    >
+                      <i
+                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
+                      ></i>
+                      9
+                    </div>
+                    <div
+                      class="rating flex flex-col items-center"
+                      data-rate="10"
+                    >
+                      <i
+                        class="fa-regular fa-circle text-[5.5vw] xl:text-[100px]"
+                      ></i>
+                      10
                     </div>
                   </div>
                 </div>
@@ -356,32 +689,6 @@
         </div>
       </div>
     </section>
-
-    <style>
-      .iti {
-        width: 100%;
-      }
-
-      .iti__flag-container {
-        background-color: black;
-        /* border-right: 1px solid #4b5563; */
-      }
-
-      .iti__selected-flag,
-      .iti__country-list {
-        background-color: black;
-        color: white;
-      }
-
-      .iti__country:hover {
-        background-color: #374151;
-      }
-
-      .iti__country-name,
-      .iti__flag-box {
-        text-wrap: wrap;
-      }
-    </style>
 
     <!--  -->
     <!-- Css -->
@@ -438,6 +745,77 @@
 
       [data-q] {
         transition: opacity 0.3s ease;
+        /* transform: translateX(100%); */
+        /* opacity: 0; */
+        /* transition: transform 0.5s ease, opacity 0.5s ease; */
+        /* z-index: 0; */
+      }
+
+      /* [data-q].active {
+        transform: translateX(0);
+        opacity: 1;
+        z-index: 1;
+      }
+
+      [data-q].slide-out-up {
+        transform: translateX(-100%);
+        opacity: 0;
+        z-index: 0;
+      }
+
+      [data-q].slide-out-down {
+        transform: translateX(100%);
+        opacity: 0;
+        z-index: 0;
+      } */
+
+      button[disabled] {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+      .opt .selected {
+        background-color: var(--website-hover);
+        border-color: var(--website);
+      }
+
+      .opt .selected .la {
+        background-color: var(--website);
+        color: black;
+      }
+
+      .opt .selected i {
+        color: var(--website);
+        opacity: 1;
+      }
+      .rate .selected i {
+        background: var(--website-hover);
+        border-radius: 100px;
+      }
+
+      /*  */
+      /* Country Flag phone */
+      /*  */
+      .iti {
+        width: 100%;
+      }
+
+      .iti__flag-container {
+        background-color: black;
+      }
+
+      .iti__selected-flag,
+      .iti__country-list {
+        background-color: black;
+        color: white;
+      }
+
+      .iti__country:hover {
+        background-color: #374151;
+      }
+
+      .iti__country-name,
+      .iti__flag-box {
+        text-wrap: wrap;
       }
     </style>
 
@@ -561,120 +939,181 @@
         });
       }
 
-      // {
-      //   document.addEventListener("DOMContentLoaded", function () {
-      //     const optionA = document.getElementById("optionA");
-      //     const optionB = document.getElementById("optionB");
-      //     const submitBtn = document.getElementById("submitBtn");
-      //     let selectedOption = null;
-
-      //     // Option selection
-      //     [optionA, optionB].forEach((option) => {
-      //       option.addEventListener("click", function () {
-      //         // Remove previous selection
-      //         document.querySelectorAll(".option").forEach((opt) => {
-      //           opt.classList.remove(
-      //             "outline-2",
-      //             "outline-offset-2",
-      //             "outline-white"
-      //           );
-      //           opt
-      //             .querySelector("i")
-      //             .classList.remove("text-[var(--website)]", "opacity-100");
-      //           opt
-      //             .querySelector("span")
-      //             .classList.remove("bg-[var(--website)]", "text-black");
-      //         });
-
-      //         this.querySelector("i").classList.add(
-      //           "text-[var(--website)]",
-      //           "opacity-100"
-      //         );
-      //         this.querySelector("span").classList.add(
-      //           "bg-[var(--website)]",
-      //           "text-black"
-      //         );
-      //         // Add selection to clicked option
-      //         this.classList.add(
-      //           "outline-2",
-      //           "outline-offset-2",
-      //           "outline-white"
-      //         );
-      //         selectedOption = this.id;
-
-      //         // Enable submit button
-      //         submitBtn.disabled = false;
-      //       });
-      //     });
-
-      //     // Submit action
-      //     submitBtn.addEventListener("click", function () {
-      //       if (selectedOption === "optionA") {
-      //         // Proceed to next step
-      //         alert("Next step");
-      //         // window.location.href = '/next-step';
-      //       } else if (selectedOption === "optionB") {
-      //         // Exit action
-      //         alert("Bedankt voor je tijd. Tot ziens!");
-      //         // window.location.href = '/exit';
-      //       }
-      //     });
-      //   });
-      // }
-
       {
-        document.addEventListener("DOMContentLoaded", function () {
-          const question1 = document.querySelector('[data-q="1"]');
-          const question2 = document.querySelector('[data-q="2"]');
-          const options = question1.querySelectorAll(".option");
+        document.addEventListener("DOMContentLoaded", () => {
+          const questions = document.querySelectorAll("[data-q]");
+          const nextBtn = document.getElementById("submitBtn");
           const backBtn = document.getElementById("backBtn");
+          let currentStep = 0,
+            prevStep = 0;
+          var rate = 0;
 
-          // Handle Q1 option click
-          options.forEach((option) => {
-            option.addEventListener("click", function () {
-              // Remove previous selection
-              document.querySelectorAll(".option").forEach((opt) => {
-                opt.classList.remove(
-                  "outline-2",
-                  "outline-offset-2",
-                  "outline-white"
+          const showStep = (step) => {
+            const totalSteps = questions.length;
+            // questions.forEach((q, i) => {
+            //   q.classList.add("hidden");
+            // });
+            // questions[0].classList.remove("hidden");
+            // questions[0].classList.add("active");
+
+            questions.forEach((q, i) => {
+              q.classList.toggle("hidden", i !== step);
+              // q.classList.remove("active", "slide-out-up", "slide-out-down");
+              // setTimeout(() => {
+              // q.classList.add("hidden");
+              // }, 100);
+              // if (i === prevStep && i !== step) {
+              //   // Animate old step out
+              //   q.classList.add(
+              //     step > prevStep ? "slide-out-up" : "slide-out-down"
+              //   );
+              // } else if (i === step) {
+              //   // Animate new step in
+              //   q.classList.add("active");
+              //   q.classList.remove("hidden");
+              // } else {
+              //   q.classList.add("hidden");
+              // }
+            });
+
+            backBtn.classList.toggle("hidden", step === 0);
+            nextBtn.disabled = !isStepValid(step);
+            prevStep = step;
+          };
+
+          const isStepValid = (step) => {
+            switch (step) {
+              case 0:
+                return !!questions[0].querySelector(".option1.selected");
+              case 1:
+                return (
+                  document.getElementById("firstName").value.trim() &&
+                  document.getElementById("lastName").value.trim() &&
+                  document.getElementById("Email").value.trim()
                 );
-                opt
-                  .querySelector("i")
-                  .classList.remove("text-[var(--website)]", "opacity-100");
-                opt
-                  .querySelector("span")
-                  .classList.remove("bg-[var(--website)]", "text-black");
-              });
+              case 2:
+                return (
+                  document.getElementById("age").value.trim() &&
+                  document.getElementById("phone").value.trim()
+                );
+              case 3:
+                return !!questions[3].querySelector(".option4.selected");
+              case 4:
+                return (
+                  questions[4].querySelectorAll(".option5.selected").length > 0
+                );
+              case 5:
+                return (
+                  questions[5].querySelectorAll(".rating.selected").length > 0
+                );
+              default:
+                return false;
+            }
+          };
 
-              this.querySelector("i").classList.add(
-                "text-[var(--website)]",
-                "opacity-100"
-              );
-              this.querySelector("span").classList.add(
-                "bg-[var(--website)]",
-                "text-black"
-              );
-              // Add selection to clicked option
-              this.classList.add(
-                "outline-2",
-                "outline-offset-2",
-                "outline-white"
-              );
-              selectedOption = this.id;
+          const updateNextBtn = () => {
+            nextBtn.disabled = !isStepValid(currentStep);
+          };
 
-              question1.style.display = "none";
-              question2.style.display = "block";
-              backBtn.style.display = "block";
+          const handleOptionClick = (groupClass, e) => {
+            const options = document.querySelectorAll(`.${groupClass}`);
+            options.forEach((opt) => opt.classList.remove("selected"));
+            e.currentTarget.classList.add("selected");
+            updateNextBtn();
+          };
+
+          // Option selection handling
+          document.querySelectorAll(".option1").forEach((el) => {
+            el.addEventListener("click", (e) =>
+              handleOptionClick("option1", e)
+            );
+          });
+          document.querySelectorAll(".option4").forEach((el) => {
+            el.addEventListener("click", (e) =>
+              handleOptionClick("option4", e)
+            );
+          });
+          document.querySelectorAll(".option5").forEach((el) => {
+            el.addEventListener("click", (e) => {
+              e.currentTarget.classList.toggle("selected");
+              updateNextBtn();
             });
           });
 
-          // Handle back button click
-          backBtn.addEventListener("click", () => {
-            question1.style.display = "block";
-            question2.style.display = "none";
-            backBtn.style.display = "none";
+          // Input field tracking for step 2 and 3
+          ["firstName", "lastName", "Email", "age", "phone"].forEach((id) => {
+            document
+              .getElementById(id)
+              ?.addEventListener("input", updateNextBtn);
           });
+
+          // Rating selection logic
+          document.querySelectorAll(".rating").forEach((item) => {
+            item.addEventListener("click", (e) => {
+              const selectedRate = parseInt(item.getAttribute("data-rate"));
+              rate = selectedRate;
+
+              // Clear all first
+              document.querySelectorAll(".rating").forEach((rateEl) => {
+                rateEl.classList.remove("selected");
+              });
+
+              // Highlight up to selected
+              document.querySelectorAll(".rating").forEach((rateEl) => {
+                const rate = parseInt(rateEl.getAttribute("data-rate"));
+                if (rate <= selectedRate) {
+                  rateEl.classList.add("selected");
+                }
+              });
+
+              // Update button enabled status
+              updateNextBtn();
+            });
+          });
+
+          nextBtn.addEventListener("click", () => {
+            if (!isStepValid(currentStep)) return;
+            if (currentStep < questions.length - 1) {
+              showStep(++currentStep);
+              return;
+            }
+
+            // Save data
+            const form = [];
+            const q1 = [];
+            const q4 = [];
+            const Ecommerce = [];
+
+            for (i of questions[4].querySelectorAll(".option1.selected"))
+              q1.push(i.getAttribute("aria-label"));
+            for (i of questions[4].querySelectorAll(".option4.selected"))
+              q4.push(i.getAttribute("aria-label"));
+            for (i of questions[4].querySelectorAll(".option5.selected"))
+              Ecommerce.push(i.getAttribute("aria-label"));
+
+            form.push({
+              firstName: document.getElementById("firstName").value.trim(),
+              lastName: document.getElementById("lastName").value.trim(),
+              Email: document.getElementById("Email").value.trim(),
+              age: document.getElementById("age").value.trim(),
+              phone: document.getElementById("phone").value.trim(),
+              q1: q1,
+              q4: q4,
+              Ecommerce: Ecommerce,
+              rate: rate,
+            });
+            console.log(form);
+            alert("Form submitted!");
+          });
+
+          backBtn.addEventListener("click", () => {
+            if (currentStep > 0) {
+              showStep(--currentStep);
+            }
+          });
+
+          // Initialize the form
+          showStep(currentStep);
         });
       }
     </script>

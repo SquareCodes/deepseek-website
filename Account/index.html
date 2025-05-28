@@ -268,14 +268,17 @@
                     />
                   </div>
 
-                  <div class="flex flex-col">
-                    <label for="Email">E-mailadres*</label>
-                    <input
-                      id="Email"
-                      placeholder="example@gmail.com"
-                      type="email"
-                      class="bg-transparent border-0 border-b-2 border-b-white"
-                    />
+                  <div>
+                    <div class="flex flex-col">
+                      <label for="Email">E-mailadres*</label>
+                      <input
+                        id="Email"
+                        placeholder="example@gmail.com"
+                        type="email"
+                        class="bg-transparent border-0 border-b-2 border-b-white"
+                      />
+                    </div>
+                    <p id="message" class="opacity-0">...</p>
                   </div>
                 </div>
               </div>
@@ -309,6 +312,7 @@
                       <label for="age">leeftijd</label>
                       <input
                         id="age"
+                        type="number"
                         class="bg-transparent border-0 border-b-2"
                       />
                     </div>
@@ -817,6 +821,14 @@
       .iti__flag-box {
         text-wrap: wrap;
       }
+
+      .valid {
+        border: 2px solid green;
+      }
+
+      .invalid {
+        border: 2px solid red;
+      }
     </style>
 
     <!-- Swiper JS -->
@@ -944,9 +956,11 @@
           const questions = document.querySelectorAll("[data-q]");
           const nextBtn = document.getElementById("submitBtn");
           const backBtn = document.getElementById("backBtn");
-          let currentStep = 0,
-            prevStep = 0;
+          let currentStep = 0;
+          let prevStep = 0;
           var rate = 0;
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          var em = false;
 
           const showStep = (step) => {
             const totalSteps = questions.length;
@@ -986,11 +1000,14 @@
               case 0:
                 return !!questions[0].querySelector(".option1.selected");
               case 1:
-                return (
-                  document.getElementById("firstName").value.trim() &&
-                  document.getElementById("lastName").value.trim() &&
-                  document.getElementById("Email").value.trim()
-                );
+                const firstName = document
+                  .getElementById("firstName")
+                  .value.trim();
+                const lastName = document
+                  .getElementById("lastName")
+                  .value.trim();
+                const email = document.getElementById("Email").value.trim();
+                return firstName && lastName && em && email;
               case 2:
                 return (
                   document.getElementById("age").value.trim() &&
@@ -1041,10 +1058,32 @@
           });
 
           // Input field tracking for step 2 and 3
-          ["firstName", "lastName", "Email", "age", "phone"].forEach((id) => {
+          ["firstName", "lastName", "age", "phone"].forEach((id) => {
             document
               .getElementById(id)
               ?.addEventListener("input", updateNextBtn);
+          });
+
+          // Email checker
+          const emailInput = document.getElementById("Email");
+          const message = document.getElementById("message");
+          emailInput?.addEventListener("input", () => {
+            const email = emailInput.value;
+
+            if (emailRegex.test(email)) {
+              emailInput.classList.remove("invalid");
+              emailInput.classList.add("valid");
+              message.textContent = "Geldig e-mailadres!";
+              message.style = "color: green; opacity: 1";
+              em = true;
+            } else {
+              emailInput.classList.remove("valid");
+              emailInput.classList.add("invalid");
+              message.textContent = "Ongeldig e-mailadres!";
+              message.style = "color: red; opacity: 1";
+              em = false;
+            }
+            updateNextBtn();
           });
 
           // Rating selection logic

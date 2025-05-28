@@ -163,8 +163,8 @@
       </div>
       <p class="text-2xl lg:text-5xl text-white text-center under-Line md:px-5">
         Wij verwelkomen je graag in onze wereldwijde gemeenschap van meer dan
-        <span class="u_l">8.000</span> <span class="u_l">ondernemers</span> die het online onderwijs
-        radicaal
+        <span class="u_l">8.000</span> <span class="u_l">ondernemers</span> die
+        het online onderwijs radicaal
         <span>verbeteren.</span>
       </p>
     </section>
@@ -1681,7 +1681,9 @@
 
       // button create Logo
       function sendFormData() {
-        if ("check if Login") {
+        if (true) {
+          window.location.href = "/Account/";
+          return;
         }
         // Reclick
         document.getElementById("loader").style.display = "flex";
@@ -1798,6 +1800,10 @@
         document
           .getElementById("generate-video-btn")
           .addEventListener("click", async function () {
+            if (true) {
+              window.location.href = "/Account/";
+              return;
+            }
             const loader = document.getElementById("loader_video");
             const container = document.getElementById("video-container");
             loader.style.display = "flex";

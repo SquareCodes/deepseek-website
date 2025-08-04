@@ -17,11 +17,11 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="page-width bg-[var(--bg)]">
-    <div class="flex flex-row h-screen bg-[#050215]">
+  <body class="page-width bg-[var(--bg)] h-screen">
+    <div class="flex flex-row bg-[#050215] h-screen">
       <!-- left silde -->
       <div
-        class="tmain h-full flex flex-col items-center justify-between py-3 px-3"
+        class="tmain flex flex-col items-center justify-between py-3 px-3 h-screen"
       >
         <div class="flex flex-col items-center gap-2">
           <img
@@ -56,20 +56,20 @@
         </div>
       </div>
       <!-- main -->
-      <div class="bg-[#09071f] h-full w-full">
+      <div class="bg-[var(--dmain)] h-screen w-full overflow-hidden">
         <!-- top -->
         <div class="flex flex-row items-center justify-between px-5 py-2">
           <img
             src="/image/circle_icon/facebook.webp"
             alt="logo"
-            class="w-[50px] h-[50px]"
+            class="w-[45px]"
           />
           <div class="flex flex-row items-center gap-5">
             <div class="border-[1px] border-[#24223a] px-5 py-2 rounded-lg">
               <select
                 name="boards"
                 id="boards"
-                class="bg-transparent text-white border-0 border-[#24223a] pr-2"
+                class="bg-transparent text-white border-0 border-[#24223a] pr-2 text-sm"
               >
                 <option value="" class="text-black">Your Boards</option>
                 <option value="1" class="text-black">1</option>
@@ -78,7 +78,7 @@
             </div>
             <div>
               <button
-                class="mdoel_box border-[var(--website)] border-[1px] text-[var(--website)] px-5 py-2 rounded-lg flex flex-row gap-2 items-center"
+                class="mdoel_box border-[var(--website)] border-[1px] text-[var(--website)] px-5 py-2 rounded-lg flex flex-row gap-2 items-center text-sm"
               >
                 <div>
                   <i
@@ -89,12 +89,13 @@
               </button>
             </div>
             <div>
-              <button class="bg-[var(--website)] px-5 py-2 rounded-lg">
+              <button class="bg-[var(--website)] px-5 py-2 rounded-lg text-sm">
                 Generate with Al
               </button>
             </div>
           </div>
         </div>
+
         <hr class="border-gray-800" />
         <!-- mid -->
         <div class="flex justify-center">
@@ -118,8 +119,76 @@
 
         <hr class="border-gray-800" />
         <!-- display list -->
-        <div>
-          
+        <div class="w-full h-full text-white">
+          <!-- filter -->
+          <div class="py-2 px-5 flex flex-row gap-2 justify-between">
+            <div></div>
+            <div class="flex gap-2">
+              <div
+                class="border-[1px] border-[#24223a] px-5 py-2 rounded-lg text-sm"
+              >
+                <select
+                  name="boards"
+                  id="boards"
+                  class="bg-transparent text-white border-0 border-[#24223a] pr-2"
+                >
+                  <option value="" class="text-black">Newest first</option>
+                  <option value="1" class="text-black">1</option>
+                  <option value="2" class="text-black">2</option>
+                </select>
+              </div>
+              <div
+                class="border-[1px] border-[#24223a] px-5 py-2 rounded-lg text-sm"
+              >
+                Filter
+              </div>
+            </div>
+          </div>
+          <hr class="border-gray-800" />
+
+          <div
+            id="list_pr"
+            class="bg-[var(--lmain)] p-4 overflow-y-scroll h-[79.5%] grid grid-cols-4 gap-4"
+          >
+            <!-- set -->
+            <div
+              class="bg-[var(--dmain)] rounded-lg border-[1px] border-gray-800"
+            >
+              <div class="p-3 flex justify-between">
+                <div class="flex gap-2">
+                  <img
+                    src="/image/circle_icon/pinterest.png"
+                    alt="prf"
+                    class="w-8"
+                  />
+                  <div class="flex flex-col justify-center">
+                    <h4 class="text-white text-xs">Name</h4>
+                    <p class="text-gray-500 text-xs">Sponsored</p>
+                  </div>
+                </div>
+                <button
+                  class="border-[1px] border-[var(--website)] text-[var(--website)] py-0 px-2 text-sm rounded-md leading-none"
+                >
+                  ad Gen Al
+                </button>
+              </div>
+              <div class="p-3">
+                <img
+                  src="/image/silder/silder-1.avif"
+                  alt="asd"
+                  class="rounded-lg"
+                />
+              </div>
+              <hr class="border-gray-800" />
+              <div class="p-3">
+                <button
+                  class="bg-[var(--website)] text-black p-2 w-full rounded-lg"
+                >
+                  Save to #My Favorite ads
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -129,10 +198,11 @@
       class="mdoel_iamge fixed top-0 left-0 w-full h-full flex justify-center items-center p-32 hidden"
       style="background-color: rgba(0, 0, 0, 0.5)"
     >
-      <div class="inner_modle w-[100%] bg-[#14122a] text-white">
+      <div class="inner_modle w-[100%] bg-[var(--dmain)] text-white">
         <!-- top -->
         <div class="flex flex-row justify-between items-center p-5">
           <h4>Al Image Editor</h4>
+          <!-- close -->
           <div class="mod_close cursor-pointer">
             <i class="fa-solid fa-xmark"></i>
           </div>
@@ -150,22 +220,41 @@
           <div>
             <!-- #040114 -->
             <div class="flex gap-2 justify-end p-2">
+              <!-- undo -->
               <div class="px-1 bg-gray-800 rounded-md">
                 <i class="fa-solid fa-rotate-left fa-xs"></i>
               </div>
+              <!-- redo -->
               <div class="px-1 bg-gray-800 rounded-md">
                 <i class="fa-solid fa-rotate-right fa-xs"></i>
               </div>
             </div>
             <hr class="border-gray-800" />
             <div class="flex flex-row">
-              <div class="border-gray-800 p-2 border-r-[1px] w-full">
+              <div
+                class="border-gray-800 p-2 border-r-[1px] w-full bg-[var(--lmain)]"
+              >
                 <!-- if magic  -->
                 <div class="flex flex-col gap-2 p-5">
                   <div class="font-semibold">
                     <i class="fa-solid fa-paintbrush"></i> Magic Move
                   </div>
-                  <div class="p-2"></div>
+                  <div
+                    class="p-3 bg-[var(--dmain)] border-gray-800 border-[1px] rounded-lg flex flex-col gap-2"
+                  >
+                    <div class="text-sm">Brush size</div>
+                    <div class="bg-[var(--lmain)] p-2 flex gap-2">
+                      <input
+                        type="range"
+                        id="rangeInput"
+                        min="0"
+                        max="100"
+                        value="24"
+                        class="w-full accent-[var(--website)]"
+                      />
+                      <div id="rangeValue">24</div>
+                    </div>
+                  </div>
                 </div>
               </div>
               <div class="p-2 flex flex-col gap-2">
@@ -236,6 +325,10 @@
     </div>
 
     <style>
+      :root {
+        --dmain: #09071f;
+        --lmain: #14122a;
+      }
       .ma-option {
         cursor: pointer;
         display: flex;
@@ -281,25 +374,48 @@
         //
         // mdoel_iamge
         //
-        document
-          .querySelector(".mdoel_box")
-          .addEventListener("click", function () {
-            document.querySelector(".mdoel_iamge").style.display = "flex";
-          });
+        {
+          document
+            .querySelector(".mdoel_box")
+            .addEventListener("click", function () {
+              document.querySelector(".mdoel_iamge").style.display = "flex";
+            });
 
-        document
-          .querySelector(".mod_close")
-          .addEventListener("click", function () {
-            document.querySelector(".mdoel_iamge").style.display = "none";
-          });
+          document
+            .querySelector(".mod_close")
+            .addEventListener("click", function () {
+              document.querySelector(".mdoel_iamge").style.display = "none";
+            });
 
-        const modal = document.querySelector(".mdoel_iamge");
-        const innerModal = document.querySelector(".inner_modle");
-        modal.addEventListener("click", function (e) {
-          if (!innerModal.contains(e.target)) {
-            modal.style.display = "none";
-          }
-        });
+          const modal = document.querySelector(".mdoel_iamge");
+          const innerModal = document.querySelector(".inner_modle");
+          modal.addEventListener("click", function (e) {
+            if (!innerModal.contains(e.target)) {
+              modal.style.display = "none";
+            }
+          });
+        }
+
+        //
+        // Model setting
+        //
+        {
+          const rangeInput = document.getElementById("rangeInput");
+          const rangeValue = document.getElementById("rangeValue");
+
+          rangeInput.addEventListener("input", function () {
+            rangeValue.textContent = this.value;
+          });
+        }
+
+        //
+        //
+        //
+        var list_pr = document.querySelector("#list_pr").innerHTML;
+        for (var i = 0; i < 3; i++) list_pr += list_pr;
+
+        document.querySelector("#list_pr").innerHTML = list_pr;
+        //
       });
     </script>
   </body>

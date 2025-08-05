@@ -8,6 +8,7 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/index.css" />
     <link rel="stylesheet" href="/css/circle-ring.css" />
+    <link rel="stylesheet" href="/css/box-line.css" />
 
     <link
       rel="stylesheet"
@@ -1621,55 +1622,6 @@
         }
       }
       /*  */
-      /* line animation */
-      /*  */
-      .image_lr_line::before,
-      .image_lr_line::after {
-        content: "";
-        position: absolute;
-        height: 100%;
-        width: 100%;
-        top: 50%;
-        left: 50%;
-        translate: -50% -50%;
-        z-index: -1;
-        padding: 1px;
-        border-radius: 40px;
-      }
-      .image_lr_line::before {
-        background-image: conic-gradient(
-          from var(--angleScreenTwo),
-          var(--website),
-          transparent 5%
-        );
-        animation: 9s spinScreenTwolinear infinite linear;
-      }
-      @keyframes spinScreenTwolinear {
-        0% {
-          --angleScreenTwo: 360deg;
-        }
-        100% {
-          --angleScreenTwo: 0deg;
-        }
-      }
-      .image_lr_line::after {
-        background-image: conic-gradient(
-          from var(--angleScreen),
-          transparent 95%,
-          var(--website)
-        );
-        animation: 9s spinScreenlinear infinite linear;
-      }
-      @keyframes spinScreenlinear {
-        0% {
-          --angleScreen: 0deg;
-        }
-        100% {
-          --angleScreen: 360deg;
-        }
-      }
-
-      /*  */
       /* Swiper Slider */
       /*  */
       .carousel-content-slider {
@@ -2266,4 +2218,3 @@
     <script src="/js/underline.js"></script>
   </body>
 </html>
-

@@ -7,6 +7,7 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/box-line.css" />
 
     <!-- Link Swiper's CSS -->
     <link
@@ -34,7 +35,7 @@
               <i class="fa-regular fa-bell text-white"></i>
             </div>
             <div class="ma-option">
-              <i class="fa-regular fa-bell text-white"></i>
+              <i class="fa-solid fa-robot text-white"></i>
             </div>
             <div class="ma-option">
               <i class="fa-regular fa-bell text-white"></i>
@@ -58,7 +59,10 @@
       <!-- main -->
       <div class="bg-[var(--dmain)] h-screen w-full overflow-hidden">
         <!-- top -->
-        <div class="flex flex-row items-center justify-between px-5 py-2">
+        <div
+          class="flex flex-row gap-5 items-center justify-between px-5 py-2 overflow-x-scroll"
+          style="scrollbar-width: none"
+        >
           <img
             src="/image/circle_icon/facebook.webp"
             alt="logo"
@@ -78,18 +82,18 @@
             </div>
             <div>
               <button
-                class="mdoel_box border-[var(--website)] border-[1px] text-[var(--website)] px-5 py-2 rounded-lg flex flex-row gap-2 items-center text-sm"
+                class="mdoel_box border-[var(--website)] border-[1px] text-[var(--website)] px-5 py-2 rounded-lg flex flex-row gap-2 items-center text-sm text-nowrap"
               >
-                <div>
-                  <i
-                    class="fa-regular fa-plus fa-2xs border-[var(--website)] border-[1px] py-[7px] px-[4px] rounded-full"
-                  ></i>
-                </div>
+                <i
+                  class="fa-regular fa-plus fa-2xs border-[var(--website)] border-[1px] py-[7px] px-[4px] rounded-full"
+                ></i>
                 Input It
               </button>
             </div>
             <div>
-              <button class="bg-[var(--website)] px-5 py-2 rounded-lg text-sm">
+              <button
+                class="bg-[var(--website)] px-5 py-2 rounded-lg text-sm text-nowrap"
+              >
                 Generate with Al
               </button>
             </div>
@@ -98,21 +102,34 @@
 
         <hr class="border-gray-800" />
         <!-- mid -->
-        <div class="flex justify-center">
-          <div class="libr sel-l text-white text-[12px] p-2 cursor-pointer">
+        <div
+          class="flex overflow-x-scroll md:w-fit m-auto"
+          style="scrollbar-width: none"
+        >
+          <div
+            class="libr sel-l text-white text-[12px] p-2 cursor-pointer text-nowrap"
+          >
             <i class="fa-regular fa-star"></i> AD Library
           </div>
-          <div class="libr text-white text-[12px] p-2 cursor-pointer">
+          <div
+            class="libr text-white text-[12px] p-2 cursor-pointer text-nowrap"
+          >
             <i class="fa-regular fa-star"></i> Brand Library
           </div>
-          <div class="libr text-white text-[12px] p-2 cursor-pointer">
+          <div
+            class="libr text-white text-[12px] p-2 cursor-pointer text-nowrap"
+          >
             <i class="fa-regular fa-star"></i> My AL Generations
           </div>
-          <div class="libr text-white text-[12px] p-2 cursor-pointer">
+          <div
+            class="libr text-white text-[12px] p-2 cursor-pointer text-nowrap"
+          >
             <i class="fa-regular fa-star"></i>
             Commuity Al Generations
           </div>
-          <div class="libr text-white text-[12px] p-2 cursor-pointer">
+          <div
+            class="libr text-white text-[12px] p-2 cursor-pointer text-nowrap"
+          >
             <i class="fa-regular fa-star"></i> My Creatives
           </div>
         </div>
@@ -148,7 +165,7 @@
 
           <div
             id="list_pr"
-            class="bg-[var(--lmain)] p-4 overflow-y-scroll h-[79.5%] grid grid-cols-4 gap-4"
+            class="bg-[var(--lmain)] p-4 overflow-y-scroll h-[79.5%] grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
           >
             <!-- set -->
             <div
@@ -195,10 +212,12 @@
 
     <!-- Model AL Image Editor -->
     <div
-      class="mdoel_iamge fixed top-0 left-0 w-full h-full flex justify-center items-center p-32 hidden"
+      class="mdoel_create_iamge fixed top-0 left-0 w-full h-full flex justify-center items-center hidden"
       style="background-color: rgba(0, 0, 0, 0.5)"
     >
-      <div class="inner_modle w-[100%] bg-[var(--dmain)] text-white">
+      <div
+        class="inner_modle w-full h-fit md:w-11/12 bg-[var(--dmain)] text-white overflow-y-scroll md:overflow-auto"
+      >
         <!-- top -->
         <div class="flex flex-row justify-between items-center p-5">
           <h4>Al Image Editor</h4>
@@ -209,24 +228,43 @@
         </div>
         <hr class="border-gray-800" />
         <!-- mid -->
-        <div class="h-max grid grid-cols-2">
-          <div class="border-r-[1px] border-gray-800 p-5">
-            <img
-              src="/image/tab/tab1.svg"
-              alt=""
-              class="h-full w-full object-cover"
-            />
+        <div class="h-min grid md:grid-cols-2">
+          <div class="border-b-[1px] border-r-[1px] border-gray-800 p-5">
+            <div id="image-container" class="relative overflow-hidden h-full">
+              <img
+                id="preview"
+                src="/image/default-image.webp"
+                alt=""
+                class="bg-gray-400 max-h-[500px] max-w-[600px] h-full w-full object-cover"
+              />
+            </div>
           </div>
           <div>
             <!-- #040114 -->
-            <div class="flex gap-2 justify-end p-2">
-              <!-- undo -->
-              <div class="px-1 bg-gray-800 rounded-md">
-                <i class="fa-solid fa-rotate-left fa-xs"></i>
+            <div class="flex gap-2 items-center justify-between p-2">
+              <div>
+                <div
+                  id="add-text"
+                  class="text-xs border-gray-700 border-2 p-1 rounded-md capitalize cursor-pointer"
+                >
+                  <i class="fa-solid fa-plus"></i> add text
+                </div>
               </div>
-              <!-- redo -->
-              <div class="px-1 bg-gray-800 rounded-md">
-                <i class="fa-solid fa-rotate-right fa-xs"></i>
+              <div class="flex gap-2">
+                <!-- undo -->
+                <div
+                  id="undo"
+                  class="px-1 bg-gray-800 rounded-md cursor-pointer"
+                >
+                  <i class="fa-solid fa-rotate-left fa-xs"></i>
+                </div>
+                <!-- redo -->
+                <div
+                  id="redo"
+                  class="px-1 bg-gray-800 rounded-md cursor-pointer"
+                >
+                  <i class="fa-solid fa-rotate-right fa-xs"></i>
+                </div>
               </div>
             </div>
             <hr class="border-gray-800" />
@@ -234,8 +272,46 @@
               <div
                 class="border-gray-800 p-2 border-r-[1px] w-full bg-[var(--lmain)]"
               >
-                <!-- if magic  -->
-                <div class="flex flex-col gap-2 p-5">
+                <!-- if Social media  -->
+                <div class="m_1 flex flex-col gap-2 p-5">
+                  <div class="font-semibold">
+                    <i class="fa-solid fa-paintbrush"></i> Social media
+                  </div>
+                  <div
+                    class="p-3 bg-[var(--dmain)] border-gray-800 border-[1px] rounded-lg flex flex-col gap-2"
+                  >
+                    <label for="ad-name">Ad Name</label>
+                    <input
+                      type="text"
+                      name="ad-name"
+                      id=""
+                      placeholder="Add name"
+                      class="border-[1px] border-[#24223a] px-5 py-2 rounded-lg bg-[var(--lmain)]"
+                    />
+
+                    <label for="facebook">Facebook Page</label>
+                    <select
+                      name="faceset"
+                      id=""
+                      class="border-[1px] border-[#24223a] px-5 py-2 rounded-lg bg-[var(--lmain)]"
+                    >
+                      <option value="a">a</option>
+                      <option value="b">b</option>
+                    </select>
+
+                    <label for="facebook">Instagram Page</label>
+                    <select
+                      name="instaset"
+                      id=""
+                      class="border-[1px] border-[#24223a] px-5 py-2 rounded-lg bg-[var(--lmain)]"
+                    >
+                      <option value="a">a</option>
+                      <option value="b">b</option>
+                    </select>
+                  </div>
+                </div>
+                <!-- if magic  Move -->
+                <div class="m_2 flex flex-col gap-2 p-5">
                   <div class="font-semibold">
                     <i class="fa-solid fa-paintbrush"></i> Magic Move
                   </div>
@@ -246,61 +322,140 @@
                     <div class="bg-[var(--lmain)] p-2 flex gap-2">
                       <input
                         type="range"
-                        id="rangeInput"
                         min="0"
                         max="100"
                         value="24"
+                        class="rangeInput w-full accent-[var(--website)]"
+                      />
+                      <div class="rangeValue">24</div>
+                    </div>
+                  </div>
+                </div>
+                <!-- if edit Text -->
+                <div class="m_3 flex flex-col gap-2 p-5">
+                  <div class="font-semibold">
+                    <i class="fa-solid fa-paintbrush"></i> Edit Text
+                  </div>
+                  <div
+                    class="p-3 bg-[var(--dmain)] border-gray-800 border-[1px] rounded-lg flex flex-col gap-2"
+                  >
+                    <div class="text-sm">text</div>
+                    <input
+                      type="text"
+                      id="editTextInput"
+                      placeholder="edit text"
+                      class="rounded-md text-black p-2"
+                    />
+
+                    <div class="text-sm">size</div>
+                    <div class="bg-[var(--lmain)] p-2 flex gap-2">
+                      <input
+                        type="range"
+                        id="editSizeInput"
+                        min="10"
+                        max="150"
+                        value="24"
                         class="w-full accent-[var(--website)]"
                       />
-                      <div id="rangeValue">24</div>
+                      <div id="rangeValueDisplay">24</div>
                     </div>
+
+                    <div class="text-sm">color</div>
+                    <div class="p-2 flex gap-2 items-center">
+                      <input
+                        type="color"
+                        id="editColorInput"
+                        value="#000000"
+                        class="w-10 h-8 border rounded cursor-pointer"
+                      />
+                      <span id="editColorLabel" class="text-sm">#000000</span>
+                    </div>
+                  </div>
+                </div>
+                <!-- if magic Image -->
+                <div class="m_4 flex flex-col gap-2 p-5">
+                  <div class="font-semibold">
+                    <i class="fa-solid fa-paintbrush"></i> Magic Image
+                  </div>
+                  <div
+                    class="p-3 bg-[var(--dmain)] border-gray-800 border-[1px] rounded-lg flex flex-col gap-2"
+                  >
+                    <label for="imageUpload">
+                      Choose an image to upload:
+                    </label>
+                    <input
+                      type="file"
+                      id="imageUpload"
+                      name="imageUpload"
+                      accept="image/*"
+                    />
                   </div>
                 </div>
               </div>
               <div class="p-2 flex flex-col gap-2">
-                <!-- Magic Eraser -->
+                <!-- Social media -->
                 <div
-                  class="px-4 py-2 rounded-lg border-[1px] border-gray-800 flex flex-col items-center gap-2"
+                  class="mm relative p-[1.5px] image_lr_line overflow-hidden z-0"
                 >
                   <div
-                    class="p-2 bg-gray-800 rounded-lg w-[40px] h-[40px] flex justify-center items-center"
+                    id="m_1"
+                    class="cursor-pointer px-4 py-2 rounded-lg bg-[var(--dmain)] border-[1px] border-gray-800 flex flex-col items-center gap-2 bg-[var(--lmain)] !border-gray-400"
                   >
-                    <i class="fa-solid fa-eraser"></i>
+                    <div
+                      class="p-2 bg-gray-800 rounded-lg w-[40px] h-[40px] flex justify-center items-center"
+                    >
+                      <i class="fa-solid fa-circle-nodes"></i>
+                    </div>
+                    <p class="text-[10px] text-nowrap">Social media</p>
                   </div>
-                  <p class="text-[10px] text-nowrap">Magic Eraser</p>
                 </div>
                 <!-- Magic Move -->
                 <div
-                  class="px-4 py-2 rounded-lg border-[1px] border-gray-800 flex flex-col items-center gap-2"
+                  class="mm relative p-[1.5px] image_lr_line overflow-hidden z-0"
                 >
                   <div
-                    class="p-2 bg-gray-800 rounded-lg w-[40px] h-[40px] flex justify-center items-center"
+                    id="m_2"
+                    class="cursor-pointer px-4 py-2 rounded-lg bg-[var(--dmain)] border-[1px] border-gray-800 flex flex-col items-center gap-2"
                   >
-                    <i class="fa-solid fa-eraser"></i>
+                    <div
+                      class="p-2 bg-gray-800 rounded-lg w-[40px] h-[40px] flex justify-center items-center"
+                    >
+                      <i class="fa-solid fa-eraser"></i>
+                    </div>
+                    <p class="text-[10px] text-nowrap">Magic Move</p>
                   </div>
-                  <p class="text-[10px] text-nowrap">Magic Move</p>
                 </div>
-                <!-- Magic Text -->
+                <!-- edit Text -->
                 <div
-                  class="px-4 py-2 rounded-lg border-[1px] border-gray-800 flex flex-col items-center gap-2"
+                  class="mm relative p-[1.5px] image_lr_line overflow-hidden z-0"
                 >
                   <div
-                    class="p-2 bg-gray-800 rounded-lg w-[40px] h-[40px] flex justify-center items-center"
+                    id="m_3"
+                    class="cursor-pointer px-4 py-2 rounded-lg bg-[var(--dmain)] border-[1px] border-gray-800 flex flex-col items-center gap-2"
                   >
-                    <i class="fa-solid fa-eraser"></i>
+                    <div
+                      class="p-2 bg-gray-800 rounded-lg w-[40px] h-[40px] flex justify-center items-center"
+                    >
+                      <i class="fa-solid fa-pencil"></i>
+                    </div>
+                    <p class="text-[10px] text-nowrap">Edit Text</p>
                   </div>
-                  <p class="text-[10px] text-nowrap">Magic Text</p>
                 </div>
                 <!-- Upload Image -->
                 <div
-                  class="px-4 py-2 rounded-lg border-[1px] border-gray-800 flex flex-col items-center gap-2"
+                  class="mm relative p-[1.5px] image_lr_line overflow-hidden z-0"
                 >
                   <div
-                    class="p-2 bg-gray-800 rounded-lg w-[40px] h-[40px] flex justify-center items-center"
+                    id="m_4"
+                    class="cursor-pointer px-4 py-2 rounded-lg bg-[var(--dmain)] border-[1px] border-gray-800 flex flex-col items-center gap-2"
                   >
-                    <i class="fa-solid fa-eraser"></i>
+                    <div
+                      class="p-2 bg-gray-800 rounded-lg w-[40px] h-[40px] flex justify-center items-center"
+                    >
+                      <i class="fa-solid fa-image"></i>
+                    </div>
+                    <p class="text-[10px] text-nowrap">Upload Image</p>
                   </div>
-                  <p class="text-[10px] text-nowrap">Upload Image</p>
                 </div>
               </div>
             </div>
@@ -346,6 +501,10 @@
         border-bottom: 1px solid var(--website);
         color: var(--website);
       }
+      .mm::before,
+      .mm::after {
+        border-radius: 10px !important;
+      }
     </style>
 
     <script>
@@ -353,59 +512,284 @@
         //
         //
         //
-        const items_ma = document.querySelectorAll(".ma-option");
-        items_ma.forEach((item) => {
-          item.addEventListener("click", function () {
-            items_ma.forEach((i) => i.classList.remove("mai-selecet"));
-            this.classList.add("mai-selecet");
+        {
+          const items_ma = document.querySelectorAll(".ma-option");
+          items_ma.forEach((item) => {
+            item.addEventListener("click", function () {
+              items_ma.forEach((i) => i.classList.remove("mai-selecet"));
+              this.classList.add("mai-selecet");
+            });
           });
-        });
-        //
-        //
-        //
-        const items = document.querySelectorAll(".libr");
-        items.forEach((item) => {
-          item.addEventListener("click", function () {
-            items.forEach((i) => i.classList.remove("sel-l"));
-            this.classList.add("sel-l");
+          //
+          //
+          //
+          const items = document.querySelectorAll(".libr");
+          items.forEach((item) => {
+            item.addEventListener("click", function () {
+              items.forEach((i) => i.classList.remove("sel-l"));
+              this.classList.add("sel-l");
+            });
           });
-        });
+        }
 
         //
-        // mdoel_iamge
+        // model_box_open
         //
         {
           document
             .querySelector(".mdoel_box")
             .addEventListener("click", function () {
-              document.querySelector(".mdoel_iamge").style.display = "flex";
+              document.querySelector(".mdoel_create_iamge").style.display =
+                "flex";
             });
 
           document
             .querySelector(".mod_close")
             .addEventListener("click", function () {
-              document.querySelector(".mdoel_iamge").style.display = "none";
+              document.querySelector(".mdoel_create_iamge").style.display =
+                "none";
             });
 
-          const modal = document.querySelector(".mdoel_iamge");
-          const innerModal = document.querySelector(".inner_modle");
-          modal.addEventListener("click", function (e) {
-            if (!innerModal.contains(e.target)) {
-              modal.style.display = "none";
-            }
-          });
+          // const modal = document.querySelector(".mdoel_create_iamge");
+          // const innerModal = document.querySelector(".inner_modle");
+          // modal.addEventListener("click", function (e) {
+          //   if (!innerModal.contains(e.target)) {
+          //     modal.style.display = "none";
+          //   }
+          // });
         }
 
         //
         // Model setting
         //
         {
-          const rangeInput = document.getElementById("rangeInput");
-          const rangeValue = document.getElementById("rangeValue");
+          //
+          // click tool box
+          //
+          {
+            const buttons = document.querySelectorAll("[id^='m_']");
+            const sections = document.querySelectorAll("[class^='m_']");
 
-          rangeInput.addEventListener("input", function () {
-            rangeValue.textContent = this.value;
-          });
+            buttons.forEach((button) => {
+              button.addEventListener("click", () => {
+                const id = button.id; // e.g., "m_1"
+                const targetClass = "." + id;
+
+                // Hide all sections
+                sections.forEach((section) => {
+                  section.style.display = "none";
+                });
+                buttons.forEach((btn) => {
+                  btn.classList.remove("bg-[var(--lmain)]", "!border-gray-400");
+                });
+
+                const targetSection = document.querySelector(targetClass);
+                if (targetSection) {
+                  targetSection.style.display = "flex";
+                }
+
+                button.classList.add("bg-[var(--lmain)]", "!border-gray-400");
+              });
+            });
+
+            // Optionally, hide all initially except the first one
+            sections.forEach((section, index) => {
+              section.style.display = index === 0 ? "flex" : "none";
+            });
+          }
+          //
+          // Add text
+          //
+          {
+            const addTextBtn = document.getElementById("add-text");
+            const imageContainer = document.getElementById("image-container");
+
+            const editTextInput = document.getElementById("editTextInput");
+            const editSizeInput = document.getElementById("editSizeInput");
+            const rangeValueDisplay =
+              document.getElementById("rangeValueDisplay");
+            const editColorInput = document.getElementById("editColorInput");
+            const editColorLabel = document.getElementById("editColorLabel");
+
+            let selectedTextDiv = null;
+
+            addTextBtn.addEventListener("click", () => {
+              const textDiv = document.createElement("div");
+              textDiv.textContent = "add text";
+              textDiv.style.position = "absolute";
+              textDiv.style.top = "10px";
+              textDiv.style.left = "10px";
+              textDiv.style.color = "white";
+              textDiv.style.fontSize = "24px"; // default 24px to match slider
+              textDiv.style.fontWeight = "bold";
+              textDiv.style.textShadow = "1px 1px 2px black";
+              textDiv.style.cursor = "move";
+              textDiv.style.userSelect = "none";
+
+              // Drag logic (same as before)
+              let isDragging = false;
+              let startX, startY, origX, origY;
+
+              textDiv.addEventListener("mousedown", (e) => {
+                if (e.target !== textDiv) return;
+                e.preventDefault();
+                isDragging = true;
+                startX = e.clientX;
+                startY = e.clientY;
+                origX = parseInt(textDiv.style.left, 10);
+                origY = parseInt(textDiv.style.top, 10);
+
+                document.addEventListener("mousemove", dragMove);
+                document.addEventListener("mouseup", dragEnd);
+              });
+
+              function dragMove(e) {
+                if (!isDragging) return;
+                const dx = e.clientX - startX;
+                const dy = e.clientY - startY;
+                textDiv.style.left = origX + dx + "px";
+                textDiv.style.top = origY + dy + "px";
+              }
+
+              function dragEnd() {
+                isDragging = false;
+                document.removeEventListener("mousemove", dragMove);
+                document.removeEventListener("mouseup", dragEnd);
+              }
+
+              // Select this textDiv when clicked to edit it
+              textDiv.addEventListener("click", (e) => {
+                e.stopPropagation(); // prevent bubbling if you have container click listeners
+                selectTextDiv(textDiv);
+              });
+
+              imageContainer.appendChild(textDiv);
+
+              // Auto-select new text div for editing
+              selectTextDiv(textDiv);
+            });
+
+            function selectTextDiv(div) {
+              selectedTextDiv = div;
+
+              // Update inputs with selected text's properties
+              editTextInput.value = div.textContent;
+              editSizeInput.value = parseInt(div.style.fontSize) || 24;
+              rangeValueDisplay.textContent = editSizeInput.value;
+
+              // Update color input and label
+              const currentColor = rgbToHex(getComputedStyle(div).color);
+              editColorInput.value = currentColor;
+              editColorLabel.textContent = currentColor;
+
+              // Optional: visually highlight selected text (e.g. add border)
+              clearHighlights();
+              div.style.outline = "2px solid var(--website)";
+            }
+
+            function clearHighlights() {
+              const texts = imageContainer.querySelectorAll("div");
+              texts.forEach((t) => (t.style.outline = "none"));
+            }
+
+            editTextInput.addEventListener("input", () => {
+              if (selectedTextDiv) {
+                selectedTextDiv.textContent = editTextInput.value;
+              }
+            });
+
+            editSizeInput.addEventListener("input", () => {
+              if (selectedTextDiv) {
+                const size = editSizeInput.value;
+                selectedTextDiv.style.fontSize = size + "px";
+                rangeValueDisplay.textContent = size;
+              }
+            });
+
+            editColorInput.addEventListener("input", () => {
+              if (selectedTextDiv) {
+                selectedTextDiv.style.color = editColorInput.value;
+                editColorLabel.textContent = editColorInput.value;
+              }
+            });
+
+            // Optional: deselect text when clicking outside
+            document.addEventListener("click", (e) => {
+              if (
+                !imageContainer.contains(e.target) &&
+                ![
+                  editTextInput,
+                  editSizeInput,
+                  editColorInput,
+                  editColorLabel,
+                ].includes(e.target)
+              ) {
+                selectedTextDiv = null;
+                clearHighlights();
+                editTextInput.value = "";
+                editSizeInput.value = 24;
+                rangeValueDisplay.textContent = "24";
+                editColorInput.value = "#000000";
+                editColorLabel.textContent = "#000000";
+              }
+            });
+            function rgbToHex(rgb) {
+              const result = rgb.match(/\d+/g);
+              if (!result) return "#000000";
+              return (
+                "#" +
+                result
+                  .slice(0, 3) // ignore alpha channel if present
+                  .map((x) => {
+                    const hex = parseInt(x).toString(16);
+                    return hex.length === 1 ? "0" + hex : hex;
+                  })
+                  .join("")
+              );
+            }
+          }
+          //
+          // Upload image
+          //
+          {
+            const input = document.getElementById("imageUpload");
+            const preview = document.getElementById("preview");
+
+            input.addEventListener("change", function () {
+              const file = this.files[0];
+              if (file) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                  preview.src = e.target.result;
+                  preview.style.display = "block";
+                };
+                reader.readAsDataURL(file);
+              }
+            });
+          }
+
+          //
+          //
+          //
+          {
+            const sliders = document.querySelectorAll(".rangeInput");
+
+            sliders.forEach((slider) => {
+              const valueDisplay = slider.nextElementSibling;
+              valueDisplay.textContent = slider.value;
+
+              slider.addEventListener("input", () => {
+                valueDisplay.textContent = slider.value;
+              });
+            });
+
+            // const rangeInput = document.getElementById("rangeInput");
+            // const rangeValue = document.getElementById("rangeValue");
+
+            // rangeInput.addEventListener("input", function () {
+            // rangeValue.textContent = this.value;
+            // });
+          }
         }
 
         //

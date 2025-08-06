@@ -230,11 +230,11 @@
         <!-- mid -->
         <div class="w-full flex justify-center flex-wrap">
           <div
-            class="border-b-[1px] border-r-[1px] border-gray-800 p-5 min-w-[550px] w-1/2 flex flex-row justify-center"
+            class="border-b-[1px] border-r-[1px] border-gray-800 p-5 w-full md:w-1/2 flex flex-row md:justify-center overflow-x-scroll md:overflow-auto"
           >
             <div
               id="image-container"
-              class="relative overflow-hidden h-[400px] w-[500px]"
+              class="relative overflow-hidden min-h-[400px] min-w-[500px] h-[400px] w-[500px] max-h-[400px] max-w-[500px]"
             >
               <img
                 id="preview"
@@ -273,7 +273,9 @@
               </div>
             </div>
             <hr class="border-gray-800" />
-            <div class="flex flex-row h-full">
+            <div
+              class="flex flex-row h-full overflow-x-scroll md:overflow-auto"
+            >
               <div
                 class="border-gray-800 p-2 border-r-[1px] w-full bg-[var(--lmain)]"
               >
@@ -393,7 +395,6 @@
                       id="imageUpload"
                       name="imageUpload"
                       accept="image/*"
-                      class="max-w-[175px]"
                     />
                   </div>
                 </div>

@@ -18,7 +18,7 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="page-width bg-[var(--bg)]">
+  <body class="bg-[var(--bg)]">
     <div class="bg-[#050215] h-screen">
       <div class="flex flex-row items-stretch h-full">
         <!-- left silde -->
@@ -106,27 +106,32 @@
             style="scrollbar-width: none"
           >
             <div
+              id="lib-0"
               class="libr sel-l text-white text-[12px] p-2 cursor-pointer text-nowrap"
             >
               <i class="fa-regular fa-star"></i> AD Library
             </div>
             <div
+              id="lib-1"
               class="libr text-white text-[12px] p-2 cursor-pointer text-nowrap"
             >
               <i class="fa-regular fa-star"></i> Brand Library
             </div>
             <div
+              id="lib-2"
               class="libr text-white text-[12px] p-2 cursor-pointer text-nowrap"
             >
               <i class="fa-regular fa-star"></i> My AL Generations
             </div>
             <div
+              id="lib-3"
               class="libr text-white text-[12px] p-2 cursor-pointer text-nowrap"
             >
               <i class="fa-regular fa-star"></i>
               Commuity Al Generations
             </div>
             <div
+              id="lib-4"
               class="libr text-white text-[12px] p-2 cursor-pointer text-nowrap"
             >
               <i class="fa-regular fa-star"></i> My Creatives
@@ -136,73 +141,105 @@
           <hr class="border-gray-800" />
           <!-- display list -->
           <div class="w-full h-full text-white">
-            <!-- filter -->
-            <div class="py-2 px-5 flex flex-row gap-2 justify-between">
-              <div></div>
-              <div class="flex gap-2">
-                <div
-                  class="border-[1px] border-[#24223a] px-5 py-2 rounded-lg text-sm"
-                >
-                  <select
-                    name="boards"
-                    id="boards"
-                    class="bg-transparent text-white border-0 border-[#24223a] pr-2"
+            <!-- filter 0 -->
+            <div id="din-lib-0" class="din-dis h-full">
+              <div class="py-2 px-5 flex flex-row gap-2 justify-between">
+                <div></div>
+                <div class="flex gap-2">
+                  <div
+                    class="border-[1px] border-[#24223a] px-5 py-2 rounded-lg text-sm"
                   >
-                    <option value="" class="text-black">Newest first</option>
-                    <option value="1" class="text-black">1</option>
-                    <option value="2" class="text-black">2</option>
-                  </select>
+                    <select
+                      name="boards"
+                      id="boards"
+                      class="bg-transparent text-white border-0 border-[#24223a] pr-2"
+                    >
+                      <option value="" class="text-black">Newest first</option>
+                      <option value="1" class="text-black">1</option>
+                      <option value="2" class="text-black">2</option>
+                    </select>
+                  </div>
+                  <div
+                    class="border-[1px] border-[#24223a] px-5 py-2 rounded-lg text-sm"
+                  >
+                    Filter
+                  </div>
                 </div>
+              </div>
+              <hr class="border-gray-800" />
+
+              <div
+                id="list_pr"
+                class="bg-[var(--lmain)] p-4 overflow-y-scroll h-[83.5%] grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 2xl:grid-cols-5 gap-4"
+              >
+                <!-- set -->
                 <div
-                  class="border-[1px] border-[#24223a] px-5 py-2 rounded-lg text-sm"
+                  class="bg-[var(--dmain)] rounded-lg border-[1px] border-gray-800 w-fit m-auto"
                 >
-                  Filter
+                  <div class="p-3 flex justify-between">
+                    <div class="flex gap-2">
+                      <img
+                        src="/image/circle_icon/pinterest.png"
+                        alt="prf"
+                        class="w-8"
+                      />
+                      <div class="flex flex-col justify-center">
+                        <h4 class="text-white text-xs">Name</h4>
+                        <p class="text-gray-500 text-xs">Sponsored</p>
+                      </div>
+                    </div>
+                    <button
+                      class="border-[1px] border-[var(--website)] text-[var(--website)] py-0 px-2 text-sm rounded-md leading-none"
+                    >
+                      ad Gen Al
+                    </button>
+                  </div>
+                  <div class="p-3">
+                    <img
+                      src="/image/silder/silder-1.avif"
+                      alt="asd"
+                      class="rounded-lg"
+                    />
+                  </div>
+                  <hr class="border-gray-800" />
+                  <div class="p-3">
+                    <button
+                      class="bg-[var(--website)] text-black p-2 w-full rounded-lg"
+                    >
+                      Save to #My Favorite ads
+                    </button>
+                  </div>
                 </div>
               </div>
             </div>
-            <hr class="border-gray-800" />
-
-            <div
-              id="list_pr"
-              class="bg-[var(--lmain)] p-4 overflow-y-scroll h-[79.5%] grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4"
-            >
-              <!-- set -->
-              <div
-                class="bg-[var(--dmain)] rounded-lg border-[1px] border-gray-800"
-              >
-                <div class="p-3 flex justify-between">
-                  <div class="flex gap-2">
-                    <img
-                      src="/image/circle_icon/pinterest.png"
-                      alt="prf"
-                      class="w-8"
-                    />
-                    <div class="flex flex-col justify-center">
-                      <h4 class="text-white text-xs">Name</h4>
-                      <p class="text-gray-500 text-xs">Sponsored</p>
-                    </div>
-                  </div>
-                  <button
-                    class="border-[1px] border-[var(--website)] text-[var(--website)] py-0 px-2 text-sm rounded-md leading-none"
-                  >
-                    ad Gen Al
-                  </button>
-                </div>
-                <div class="p-3">
-                  <img
-                    src="/image/silder/silder-1.avif"
-                    alt="asd"
-                    class="rounded-lg"
-                  />
-                </div>
-                <hr class="border-gray-800" />
-                <div class="p-3">
-                  <button
-                    class="bg-[var(--website)] text-black p-2 w-full rounded-lg"
-                  >
-                    Save to #My Favorite ads
-                  </button>
-                </div>
+            <!-- din 1 -->
+            <div id="din-lib-1" class="din-dis">
+              <div class="flex justify-center items-center text-4xl h-[90vh]">
+                Empty
+              </div>
+            </div>
+            <!-- din 2 -->
+            <div id="din-lib-2" class="din-dis">
+              <div class="flex justify-center items-center text-4xl h-[90vh]">
+                Empty
+              </div>
+            </div>
+            <!--  din 3 -->
+            <div id="din-lib-3" class="din-dis">
+              <div class="flex justify-center items-center w-full h-[90vh] p-5">
+                <video
+                  src="/Video/model_set.mp4"
+                  class="h-[95%]"
+                  muted
+                  loop
+                  autoplay
+                ></video>
+              </div>
+            </div>
+            <!-- din 4 -->
+            <div id="din-lib-4" class="din-dis">
+              <div class="flex justify-center items-center text-4xl h-[90vh]">
+                Empty
               </div>
             </div>
           </div>
@@ -531,10 +568,19 @@
           //
           //
           const items = document.querySelectorAll(".libr");
+          const din_dis = document.querySelectorAll(".din-dis");
           items.forEach((item) => {
-            item.addEventListener("click", function () {
+            item.addEventListener("click", function (event) {
               items.forEach((i) => i.classList.remove("sel-l"));
               this.classList.add("sel-l");
+              din_dis.forEach((item) => {
+                item.style.display = "none";
+              });
+              if (document.querySelector("#din-" + event.target.id)) {
+                document.querySelector(
+                  "#din-" + event.target.id
+                ).style.display = "block";
+              }
             });
           });
         }

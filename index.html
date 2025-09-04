@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="/css/circle-ring.css" />
     <link rel="stylesheet" href="/css/box-line.css" />
 
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
     <!-- Font Awesome -->
     <link
       rel="stylesheet"
@@ -577,21 +580,23 @@
     </section>
 
     <!-- Animated -->
-    <section class="p-5 md:p-10 md:h-[150vh]">
+    <section class="p-5 md:p-10 md:h-[200vh] relative overflow-hidden">
       <div
-        class="animation-container flex flex-col md:flex-row gap-5 justify-center items-center md:h-[75vh] sticky top-[5vh] bottom-[5vh]"
+        class="animation-container flex flex-col md:flex-row gap-5 justify-center items-center md:h-[75vh]"
       >
-        <div class="md:absolute md:right-[60vw] md:mt-20">
-          <img
-            class="h-[90vw] w-[90vw] md:h-[30vw] md:w-[30vw] rounded-2xl"
-            src="/image/animated-on/image0.jpg"
-            alt=""
-          />
+        <div class="md:absolute md:right-[60vw] top-10 md:mt-20">
+          <div id="v-left-width" class="duration-1000">
+            <img
+              class="h-[90vw] w-[90vw] md:h-[30vw] md:w-[30vw] rounded-2xl"
+              src="/image/animated-on/image0.jpg"
+              alt=""
+            />
+          </div>
         </div>
-        <div class="md:absolute z-10">
+        <div class="md:absolute z-10 top-10">
           <div
-            id="video-container"
-            class="h-[90vw] w-[90vw] md:h-[30vw] md:w-[30vw] rounded-2xl overflow-hidden duration-500"
+            id="video-container-width"
+            class="h-[90vw] w-[90vw] md:h-[30vw] md:w-[30vw] rounded-2xl overflow-hidden duration-1000"
           >
             <video
               class="w-full h-full object-cover"
@@ -601,58 +606,111 @@
             ></video>
           </div>
         </div>
-        <div class="md:absolute md:left-[60vw] md:mt-20">
-          <img
-            class="h-[90vw] w-[90vw] md:h-[30vw] md:w-[30vw] rounded-2xl"
-            src="/image/animated-on/IMG_3341.jpg"
-            alt=""
-          />
+        <div class="md:absolute md:left-[60vw] top-10 md:mt-20">
+          <div id="v-right-width" class="duration-1000">
+            <img
+              class="h-[90vw] w-[90vw] md:h-[30vw] md:w-[30vw] rounded-2xl"
+              src="/image/animated-on/IMG_3341.jpg"
+              alt=""
+            />
+          </div>
         </div>
       </div>
     </section>
 
     <script>
       document.addEventListener("DOMContentLoaded", () => {
-        const videoContainer = document.getElementById("video-container");
-        const animationContainer = document.querySelector(
-          ".animation-container"
-        );
+        // Animation for the video container width
+        gsap.to("#video-container-width", {
+          width: "90vw",
+          height: "80vh",
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".animation-container",
+            start: "top top",
+            end: "+=100%",
+            scrub: true,
+            pin: true,
+          },
+        });
 
-        // Calculate when to trigger the animation 
+        // Animation for the left image
+        gsap.to("#v-left-width", {
+          x: -300,
+          opacity: 0.7,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".animation-container",
+            start: "top top",
+            end: "+=100%",
+            scrub: true,
+          },
+        });
+
+        // Animation for the right image
+        gsap.to("#v-right-width", {
+          x: 300,
+          opacity: 0.7,
+          ease: "none",
+          scrollTrigger: {
+            trigger: ".animation-container",
+            start: "top top",
+            end: "+=100%",
+            scrub: true,
+          },
+        });
+
+        //
+        //
+        //
+        //
+        //
+        const videoContainer = document.getElementById("video-container-width");
+        const videoleftContainer = document.getElementById("v-left-width");
+        const videorightContainer = document.getElementById("v-right-width");
+        const animatContainer = document.querySelector(".animation-container");
+
+        // Calculate when to trigger the animation
         function checkScroll() {
-          const containerRect = animationContainer.getBoundingClientRect();
-          const scrollPercent = Math.max(
-            0,
-            Math.min(
-              1.5,
-              (window.innerHeight - containerRect.top) / containerRect.height
-            )
-          );
+          const containRect = animatContainer.getBoundingClientRect();
+          var hei = (window.innerHeight - containRect.top) / containRect.height;
+          const scrollPercent = Math.max(0, Math.min(1.5, hei));
+
+          console.log(scrollPercent);
+
           if (scrollPercent > 0.1 && scrollPercent < 0.9) {
-            // const scale = 0.5 + scrollPercent * 0.5;
-            // const newWidth = 30 + (90 - 30) * scrollPercent;
-            // const newHeight = 50 + (90 - 50) * scrollPercent;
-
-            // videoContainer.style.width = `${newWidth}vh`;
-            // videoContainer.style.height = `${newHeight}vh`;
-
-            // Adjust shadow intensity during animation
-            // videoContainer.style.boxShadow = `0 ${10 + scrollPercent * 15}px ${ 30 + scrollPercent * 50 }px rgba(0, 0, 0, ${0.3 + scrollPercent * 0.2})`;
-          } else if (scrollPercent >= 1) {
-            console.log(scrollPercent);
-            videoContainer.style.width = "90vw";
-            videoContainer.style.height = "90vw";
+            videoContainer.style.width = "30vw";
+            videoContainer.style.height = "30vw";
+            videoleftContainer.style.transform = "translateX(1%)";
+            videorightContainer.style.transform = "translateX(-1%)";
+          } else if (scrollPercent >= 0.9 && scrollPercent < 1.1) {
+            videoContainer.style.width = "50vw";
+            videoContainer.style.height = "50vw";
+            videoleftContainer.style.transform = "translateX(-30%)";
+            videorightContainer.style.transform = "translateX(30%)";
+          } else if (scrollPercent >= 1.1 && scrollPercent < 1.2) {
+            videoContainer.style.width = "70vw";
+            videoContainer.style.height = "70vh";
+            videoleftContainer.style.transform = "translateX(-60%)";
+            videorightContainer.style.transform = "translateX(60%)";
+          } else if (scrollPercent >= 1.2) {
+            videoContainer.style.width = "95vw";
+            videoContainer.style.height = "80vh";
+            videoleftContainer.style.transform = "translateX(-100%)";
+            videorightContainer.style.transform = "translateX(100%)";
           } else {
             videoContainer.style.width = "30vw";
             videoContainer.style.height = "30vw";
+            videoleftContainer.style.transform = "translateX(1%)";
+            videorightContainer.style.transform = "translateX(-1%)";
           }
         }
 
         // Listen for scroll events
-        window.addEventListener("scroll", checkScroll);
+        // window.addEventListener("scroll", checkScroll);
 
         // Initial check
-        checkScroll();
+        // checkScroll();
       });
     </script>
 

@@ -580,39 +580,42 @@
     </section>
 
     <!-- Animated -->
-    <section class="p-5 md:p-10 md:h-[200vh] relative overflow-hidden">
-      <div
-        class="animation-container flex flex-col md:flex-row gap-5 justify-center items-center md:h-[75vh]"
-      >
-        <div class="md:absolute md:right-[60vw] top-10 md:mt-20">
-          <div id="v-left-width" class="duration-1000">
-            <img
-              class="h-[90vw] w-[90vw] md:h-[30vw] md:w-[30vw] rounded-2xl"
-              src="/image/animated-on/image0.jpg"
-              alt=""
-            />
+    <section class="overflow-hidden">
+      <div class="md:h-[200vh] relative">
+        <div
+          class="animation-container flex flex-col md:flex-row gap-5 justify-center items-center md:!h-[100vh]"
+        >
+          <div class="md:absolute md:right-[60vw] top-10 md:mt-20">
+            <div id="v-left-width" class="duration-1000">
+              <img
+                class="h-[90vw] w-[90vw] md:h-[25vw] md:w-[30vw] rounded-2xl object-cover object-top"
+                src="/image/animated-on/IMG_3341.jpg"
+                alt=""
+              />
+            </div>
           </div>
-        </div>
-        <div class="md:absolute z-10 top-10">
-          <div
-            id="video-container-width"
-            class="h-[90vw] w-[90vw] md:h-[30vw] md:w-[30vw] rounded-2xl overflow-hidden duration-1000"
-          >
-            <video
-              class="w-full h-full object-cover"
-              src="/image/animated-on/students-transcode.mp4"
-              muted
-              autoplay
-            ></video>
+          <div class="md:absolute z-10 top-10">
+            <div
+              id="video-container-width"
+              class="h-[90vw] w-[90vw] md:h-[25vw] md:w-[30vw] rounded-2xl overflow-hidden duration-1000"
+            >
+              <video
+                class="w-full h-full object-cover"
+                src="/image/animated-on/students-transcode.mp4"
+                muted
+                autoplay
+                loop
+              ></video>
+            </div>
           </div>
-        </div>
-        <div class="md:absolute md:left-[60vw] top-10 md:mt-20">
-          <div id="v-right-width" class="duration-1000">
-            <img
-              class="h-[90vw] w-[90vw] md:h-[30vw] md:w-[30vw] rounded-2xl"
-              src="/image/animated-on/IMG_3341.jpg"
-              alt=""
-            />
+          <div class="md:absolute md:left-[60vw] top-10 md:mt-20">
+            <div id="v-right-width" class="duration-1000">
+              <img
+                class="h-[90vw] w-[90vw] md:h-[25vw] md:w-[30vw] rounded-2xl object-cover object-top"
+                src="/image/animated-on/image0.jpg"
+                alt=""
+              />
+            </div>
           </div>
         </div>
       </div>
@@ -623,7 +626,7 @@
         // Animation for the video container width
         gsap.to("#video-container-width", {
           width: "90vw",
-          height: "80vh",
+          height: "90vh",
           ease: "none",
           scrollTrigger: {
             trigger: ".animation-container",
@@ -659,58 +662,6 @@
             scrub: true,
           },
         });
-
-        //
-        //
-        //
-        //
-        //
-        const videoContainer = document.getElementById("video-container-width");
-        const videoleftContainer = document.getElementById("v-left-width");
-        const videorightContainer = document.getElementById("v-right-width");
-        const animatContainer = document.querySelector(".animation-container");
-
-        // Calculate when to trigger the animation
-        function checkScroll() {
-          const containRect = animatContainer.getBoundingClientRect();
-          var hei = (window.innerHeight - containRect.top) / containRect.height;
-          const scrollPercent = Math.max(0, Math.min(1.5, hei));
-
-          console.log(scrollPercent);
-
-          if (scrollPercent > 0.1 && scrollPercent < 0.9) {
-            videoContainer.style.width = "30vw";
-            videoContainer.style.height = "30vw";
-            videoleftContainer.style.transform = "translateX(1%)";
-            videorightContainer.style.transform = "translateX(-1%)";
-          } else if (scrollPercent >= 0.9 && scrollPercent < 1.1) {
-            videoContainer.style.width = "50vw";
-            videoContainer.style.height = "50vw";
-            videoleftContainer.style.transform = "translateX(-30%)";
-            videorightContainer.style.transform = "translateX(30%)";
-          } else if (scrollPercent >= 1.1 && scrollPercent < 1.2) {
-            videoContainer.style.width = "70vw";
-            videoContainer.style.height = "70vh";
-            videoleftContainer.style.transform = "translateX(-60%)";
-            videorightContainer.style.transform = "translateX(60%)";
-          } else if (scrollPercent >= 1.2) {
-            videoContainer.style.width = "95vw";
-            videoContainer.style.height = "80vh";
-            videoleftContainer.style.transform = "translateX(-100%)";
-            videorightContainer.style.transform = "translateX(100%)";
-          } else {
-            videoContainer.style.width = "30vw";
-            videoContainer.style.height = "30vw";
-            videoleftContainer.style.transform = "translateX(1%)";
-            videorightContainer.style.transform = "translateX(-1%)";
-          }
-        }
-
-        // Listen for scroll events
-        // window.addEventListener("scroll", checkScroll);
-
-        // Initial check
-        // checkScroll();
       });
     </script>
 
@@ -1870,8 +1821,8 @@
         }
       }
       /* .image-bon div {
-        animation: image-bou 1s forwards ease-in-out;
-      } */
+          animation: image-bou 1s forwards ease-in-out;
+        } */
       @keyframes image-bou {
         0%,
         100% {
